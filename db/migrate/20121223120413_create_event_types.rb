@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateEventTypes < ActiveRecord::Migration
+class CreateEventTypes < ActiveRecord::Migration[4.2]
   def up
     create_table :event_types do |t|
       t.references :conference
