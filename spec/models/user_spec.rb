@@ -431,7 +431,7 @@ describe User do
 
   describe 'assigns admin attribute' do
     it 'to second user when first user is deleted_user' do
-      deleted_user = User.find_by(email: 'deleted@localhost.osem')
+      deleted_user = User.find_by(email: 'deleted@localhost.moraga')
       expect(deleted_user.is_admin).to be false
 
       user_after_deleted = create(:admin)

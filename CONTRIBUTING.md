@@ -1,15 +1,14 @@
-# Contributing to OSEM
+# Contributing to Moraga
 
-We here at OSEM are open for all types of contributions from anyone. Tell us about our [issues/ideas](https://github.com/openSUSE/osem/issues/new), propose code changes via [pull requests](https://help.github.com/articles/using-pull-requests) or contribute artwork and documentation.
+We here at Moraga are open for all types of contributions from anyone. Tell us about our [issues/ideas](https://github.com/opensouthcode/moraga/issues/new), propose code changes via [pull requests](https://help.github.com/articles/using-pull-requests) or contribute artwork and documentation.
 
-We welcome all new developers and are also prepared to mentor you through your first contributions! All OSEM maintainers are seasoned developers and have participated in mentoring programs, such as [GSoC](https://summerofcode.withgoogle.com/) and [RGSoC](https://railsgirlssummerofcode.org/).
 
-We need your input and contributions to OSEM. In particular we seek the following types:
+We need your input and contributions to Moraga. In particular we seek the following types:
 
-* **code**: contribute your expertise in an area by helping us expand OSEM with features/bugfixes/UX
-* **code editing**: fix typos, clarify language, and generally improve the quality of the content of OSEM
+* **code**: contribute your expertise in an area by helping us expand MORAGA with features/bugfixes/UX
+* **code editing**: fix typos, clarify language, and generally improve the quality of the content of MORAGA
 * **ideas**: participate in an issues thread or start your own to have your voice heard
-* **translations**: translate OSEM into other languages than English
+* **translations**: translate Moraga into other languages than English
 
 Read this guide on how to do that.
 
@@ -18,7 +17,7 @@ Read this guide on how to do that.
 1. Fork the repository and make a pull-request with your changes
     1. Make sure that the test suite passes and that you comply to our code style
     1. Please increase code coverage with your pull request
-1. One of the OSEM maintainers will review your pull-request
+1. One of the Moraga maintainers will review your pull-request
     1. If you are already a contributor and you get a positive review, you can merge your pull-request yourself
     1. If you are not already a contributor, one of the existing contributors will merge your pull-request
 
@@ -26,10 +25,10 @@ Read this guide on how to do that.
 
 ### Discuss Large Changes in Advance
 
-If you see a glaring flaw within OSEM, resist the urge to jump into the
+If you see a glaring flaw within Moraga, resist the urge to jump into the
 code and make sweeping changes right away. We know it can be tempting, but
 especially for large, structural changes it's a wiser choice to first discuss
-them in the [issue list](https://github.com/openSUSE/osem/issues).
+them in the [issue list](https://github.com/opensouthcode/moraga/issues).
 
 A good rule of thumb, of what a *structural change* is, is to estimate how much
 time would be wasted if the pull request was rejected. If it's a couple of minutes
@@ -74,13 +73,13 @@ The content is most important, but please also use a [proper style](https://gith
 
 ## Development Environment
 
-To isolate your host system from OSEM development we have prepared a container
+To isolate your host system from Moraga development we have prepared a container
 based development environment, based on [docker](https://www.docker.com/) and
 [docker-compose](https://docs.docker.com/compose/). Here's a step by step guide
 how to set it up.
 
 **WARNING**: Since we mount the repository into our container, your user id and
-the id of the osem user inside the container need to be the same. If your user
+the id of the moraga user inside the container need to be the same. If your user
 id (`id -u`) is something else than `1000` you can copy the docker-compose
 override example file and in it, set your user id in the variable
 *CONTAINER_USERID*.
@@ -95,31 +94,31 @@ sed "s/13042/`id -u`/" docker-compose.override.yml.example > docker-compose.over
    ```
 1. Set up the development environment (only once)
    ```bash
-   docker-compose run --rm osem bundle exec rake db:bootstrap
+   docker-compose run --rm moraga bundle exec rake db:bootstrap
    ```
 1. Start the development environment:
    ```bash
    docker-compose up --build
    ```
 
-1. Check out your OSEM rails app. You can access the app at http://localhost:3000. Whatever you change in your cloned repository will have effect in the development environment. Sign up, the first user will be automatically assigned the admin role.
+1. Check out your Moraga rails app. You can access the app at http://localhost:3000. Whatever you change in your cloned repository will have effect in the development environment. Sign up, the first user will be automatically assigned the admin role.
 
 1. Changed something? Run the tests to verify your changes!
    ```bash
-   docker-compose run --rm osem bundle exec rspec spec
+   docker-compose run --rm moraga bundle exec rspec spec
    ```
 
 1. Issue any standard `rails`/`rake`/`bundler` command
    ```bash
-   docker-compose run --rm osem bundle exec rake db:version
+   docker-compose run --rm moraga bundle exec rake db:version
    ```
 
 1. Or explore the development environment:
    ```bash
-   docker-compose exec osem /bin/bash -l
+   docker-compose exec moraga /bin/bash -l
    ```
 
-1. Want to know more? In our [wiki](https://github.com/openSUSE/osem/wiki) you can find more information about what is possible in our development environment, how we work with each other on github or other topics of interest for OSEM developers.
+1. Want to know more? In our [wiki](https://github.com/openSUSE/osem/wiki) you can find more information about what is possible in our development environment, how we work with each other on github or other topics of interest for Moraga developers.
 
 ## How to contribute translations
 

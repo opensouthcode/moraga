@@ -16,7 +16,7 @@ class AssignUsersToEvents < ActiveRecord::Migration[4.2]
   end
 
   def up
-    user_deleted = TempUser.find_or_create_by(email: 'deleted@localhost.osem', name: 'User deleted',
+    user_deleted = TempUser.find_or_create_by(email: 'deleted@localhost.moraga', name: 'User deleted',
                                               biography: 'Data is no longer available for deleted user.')
 
     TempEvent.all.each do |event|

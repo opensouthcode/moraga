@@ -1,20 +1,20 @@
 require 'mina/rails'
 require 'mina/git'
 
-OSEM_DEPLOY_DOMAIN = ENV.fetch('OSEM_DEPLOY_DOMAIN', 'dale.infra.opensuse.org')
-OSEM_DEPLOY_PORT = ENV.fetch('OSEM_DEPLOY_PORT', '22')
-OSEM_DEPLOY_USER = ENV.fetch('OSEM_DEPLOY_USER', 'osem')
-OSEM_DEPLOY_DIR = ENV.fetch('OSEM_DEPLOY_DIR', '/home/osem/events')
-OSEM_DEPLOY_REPO = ENV.fetch('OSEM_DEPLOY_REPO', 'https://github.com/openSUSE/osem.git')
-OSEM_DEPLOY_BRANCH = ENV.fetch('OSEM_DEPLOY_BRANCH', 'master')
+MORAGA_DEPLOY_DOMAIN = ENV.fetch('MORAGA_DEPLOY_DOMAIN', 'dale.infra.opensuse.org')
+MORAGA_DEPLOY_PORT = ENV.fetch('MORAGA_DEPLOY_PORT', '22')
+MORAGA_DEPLOY_USER = ENV.fetch('MORAGA_DEPLOY_USER', 'MORAGA')
+MORAGA_DEPLOY_DIR = ENV.fetch('MORAGA_DEPLOY_DIR', '/home/MORAGA/events')
+MORAGA_DEPLOY_REPO = ENV.fetch('MORAGA_DEPLOY_REPO', 'https://github.com/openSUSE/MORAGA.git')
+MORAGA_DEPLOY_BRANCH = ENV.fetch('MORAGA_DEPLOY_BRANCH', 'master')
 
-set :application_name, 'osem'
-set :domain, OSEM_DEPLOY_DOMAIN
-set :user, OSEM_DEPLOY_USER
-set :port, OSEM_DEPLOY_PORT
-set :deploy_to, OSEM_DEPLOY_DIR
-set :repository, OSEM_DEPLOY_REPO
-set :branch, OSEM_DEPLOY_BRANCH
+set :application_name, 'moraga'
+set :domain, MORAGA_DEPLOY_DOMAIN
+set :user, MORAGA_DEPLOY_USER
+set :port, MORAGA_DEPLOY_PORT
+set :deploy_to, MORAGA_DEPLOY_DIR
+set :repository, MORAGA_DEPLOY_REPO
+set :branch, MORAGA_DEPLOY_BRANCH
 
 # Shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
@@ -36,8 +36,8 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{sudo systemctl restart osem}
-        command %{sudo systemctl restart osem-dj}
+        command %{sudo systemctl restart moraga}
+        command %{sudo systemctl restart moraga-dj}
       end
     end
   end

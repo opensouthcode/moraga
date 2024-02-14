@@ -1,7 +1,7 @@
 {
-  "name": "osem",
+  "name": "moraga",
   "description": "Open Source Event Manager",
-  "repository": "https://github.com/openSUSE/osem",
+  "repository": "https://github.com/opensouthcode/moraga",
   "env": {
     "CLOUDINARY_URL": {
       "description": "Create a https://cloudinary.com account and set the cloud url here. It starts with cloudinary://",

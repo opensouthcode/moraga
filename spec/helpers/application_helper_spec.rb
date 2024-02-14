@@ -63,9 +63,9 @@ describe ApplicationHelper, type: :helper do
     end
 
     describe 'navigation title link' do
-      it 'should default to OSEM' do
-        ENV.delete('OSEM_NAME')
-        expect(nav_root_link_for(nil)).to match 'OSEM'
+      it 'should default to MORAGA' do
+        ENV.delete('MORAGA_NAME')
+        expect(nav_root_link_for(nil)).to match 'MORAGA'
       end
 
       it 'should use the conference organization name' do

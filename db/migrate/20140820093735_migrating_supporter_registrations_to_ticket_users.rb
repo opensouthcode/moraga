@@ -20,7 +20,7 @@ class MigratingSupporterRegistrationsToTicketUsers < ActiveRecord::Migration[4.2
     add_column :supporter_registrations, :quantity, :integer, default: 1
     add_column :supporter_registrations, :user_id, :integer
 
-    deleted_user = TempUser.find_by(email: 'deleted@localhost.osem')
+    deleted_user = TempUser.find_by(email: 'deleted@localhost.moraga')
 
     TempSupporterRegistrations.all.each do |s|
       # Change relation from registration to user

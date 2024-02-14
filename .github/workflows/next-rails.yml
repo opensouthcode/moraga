@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: next-rails
     env:
-      OSEM_DB_ADAPTER: sqlite3
+      MORAGA_DB_ADAPTER: sqlite3
       RAILS_ENV: test
     strategy:
       matrix:
@@ -30,7 +30,7 @@ jobs:
           bundler-cache: true
       - name: Prepare spec
         run: |
-          rm -f osem_test osem_development
+          rm -f moraga_test moraga_development
           bundle exec rake db:setup --trace
           bundle exec bin/rails webdrivers:chromedriver:update
       - name: spec/${{ matrix.suite }}

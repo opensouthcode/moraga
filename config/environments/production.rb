@@ -90,27 +90,27 @@ Rails.application.configure do
   end
 
   # Provide a default host for URLs
-  Rails.application.routes.default_url_options[:host] = ENV.fetch('OSEM_HOSTNAME', 'localhost:3000')
+  Rails.application.routes.default_url_options[:host] = ENV.fetch('MORAGA_HOSTNAME', 'localhost:3000')
   config.action_controller.default_url_options = Rails.application.routes.default_url_options
   config.action_mailer.default_url_options = Rails.application.routes.default_url_options
 
   # Configure outgoing mail
   config.action_mailer.smtp_settings = {
-    address:              ENV.fetch('OSEM_SMTP_ADDRESS', 'localhost'),
-    port:                 ENV.fetch('OSEM_SMTP_PORT', 25),
-    user_name:            ENV.fetch('OSEM_SMTP_USERNAME', nil),
-    password:             ENV.fetch('OSEM_SMTP_PASSWORD', nil),
-    authentication:       ENV.fetch('OSEM_SMTP_AUTHENTICATION', 'plain').try(:to_sym),
-    domain:               ENV.fetch('OSEM_SMTP_DOMAIN', nil),
-    enable_starttls_auto: ENV.fetch('OSEM_SMTP_ENABLE_STARTTLS_AUTO', nil),
-    openssl_verify_mode:  ENV.fetch('OSEM_SMTP_OPENSSL_VERIFY_MODE', nil)
+    address:              ENV.fetch('MORAGA_SMTP_ADDRESS', 'localhost'),
+    port:                 ENV.fetch('MORAGA_SMTP_PORT', 25),
+    user_name:            ENV.fetch('MORAGA_SMTP_USERNAME', nil),
+    password:             ENV.fetch('MORAGA_SMTP_PASSWORD', nil),
+    authentication:       ENV.fetch('MORAGA_SMTP_AUTHENTICATION', 'plain').try(:to_sym),
+    domain:               ENV.fetch('MORAGA_SMTP_DOMAIN', nil),
+    enable_starttls_auto: ENV.fetch('MORAGA_SMTP_ENABLE_STARTTLS_AUTO', nil),
+    openssl_verify_mode:  ENV.fetch('MORAGA_SMTP_OPENSSL_VERIFY_MODE', nil)
   }.compact
 
   # Use memcache cluster as cache store in production
-  if ENV["OSEM_MEMCACHED_SERVERS"]
-    config.cache_store = :mem_cache_store, ENV['OSEM_MEMCACHED_SERVERS'].split(','), {
-      username: ENV.fetch('OSEM_MEMCACHED_USERNAME', nil),
-      password: ENV.fetch('OSEM_MEMCACHED_PASSWORD', nil)
+  if ENV["MORAGA_MEMCACHED_SERVERS"]
+    config.cache_store = :mem_cache_store, ENV['MORAGA_MEMCACHED_SERVERS'].split(','), {
+      username: ENV.fetch('MORAGA_MEMCACHED_USERNAME', nil),
+      password: ENV.fetch('MORAGA_MEMCACHED_PASSWORD', nil)
     }
   end
 

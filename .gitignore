@@ -42,5 +42,7 @@ docker-compose.override.yml
 .buildconfig
 osem_development
 osem_test
+moraga_development
+moraga_test
 .ackrc
 spec/support/deprecation_shitlist.json

@@ -12,7 +12,7 @@ describe ConferenceRegistrationsController, type: :controller do
   shared_examples 'access #new action' do |user, ichain, path, message|
     before :each do
       sign_in send(user) if user
-      stub_const('ENV', ENV.to_hash.merge('OSEM_ICHAIN_ENABLED' => ichain))
+      stub_const('ENV', ENV.to_hash.merge('MORAGA_ICHAIN_ENABLED' => ichain))
       get :new, params: { conference_id: conference.short_title }
     end
 
@@ -28,7 +28,7 @@ describe ConferenceRegistrationsController, type: :controller do
   shared_examples 'can access #new action' do |user, ichain|
     before :each do
       sign_in send(user) if user
-      stub_const('ENV', ENV.to_hash.merge('OSEM_ICHAIN_ENABLED' => ichain))
+      stub_const('ENV', ENV.to_hash.merge('MORAGA_ICHAIN_ENABLED' => ichain))
       get :new, params: { conference_id: conference.short_title }
     end
 
@@ -63,35 +63,35 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered' do
             it_behaves_like 'can access #new action', :not_registered_user, 'true'
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'true'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered' do
             it_behaves_like 'can access #new action', :not_registered_user, 'false'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'false'
           end
         end
@@ -102,35 +102,35 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'true'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'false'
           end
         end
@@ -147,35 +147,35 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'true'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'false'
           end
         end
@@ -186,35 +186,35 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'true', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED true, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'true'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered' do
             it_behaves_like 'access #new action', :registered_user, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered' do
             it_behaves_like 'access #new action', :not_registered_user, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user registered, confirmed speaker' do
             it_behaves_like 'access #new action', :registered_confirmed_speaker, 'false', '/conferences/myconf/register/edit', nil
           end
 
-          context 'OSEM_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
+          context 'MORAGA_ICHAIN_ENABLED false, user not registered, confirmed speaker' do
             it_behaves_like 'can access #new action', :not_registered_confirmed_speaker, 'false'
           end
         end
@@ -397,11 +397,11 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED is true' do
+          context 'MORAGA_ICHAIN_ENABLED is true' do
             it_behaves_like 'access #new action', nil, 'true', '/', 'You are not authorized to access this page. Maybe you need to sign in?'
           end
 
-          context 'OSEM_ICHAIN_ENABLED is false' do
+          context 'MORAGA_ICHAIN_ENABLED is false' do
             it_behaves_like 'can access #new action', nil, 'false'
           end
         end
@@ -412,11 +412,11 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED is true' do
+          context 'MORAGA_ICHAIN_ENABLED is true' do
             it_behaves_like 'access #new action', nil, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED is false' do
+          context 'MORAGA_ICHAIN_ENABLED is false' do
             it_behaves_like 'access #new action', nil, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
         end
@@ -433,11 +433,11 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED is true' do
+          context 'MORAGA_ICHAIN_ENABLED is true' do
             it_behaves_like 'access #new action', nil, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED is false' do
+          context 'MORAGA_ICHAIN_ENABLED is false' do
             it_behaves_like 'access #new action', nil, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
         end
@@ -448,11 +448,11 @@ describe ConferenceRegistrationsController, type: :controller do
             conference.save!
           end
 
-          context 'OSEM_ICHAIN_ENABLED is true' do
+          context 'MORAGA_ICHAIN_ENABLED is true' do
             it_behaves_like 'access #new action', nil, 'true', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
 
-          context 'OSEM_ICHAIN_ENABLED is false' do
+          context 'MORAGA_ICHAIN_ENABLED is false' do
             it_behaves_like 'access #new action', nil, 'false', '/', 'Sorry, you can not register for My Conference. Registration limit exceeded or the registration is not open.'
           end
         end

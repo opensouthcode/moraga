@@ -18,7 +18,7 @@ require 'rails/test_unit/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Osem
+module Moraga
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -28,7 +28,7 @@ module Osem
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = ENV.fetch('OSEM_TIME_ZONE') { 'UTC' }
+    config.time_zone = ENV.fetch('MORAGA_TIME_ZONE') { 'UTC' }
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
     # Don't generate system test files.

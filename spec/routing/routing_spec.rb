@@ -15,9 +15,9 @@ feature 'Routing', type: :routing do
 
     # FIXME: this doesn't work due to routes being statically loaded
     # See https://github.com/rspec/rspec-rails/issues/817 for example
-    # context 'with OSEM_ROOT_CONFERENCE set' do
+    # context 'with MORAGA_ROOT_CONFERENCE set' do
     #   it 'redirects to the conference' do
-    #     ClimateControl.modify OSEM_ROOT_CONFERENCE: conference.short_title do
+    #     ClimateControl.modify MORAGA_ROOT_CONFERENCE: conference.short_title do
     #       expect(get: '/').to route_to(
     #         controller: 'conferences',
     #         action:     'show',

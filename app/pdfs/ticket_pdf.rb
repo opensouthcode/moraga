@@ -94,7 +94,7 @@ class TicketPdf < Prawn::Document
     draw_text @physical_ticket.ticket_purchase.id.to_s, at: [@x, cursor - 50], size: 12
     move_down 50
     fill_color '000000'
-    draw_text 'Powered By OSEM', at: [(@mid_horizontal - @left - 100) / 2, cursor - 100], size: 11
+    draw_text 'Powered By Moraga', at: [(@mid_horizontal - @left - 100) / 2, cursor - 100], size: 11
     move_up 180
   end
 

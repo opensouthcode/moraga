@@ -7,16 +7,16 @@ Devise.setup do |config|
   # Pass each provider to User model in :omniauth_providers (for open_id providers use their name)
 
   config.omniauth :open_id, name: 'suse', identifier: 'http://www.opensuse.org/openid/user'
-  config.omniauth :google_oauth2, ENV.fetch('OSEM_GOOGLE_KEY', Rails.application.secrets.google_key), ENV.fetch('OSEM_GOOGLE_SECRET', Rails.application.secrets.google_secret),
+  config.omniauth :google_oauth2, ENV.fetch('MORAGA_GOOGLE_KEY', Rails.application.secrets.google_key), ENV.fetch('MORAGA_GOOGLE_SECRET', Rails.application.secrets.google_secret),
                   name:  'google',
                   scope: 'email'
-  config.omniauth :facebook, ENV.fetch('OSEM_FACEBOOK_KEY', Rails.application.secrets.facebook_key), ENV.fetch('OSEM_FACEBOOK_SECRET', Rails.application.secrets.facebook_secret)
-  config.omniauth :github, ENV.fetch('OSEM_GITHUB_KEY', Rails.application.secrets.github_key), ENV.fetch('OSEM_GITHUB_SECRET', Rails.application.secrets.github_secret)
+  config.omniauth :facebook, ENV.fetch('MORAGA_FACEBOOK_KEY', Rails.application.secrets.facebook_key), ENV.fetch('MORAGA_FACEBOOK_SECRET', Rails.application.secrets.facebook_secret)
+  config.omniauth :github, ENV.fetch('MORAGA_GITHUB_KEY', Rails.application.secrets.github_key), ENV.fetch('MORAGA_GITHUB_SECRET', Rails.application.secrets.github_secret)
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = ENV.fetch('OSEM_EMAIL_ADDRESS', 'no-reply@localhost')
+  config.mailer_sender = ENV.fetch('MORAGA_EMAIL_ADDRESS', 'no-reply@localhost')
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -243,7 +243,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 
   # You will always need to set this parameter.
-  config.ichain_base_url = ENV.fetch('OSEM_ICHAIN_BASE_URL', 'https://events.opensuse.org')
+  config.ichain_base_url = ENV.fetch('MORAGA_ICHAIN_BASE_URL', 'https://events.opensuse.org')
 
   # Paths (relative to ichain_base_url) used by your proxy
   # config.ichain_login_path = "ICSLogin/"
