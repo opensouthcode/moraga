@@ -13,7 +13,7 @@ Opensouthcode is held in Málaga in the south of Spain. A Moraga is a party cele
 ## Installation
 Please refer to our [installation guide](INSTALL.md).
 
-## How to contribute to OSEM
+## How to contribute to Moraga
 Please refer to our [contributing guide](CONTRIBUTING.md).
 
 ## Contact
