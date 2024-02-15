@@ -9,7 +9,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Create sample user
-user = User.find_or_initialize_by(email: 'deleted@localhost.osem', name: 'User deleted',
+user = User.find_or_initialize_by(email: 'deleted@localhost.moraga', name: 'User deleted',
                                   username: 'deleted_user', is_disabled: true,
                                   biography: 'Data is no longer available for deleted user.')
 user.password = Devise.friendly_token[0, 20]

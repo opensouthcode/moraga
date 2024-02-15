@@ -8,7 +8,7 @@ describe Admin::RegistrationPeriodsController do
   let(:conference) { create(:conference) }
   let!(:registration_ticket) { create(:registration_ticket, conference: conference) }
   let!(:organizer) { create(:organizer, resource: conference) }
-  let!(:organizer2) { create(:organizer, email: 'organizer2@email.osem', resource: conference) }
+  let!(:organizer2) { create(:organizer, email: 'organizer2@email.moraga', resource: conference) }
   let(:participant) { create(:user) }
 
   shared_examples 'access as administration or organizer' do

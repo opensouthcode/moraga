@@ -4,14 +4,14 @@ module OmniauthMacros
   # The mock_auth configuration allows you to set per-provider (or default)
   # authentication hashes to return during integration testing.
 
-  ENV['OSEM_GOOGLE_KEY'] = 'test key google'
-  ENV['OSEM_GOOGLE_SECRET'] = 'test secret google'
-  ENV['OSEM_FACEBOOK_KEY'] = 'test key facebook'
-  ENV['OSEM_FACEBOOK_SECRET'] = 'test secret facebook'
-  ENV['OSEM_SUSE_KEY'] = 'test key suse'
-  ENV['OSEM_SUSE_SECRET'] = 'test secret suse'
-  ENV['OSEM_GITHUB_KEY'] = 'test key github'
-  ENV['OSEM_GITHUB_SECRET'] = 'test secret github'
+  ENV['MORAGA_GOOGLE_KEY'] = 'test key google'
+  ENV['MORAGA_GOOGLE_SECRET'] = 'test secret google'
+  ENV['MORAGA_FACEBOOK_KEY'] = 'test key facebook'
+  ENV['MORAGA_FACEBOOK_SECRET'] = 'test secret facebook'
+  ENV['MORAGA_SUSE_KEY'] = 'test key suse'
+  ENV['MORAGA_SUSE_SECRET'] = 'test secret suse'
+  ENV['MORAGA_GITHUB_KEY'] = 'test key github'
+  ENV['MORAGA_GITHUB_SECRET'] = 'test secret github'
 
   def mock_auth_new_user
     OmniAuth.config.mock_auth[:google] =

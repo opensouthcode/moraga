@@ -84,7 +84,7 @@ feature Event do
       visit new_conference_program_proposal_path(conference.short_title)
       within('#signup') do
         fill_in 'user_username', with: 'Test User'
-        fill_in 'user_email', with: 'testuser@osem.io'
+        fill_in 'user_email', with: 'testuser@moraga.io'
         fill_in 'user_password', with: 'testuserpassword'
         fill_in 'user_password_confirmation', with: 'testuserpassword'
       end

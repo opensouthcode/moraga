@@ -9,8 +9,8 @@ describe Admin::UsersController do
   end
   describe 'GET #index' do
     it 'sets up users array with existing users records' do
-      user1 = create(:user, email: 'user1@email.osem')
-      user2 = create(:user, email: 'user2@email.osem')
+      user1 = create(:user, email: 'user1@email.moraga')
+      user2 = create(:user, email: 'user2@email.moraga')
       user_deleted = User.find_by!(username: 'deleted_user')
       get :index
       expect(assigns(:users)).to match_array([user_deleted, user, admin, user1, user2])
@@ -22,7 +22,7 @@ describe Admin::UsersController do
   end
   describe 'PATCH #toggle_confirmation' do
     it 'confirms user' do
-      user_to_confirm = create(:user, email: 'unconfirmed_user@osem.io', confirmed_at: nil)
+      user_to_confirm = create(:user, email: 'unconfirmed_user@moraga.io', confirmed_at: nil)
       patch :toggle_confirmation, params: { id: user_to_confirm.id, user: { to_confirm: 'true' } }
       user_to_confirm.reload
       expect(user_to_confirm.confirmed?).to be true
@@ -36,7 +36,7 @@ describe Admin::UsersController do
   describe 'PATCH #update' do
     context 'valid attributes' do
       before :each do
-        patch :update, params: { id: user.id, user: { name: 'new name', email: 'new_email@osem.io' } }
+        patch :update, params: { id: user.id, user: { name: 'new name', email: 'new_email@moraga.io' } }
       end
       it 'redirects to the updated user' do
         expect(response).to redirect_to admin_users_path

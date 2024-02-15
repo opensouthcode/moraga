@@ -11,7 +11,7 @@ describe Admin::ConferencesController do
   let(:organization_admin) { create(:user, role_ids: organization_admin_role.id) }
   let(:organizer_role) { Role.find_by(name: 'organizer', resource: conference) }
   let!(:organizer) { create(:organizer, resource: conference) }
-  let!(:organizer2) { create(:organizer, email: 'organizer2@email.osem', resource: conference) }
+  let!(:organizer2) { create(:organizer, email: 'organizer2@email.moraga', resource: conference) }
   let(:participant) { create(:user) }
 
   shared_examples 'access as organizer or organization_admin' do

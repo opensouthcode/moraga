@@ -51,7 +51,7 @@ class User < ApplicationRecord
   # :lockable, :timeoutable and :omniauthable
   devise_modules = []
 
-  devise_modules += if ENV.fetch('OSEM_ICHAIN_ENABLED', nil) == 'true'
+  devise_modules += if ENV.fetch('MORAGA_ICHAIN_ENABLED', nil) == 'true'
                       [:ichain_authenticatable, :ichain_registerable, :omniauthable, omniauth_providers: []]
                     else
                       [:database_authenticatable, :registerable,
@@ -271,7 +271,7 @@ class User < ApplicationRecord
   end
 
   def self.empty?
-    User.count == 1 && User.first.email == 'deleted@localhost.osem'
+    User.count == 1 && User.first.email == 'deleted@localhost.moraga'
   end
 
   private

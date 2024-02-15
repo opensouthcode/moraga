@@ -3,14 +3,14 @@ FROM registry.opensuse.org/opensuse/infrastructure/dale/containers/osem/base:lat
 ENV RAILS_ENV=production
 
 # Add our files
-COPY --chown=1000:1000 . /osem/
+COPY --chown=1000:1000 . /moraga/
 
 # Install bundler & foreman
-RUN gem install bundler -v "$(grep -A 1 "BUNDLED WITH" /osem/Gemfile.lock | tail -n 1)"; \
+RUN gem install bundler -v "$(grep -A 1 "BUNDLED WITH" /moraga/Gemfile.lock | tail -n 1)"; \
     gem install foreman
 
-USER osem
-WORKDIR /osem/
+USER moraga
+WORKDIR /moraga/
 
 # Install our bundle
 RUN bundle config set --local without 'test development'

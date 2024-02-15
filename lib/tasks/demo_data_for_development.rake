@@ -63,7 +63,7 @@ namespace :data do
 
     # This is a full conference demo instance that will happen in the future.
     # By full conference it means all basic information about conference is already set.
-    conference = create(:full_conference, title: 'Open Source Event Manager Demo Conference', short_title: 'osemdemo', start_date: 2.days.from_now, end_date: 6.days.from_now, start_hour: 8, end_hour: 20, description: 'This is a full conference demo instance happening in the future. It contains open cfp, venue/rooms, submitted talks by multiple speakers, partly confirmed talks and multiple schedules.')
+    conference = create(:full_conference, title: 'Open Source Event Manager Demo Conference', short_title: 'moragademo', start_date: 2.days.from_now, end_date: 6.days.from_now, start_hour: 8, end_hour: 20, description: 'This is a full conference demo instance happening in the future. It contains open cfp, venue/rooms, submitted talks by multiple speakers, partly confirmed talks and multiple schedules.')
     generate_program conference
 
     # This is a full conference demo instance that has already happened.

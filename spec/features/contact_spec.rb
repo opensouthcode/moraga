@@ -39,7 +39,7 @@ feature Contact do
       it_behaves_like 'contact field', 'instagram', 'http://www.instagram.com'
       it_behaves_like 'contact field', 'googleplus', 'http://www.google.com'
       it_behaves_like 'contact field', 'blog', 'http://blog.localdomain'
-      it_behaves_like 'contact field', 'youtube', 'https://youtube.com/osem'
+      it_behaves_like 'contact field', 'youtube', 'https://youtube.com/moraga'
     end
   end
 end

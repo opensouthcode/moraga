@@ -1,11 +1,11 @@
-Osem::Application.routes.draw do
+Moraga::Application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   constraints DomainConstraint do
     get '/', to: 'conferences#show'
   end
 
-  if ENV.fetch('OSEM_ICHAIN_ENABLED', nil) == 'true'
+  if ENV.fetch('MORAGA_ICHAIN_ENABLED', nil) == 'true'
     devise_for :users, controllers: { registrations: :registrations }
   else
     devise_for :users,
@@ -225,8 +225,8 @@ Osem::Application.routes.draw do
 
   get '/calendar' => 'conferences#calendar'
 
-  if ENV.fetch('OSEM_ROOT_CONFERENCE', nil)
-    root to: redirect("/conferences/#{ENV.fetch('OSEM_ROOT_CONFERENCE')}")
+  if ENV.fetch('MORAGA_ROOT_CONFERENCE', nil)
+    root to: redirect("/conferences/#{ENV.fetch('MORAGA_ROOT_CONFERENCE')}")
   else
     root to: 'conferences#index', via: [:get, :options]
   end

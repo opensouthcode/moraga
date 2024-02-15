@@ -6,7 +6,7 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_PASSWORD: mysecretpassword
-  osem:
+  moraga:
     build:
       context: .
       args:
@@ -17,4 +17,4 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - .:/osem
+      - .:/moraga
