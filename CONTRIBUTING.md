@@ -1,3 +1,53 @@
+# Install for development
+
+Moraga is a [Ruby on Rails0](https://rubyonrails.org/) web application, so if want to hack and contribute to Moraga, you need ruby installed.
+
+The easy way is to use [RVM](https://rvm.io). After install `rvm` you can install the version of ruby that Moraga use (currently 3.1.4) with:
+
+```
+rvm install 3.1.4
+```
+
+After install ruby (you would need to close and open the terminal in order the rvm scripts to work), you need to install some libraries for the gems used by moraga get installed. In a debian/ubuntu system:
+
+```
+sudo apt install libmysql-dev
+sudo apt install libpq-dev
+sudo apt install nodejs
+``` 
+
+Next, you can install the gems:
+
+```
+bundle
+```
+
+## Create the db
+
+Create and grant permission for one user to localhost.
+
+## Configure moraga
+
+Copy the `dotenv.example` to `.env` and configure with your database settings
+
+
+## Run migrations
+
+And last, run the migrations:
+
+```
+rails db:migrate
+```
+
+You then can run the application with:
+
+```
+rails s
+```
+
+and point your browser to http://localhost:3000 to see your new Moraga dev.
+
+
 # Contributing to Moraga
 
 We here at Moraga are open for all types of contributions from anyone. Tell us about our [issues/ideas](https://github.com/opensouthcode/moraga/issues/new), propose code changes via [pull requests](https://help.github.com/articles/using-pull-requests) or contribute artwork and documentation.
