@@ -1,0 +1,46 @@
+es:
+  Request a booth: Solicitar un stand
+  Title: Título
+  This field is required: Este campo es requerido
+  Description: Descripcion
+  This field becomes public upon request acceptance: Este campo se hace público cuando se acepte la petición
+  How it fits the conference: Como encaja en la conferencia
+  Submitter\'s relation: Relación de solicitante
+  e.g. employee, comunity manager, etc: por ejemplo empleado, comunity manager, etc.
+  Website URL: Sitio Web
+  Responsibles: Responsables
+  The people responsible for the booth: Las personas responsables del stand.
+  You can only select existing users:  Solo pueden ser usuarios existentes
+  Picture: Imagen
+  Create Booth Request: Crear petición de stand
+  Update Booth Request: Actualizar petición de stand
+  Edit Booth: Editar stand
+  Edit: Editar
+  Reasoning: Responsable
+  Website: Sitio Web
+  Submitter: Solicitante
+  Submitter's relationship: Relación del solicitante
+  Responsibles: Responsables
+  Submitted on: Enviado el
+  Last updated on: Actualizado el
+  Your booth requests for: Tu petición de stand para
+  State: Estado
+  Logo: Logo
+  Title: Título
+  Actions: Acciones
+  Withdraw: Cancelar
+  Are you sure you really want to withdraw this request?: ¿Estás seguro de querer cancelar la petición?
+  Confirm: Confirmar
+  Re-submit: Reenviar
+  Add booth: Añadir stand
+  # Controller
+  Booth successfully created: Stand creado correctamente
+  Creating booth failed: Creación de stand ha fallado.
+  Booth successfully updated!: Stand actualizado correctamente
+  Booth could not be updated: Stand no se ha actualizdo.
+  Booth successfully withdrawn: Stand canceldo correctamente.
+  Booth successfully confirmed: Stand confirmado correctamente.
+  Booth successfully re-submitted: Stand reenviado correctamente.
+  Booth could not be withdrawn: Stand no se pudo cancelar.
+  Booth could not be confirmed: Stand no se ha confirmado.
+  Booth could not be re-submitted: Stand no se ha podido reenviar.

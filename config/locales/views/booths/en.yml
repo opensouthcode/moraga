@@ -1,0 +1,45 @@
+en:
+  Request a booth: Request a booth
+  Title: Title
+  This field is required: This field is required
+  Description: Description
+  This field becomes public upon request acceptance: This field becomes public upon request acceptance
+  How it fits the conference: How it fits the conference
+  Submitter's relation: Submitter's relation
+  e.g. employee, comunity manager, etc: e.g. employee, comunity manager, etc
+  Website URL: Website URL
+  Responsibles: Responsibles
+  The people responsible for the booth: The people responsible for the booth.
+  You can only select existing users: You can only select existing users
+  Picture: Picture
+  Create Booth Request: Create Booth Request
+  Update Booth Request: Update Booth Request
+  Edit Booth: Edit Booth
+  Edit: Edit
+  Reasoning: Reasoning
+  Website: Website
+  Submitter: Submitter
+  Submitter's relationship: Submitter's relationship
+  Responsibles: Responsibles
+  Submitted on: Submitted on
+  Last updated on: Last updated on
+  Your booth requests for: Your booth requests for
+  State: State
+  Logo: Logo
+  Title: Title
+  Actions: Actions
+  Withdraw: Withdraw
+  Are you sure you really want to withdraw this request?: Are you sure you really want to withdraw this request?
+  Confirm: Confirm
+  Re-submit: Re-submit
+  Add booth: Add booth
+  Booth successfully created: Booth successfully created.
+  Creating booth failed: Creating booth failed.
+  Booth successfully updated!: Booth successfully updated!
+  Booth could not be updated: Booth could not be updated.
+  Booth successfully withdrawn: Booth successfully withdrawn
+  Booth successfully confirmed: Booth successfully confirmed.
+  Booth successfully re-submitted: Booth successfully re-submitted.
+  Booth could not be withdrawn: Booth could not be withdrawn
+  Booth could not be confirmed: Booth could not be confirmed
+  Booth could not be re-submitted: Booth could not be re-submitted

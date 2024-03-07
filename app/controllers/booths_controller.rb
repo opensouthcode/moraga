@@ -23,9 +23,9 @@ class BoothsController < ApplicationController
 
     if @booth.save
       redirect_to conference_booths_path,
-                  notice: "#{(t 'booth').capitalize} successfully created."
+                  notice: t('Booth successfully created')
     else
-      flash.now[:error] = "Creating #{t 'booth'} failed. #{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t('Creating booth failed') + "#{@booth.errors.full_messages.to_sentence}" 
       render :new
     end
   end
@@ -40,9 +40,9 @@ class BoothsController < ApplicationController
 
     if @booth.save
       redirect_to conference_booths_path,
-                  notice: 'Booth successfully updated!'
+                  notice: t('Booth successfully updated!')
     else
-      flash.now[:error] = "Booth could not be updated. #{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t('Booth could not be updated') + '#{@booth.errors.full_messages.to_sentence}'
       render :edit
     end
   end
@@ -57,9 +57,9 @@ class BoothsController < ApplicationController
 
     if @booth.save
       redirect_to conference_booths_path,
-                  notice: 'Booth successfully withdrawn'
+                  notice: t('Booth successfully withdrawn')
     else
-      flash.now[:error] = "Booth could not be withdrawn. #{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t("Booth could not be withdrawn") + "#{@booth.errors.full_messages.to_sentence}."
     end
   end
 
@@ -71,9 +71,9 @@ class BoothsController < ApplicationController
 
     if @booth.save
       redirect_to conference_booths_path,
-                  notice: 'Booth successfully confirmed'
+                  notice: t('Booth successfully confirmed')
     else
-      flash.now[:error] = "Booth could not be confirmed. #{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t("Booth could not be confirmed") + "#{@booth.errors.full_messages.to_sentence}."
     end
   end
 
@@ -85,9 +85,9 @@ class BoothsController < ApplicationController
 
     if @booth.save
       redirect_to conference_booths_path,
-                  notice: 'Booth successfully re-submitted'
+                  notice: t('Booth successfully re-submitted')
     else
-      flash.now[:error] = "Booth could not be re-submitted. #{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t("Booth could not be re-submitted" + "#{@booth.errors.full_messages.to_sentence}."
     end
   end
 
