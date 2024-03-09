@@ -3,11 +3,11 @@
     .col-md-12
       .page-header
         %h1
-          Registration for
+          = t('Registration for')
           = @conference.title
         %p.text-muted
           -if @conference.venue
-            at
+            = t(at)
             %strong
               = "#{@conference.venue_name},"
             = "#{@conference.venue_street},"
@@ -21,24 +21,24 @@
           .fa-stack
             .fa-solid.fa-square-dashed
             .fa-solid.fa-handshake
-          Code of Conduct
+          = t('Code of Conduct')
         %ul.fa-ul
           - if @registration.accepted_code_of_conduct
             %li.text-info
               %span.fa-li
                 = icon('fa-solid', 'check')
-              You have accepted the
+              = t('You have accepted the')
               = link_to 'Code of Conduct', '#',
                 data: { toggle: 'modal', target: '#modal-code-of-conduct'}
           - else
             %li.text-warning
               %span.fa-li
                 = icon('fa-solid', 'circle-exclamation')
-              You need to accept the
+              = t('You need to accept the')
               = link_to 'Code of Conduct', '#',
                 data: { toggle: 'modal', target: '#modal-code-of-conduct'}
           = render 'conferences/code_of_conduct',
-            organization: @conference.organization
+            t('organization', organization: @conference.organization)
   - if @conference.surveys.for_registration.any?
     .row
       .col-md-12
@@ -46,7 +46,7 @@
           %span.fa-stack
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-info.fa-stack-1x
-          Surveys
+          = t('Surveys')
 
         %ul
           = render partial: 'surveys/list', locals: { surveys: @conference.surveys.for_registration, conference: @conference }
@@ -71,7 +71,7 @@
           %span.fa-stack
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-question.fa-stack-1x
-          Events that require registration
+          = t('Events that require registration')
         %ul
           - @registration.conference.program.events.remaining_for_registration(@registration).each do |event|
             %li
@@ -85,9 +85,9 @@
           %span.fa-stack
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-ticket.fa-stack-1x
-          Tickets
+          = t('Tickets')
         - if @tickets.any?
-          Total Purchased:
+          = t('Total Purchased')
           = "(#{@tickets.first.price.symbol}#{humanized_money @total_price})"
           %ul
             .col-md-12
@@ -96,7 +96,7 @@
                   = @total_quantity[ticket_id]
                   = tickets.first.title
                   = word_pluralize(@total_quantity[ticket_id], 'Ticket')
-                  for
+                  = t('for')
                   = tickets.first.price.symbol
                   = humanized_money @total_price_per_ticket[ticket_id]
               %br
@@ -109,14 +109,14 @@
               class: 'btn btn-default'
         - else
           %p
-            You haven't bought any tickets.
-            = link_to 'Please get some tickets to support us!', conference_tickets_path(@conference.short_title)
+            = t("You haven't bought any tickets")
+            = link_to t('Please get some tickets to support us!'), conference_tickets_path(@conference.short_title)
           - if @conference.tickets.for_registration.any?
             %p
               %em
-                Your participation won't be valid without getting a
+                = t("Your participation won't be valid without getting a")
                 registration ticket.
-          = link_to 'Get tickets',
+          = link_to t('Get tickets'),
             conference_tickets_path(@conference.short_title),
             class: 'btn btn-default'
 
@@ -124,13 +124,13 @@
     .col-md-12
       - if @registration
         .btn-group-vertical.pull-right
-          = link_to 'Edit your Registration', edit_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success', disabled: @conference.end_date < Date.today
+          = link_to t('Edit your Registration'), edit_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success', disabled: @conference.end_date < Date.today
           - if @tickets.any?
             = link_to 'Unregister', conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
-              data: { confirm: "Your ticket purchases won't be refunded. Are you sure you want to unregister?" }, disabled: @conference.end_date < Date.today
+              data: { confirm: t("Your ticket purchases won't be refunded") }, disabled: @conference.end_date < Date.today
           - else
             = link_to 'Unregister', conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
-              data: { confirm: "You haven't purchased any ticket. Are you sure you want to unregister?" }, disabled: @conference.end_date < Date.today
+              data: { confirm: t("You haven't purchased any ticket") }, disabled: @conference.end_date < Date.today
       - else
         = link_to 'Register', new_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success btn-lg pull-right'
 
@@ -139,7 +139,7 @@
       .page-header
         %h1
           %small
-            Meet the people of
+            = t('Meet the people of')
             = @conference.short_title
     .col-md-4
       - if @conference.participants.any?
@@ -148,7 +148,7 @@
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-user-group.fa-stack-1x
           = @conference.participants.count
-          Registered
+          = t('Registered')
           = word_pluralize(@conference.participants.count, 'Attendee')
         - @conference.participants.each do |participant|
           = link_to image_tag(participant.gravatar_url(size: '25'), title: "#{participant.name}!", class: 'img-circle'), user_path(participant)
@@ -159,7 +159,7 @@
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-microphone.fa-stack-1x
           = @conference.program.speakers.confirmed.count
-          Confirmed
+          = t('Confirmed')
           = word_pluralize(@conference.program.speakers.confirmed.count, 'Speaker')
         - @conference.program.speakers.confirmed.each do |speaker|
           = link_to image_tag(speaker.gravatar_url(size: '25'), title: "#{speaker.name}!", class: 'img-circle'), user_path(speaker)
