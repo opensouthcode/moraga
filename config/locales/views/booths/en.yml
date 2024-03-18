@@ -43,3 +43,13 @@ en:
   Booth could not be withdrawn: Booth could not be withdrawn
   Booth could not be confirmed: Booth could not be confirmed
   Booth could not be re-submitted: Booth could not be re-submitted
+  Successfully updated Booth for: "Successfully updated Booth for %{title}"
+  An error prohibited the booth for: "An error prohibited the booth for %{title}"
+  Booth successfully accepted: Booth successfully accepted!
+  Booth could not be accepted: Booth could not be accepted.
+  Booth to accept: Booth to accept
+  Booth to reject: Booth to reject
+  Booth successfully rejected: Booth successfully rejected.
+  Booth is submitted: Booth is submitted
+  Booth is canceled: Booth is canceled
+  Booth successfully confirmed: Booth successfully confirmed

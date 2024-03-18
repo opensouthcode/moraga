@@ -44,3 +44,13 @@ es:
   Booth could not be withdrawn: Stand no se pudo cancelar.
   Booth could not be confirmed: Stand no se ha confirmado.
   Booth could not be re-submitted: Stand no se ha podido reenviar.
+  Successfully updated Booth for: "Stand %{title} actualizado correctamente."
+  An error prohibited the booth for: "Stand %{title} no se ha podido actualizar."
+  Booth successfully accepted: "Stand aceptado.":
+  Booth could not be accepted: "El stand no se ha podido aceptar."
+  Booth to accept: Stand a aceptar
+  Booth to reject: Stand a rechazar
+  Booth successfully rejected: Stand rechazado correctamente.
+  Booth is submitted: Stand ha sido enviado
+  Booth is canceled: Stand está cancelado
+  Booth successfully confirmed: Stand confirmado
