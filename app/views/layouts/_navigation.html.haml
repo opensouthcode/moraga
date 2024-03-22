@@ -4,13 +4,14 @@
 
       - if controller.class.name.split("::").first=="Admin"
         %button{ "data-target"=>"#side-nav", "data-toggle"=>"collapse", class: 'navbar-toggle side-nav-btn', type: 'button' }
-          %span.sr-only Toggle navigation
+          %span.sr-only
+            = t('Toggle navigation')
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
       %button{"data-target"=>"#main-nav", "data-toggle"=>"collapse", class: 'navbar-toggle', type: 'button'}
         %span.sr-only
-          Toggle navigation
+          = t('Toggle navigation')
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
@@ -36,16 +37,16 @@
             %li{class: "#{active_nav_li(new_ichain_registration_path('user'))}"}
               = link_to(new_ichain_registration_path('user')) do
                 %span.fa-solid.fa-heart
-                Sign Up
+                = t('Sign Up')
           - else
             %li{class: "#{active_nav_li(new_registration_path('user'))}"}
               = link_to(new_registration_path('user')) do
                 %span.fa-solid.fa-heart
-                Sign Up
+                = t('Sign Up')
           %li.dropdown.visible-desktop
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
               %span.fa-solid.fa-user
-              Sign In
+              = t('Sign In')
               %span.caret
             .dropdown-menu
               - if ENV.fetch('MORAGA_ICHAIN_ENABLED', nil) == 'true'
@@ -65,11 +66,11 @@
                   - unless omniauth_configured.empty?
                     .divider
                     %h6.text-center
-                      or
+                      = t('or')
                     = render 'devise/shared/openid_links'
                   %p.text-right
                     %br
                     %a.small.btn.btn-xs.btn-default{"data-toggle" => "collapse", "data-target" =>  "#navbar-devise-help"}
-                      Need Help?
+                      = t('Need Help?')
                     #navbar-devise-help.collapse
                       = render 'devise/shared/links'
