@@ -10,30 +10,30 @@
           %h1 Registration
           - if conference.registration_limit_exceeded?
             %p
-              Sorry, the conference registration limit has exceeded
+              = t('Sorry, the conference registration limit has exceeded')
           - elsif tickets.empty?
             %p.lead
-              Going to
+              = t('Going to')
               = conference.short_title
-              is free of charge.
+              = t('is free of charge')
             %p
-              We only ask you to register yourself before
+              = t('We only ask you to register yourself before')
               = date_string(registration_period.start_date,
                 registration_period.end_date)
-              so we can plan for the right amount of people.
+              = t('so we can plan for the right amount of people')
               %p.cta-button
           - else
             %p
-              The registration period is open
+              = t('The registration period is open')
               = date_string(registration_period.start_date,
                 registration_period.end_date)
           - if conference.registration_open?
             %p.cta-button
               - if conference.user_registered?(current_user)
-                = link_to("Edit Your Registration",
+                = link_to( t('Edit Your Registration'),
                   conference_conference_registration_path(conference_id),
                   class: 'btn btn-success')
               - else
-                = link_to('Register Now',
+                = link_to( t('Register Now'),
                   new_conference_conference_registration_path(conference_id),
                   class: 'btn btn-lg btn-success')

@@ -8,12 +8,12 @@
       .row
         .col-md-12.text-center
           %h2
-            Where to stay
+            = t('Where to stay')
             - if venue
-              in
+              = t('in')
               = venue.city
           %p.lead
-            We recommend the following accommodations for your visit.
+            = t('We recommend the following accommodations for your visit')
 
       .row.row-centered
         - lodgings.each do |lodging|
