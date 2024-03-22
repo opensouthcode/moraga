@@ -1,6 +1,7 @@
 = content_for :splash_nav do
   %li
-    %a.smoothscroll{ href: '#tickets' } Tickets
+    %a.smoothscroll{ href: '#tickets' }
+      = t('Tickets')
 
 - cache [conference, tickets, '#splash#tickets'] do
   %section#tickets
@@ -8,7 +9,7 @@
       .row
         .col-md-12.text-center
           %h2
-            Support
+            = t('Support')
             = conference.title
       .row.row-centered
         - tickets.each do |ticket|

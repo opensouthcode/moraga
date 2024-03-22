@@ -1,0 +1,29 @@
+es:
+  Resend confirmation instructions: 
+  This field is required: Este campo es requerido
+  Send me reset password instructions:
+  Sign in: Registro
+  Username: Usuario
+  Password: Clave
+  Forgot your password?: "¿Has olvidado la clave?"
+  Send me reset password instructions: Enviar instrucciones de reseteo de contraseña
+  Email: Correo electrónico
+  Need Help?: ¿Necesita ayuda?
+  Currently the following openIDs are associated with your account: Actualmente los siguientes openIDs están asociados a su cuenta 
+  Currently there are no openIDs are associated with your account: Actualmente no hay openIDs asociados a su cuenta.
+  To add an openID with a different email address to your account, sign in with your openID while logged in to Moraga: Para asociar un openID a su cuenta con un correo electrónico diferente, acceda en Moraga con su openID
+  Leave blank if you don't want to change your password: Déjelo en blanco si no quiere cambiar la clave.
+  Password Confirmation: Confirme la clave
+  An admin can create a new conference, manage users and make other users admins: Un administrador puede crear conferencias, administrar usuarios y hacer administradores a otros usuarios
+  Current Password: Clave actual
+  We need your current password to confirm changes: Necesitamos su clave actual para confirmar los cambios
+  Mobile No (Include country code): Número Móvil (incluya el código de paíçs)
+  Tshirt Size: Tamaño de camiseta
+  Which languages do you speak: ¿Qué lenguajes habla?
+  language-hint: "Comienza con el idioma que mejor hables y usa código de 2 letras, por ejemplo: ES, EN, GR, DE"
+  Edit your Account: Editar cuenta
+  Sign Up: Acceder
+  Remember me: Recordarme
+  Didn't receive confirmation instructions?: ¿No recibió las instrucciones de confirmación?
+  Didn't receive unlock instructions?: ¿No recibió las instrucciones de desbloqueo?
+  or sign in using: o acceda con

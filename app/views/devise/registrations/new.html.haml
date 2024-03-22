@@ -4,7 +4,7 @@
       .panel.panel-default
         .panel-heading
           %h3.panel-title
-            Sign Up
+            = t('Sign Up')
         .panel-body
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = render partial: 'form_fields', locals: { f: f }

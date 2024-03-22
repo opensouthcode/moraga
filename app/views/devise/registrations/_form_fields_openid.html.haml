@@ -5,7 +5,7 @@
   - openids = Openid.where(user: @user).order(:provider)
   - if openids.any?
     %p
-      Currently the following openIDs are associated with your account
+      = t('Currently the following openIDs are associated with your account')
     - openids.each do |openid|
       %li{ style: "list-style: none; margin-left: 20px;" }
         = link_to user_openid_path(openid, user_id: current_user.id), method: :delete,
@@ -15,9 +15,8 @@
       %br
   - else
     %p
-      Currently there are no openIDs are associated with your account.
+      = t('Currently there are no openIDs are associated with your account')
   %p
-    To add an openID with a different email address to your account, sign in with your
-    openID while logged in to Moraga
+    = t('To add an openID with a different email address to your account, sign in with your openID while logged in to Moraga')
   #openidlinks
     = render 'devise/shared/openid_links'
