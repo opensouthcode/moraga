@@ -3,10 +3,14 @@
     %table.table.table-hover
       %thead
         %tr
-          %th Ticket
-          %th Quantity
-          %th Price
-          %th Total
+          %th
+            = t('Ticket')
+          %th
+            = t('Quantity')
+          %th
+            = t('Price')
+          %th
+            = t('Total')
       %tbody
       - @unpaid_ticket_purchases.each do |ticket|
         %tr
@@ -23,5 +27,5 @@
   %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js",
         data: { amount: @total_amount_to_pay.cents, label: "Pay #{humanized_money_with_symbol @total_amount_to_pay}",
           email: current_user.email, currency: @total_amount_to_pay.currency, name: ENV.fetch('MORAGA_NAME', 'MORAGA'),
-          description: "book your tickets", key: Rails.application.secrets.stripe_publishable_key, locale: "auto"}}
-  = link_to 'Edit Purchase', conference_tickets_path(@conference.short_title), class: 'btn btn-default'
+          description: t("book your tickets"), key: Rails.application.secrets.stripe_publishable_key, locale: "auto"}}
+  = link_to t('Edit Purchase'), conference_tickets_path(@conference.short_title), class: 'btn btn-default'
