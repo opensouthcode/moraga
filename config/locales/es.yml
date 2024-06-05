@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    attributes:
+      event:
+        title: Titulo
+        subtitle: Subtítulo
+        speakers: Ponentes
+        language: Idioma
+        abstract: Descripción

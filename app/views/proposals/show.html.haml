@@ -18,17 +18,17 @@
             = @event.subtitle
         .btn-group.pull-right
           - if can? :update, @event
-            = link_to 'Registrations', registrations_conference_program_proposal_path(@conference.short_title, @event), class: 'btn btn-mini btn-success'
+            = link_to t('Registrations'), registrations_conference_program_proposal_path(@conference.short_title, @event), class: 'btn btn-mini btn-success'
           - if can? :edit, @event
-            = link_to "Edit", edit_conference_program_proposal_path(@conference.short_title, @event), class: 'btn btn-mini btn-primary'
+            = link_to t('Edit'), edit_conference_program_proposal_path(@conference.short_title, @event), class: 'btn btn-mini btn-primary'
           - if can? :schedule, @conference
-            = link_to "Schedule", conference_schedule_path(@conference.short_title), class: 'btn btn-success'
+            = link_to t('Schedule'), conference_schedule_path(@conference.short_title), class: 'btn btn-success'
 
   .row
     .col-md-3
       %h3
       - if @event.speakers.any?
-        Presented by:
+        = t('Presented by') + ':'
         - @speakers_ordered.each do |speaker|
           .speakerinfo
             .row
@@ -43,7 +43,7 @@
                       %i.fa-solid.fa-envelope.fa-2x
                 - if speaker.affiliation?
                   .text-muted
-                    from
+                    = t('from')
                     = speaker.affiliation
             -if speaker.biography?
               .row.speakerbio
@@ -58,9 +58,9 @@
 
           - if @event.commercials.empty?
             %h5.text-warning
-              No video of the event yet, sorry!
+              = t('No video of the event yet, sorry')
               - unless @conference.commercials.empty?
-                Meanwhile...
+                = t('Meanwhile')
             - unless @conference.commercials.empty?
               = render partial: 'shared/media_items', locals: { commercials: @conference.commercials }
           - else
@@ -72,30 +72,37 @@
             = markdown(@event.abstract)
         %dl#proposal-info
           .col-md-12
-            %dt Date:
+            %dt 
+              = t('Date') + ':'
             %dd= @event_schedule.start_time.strftime("%Y %B %e - %H:%M") if @event_schedule
           .col-md-12
-            %dt Duration:
+            %dt
+              = t('Duration') + ':'
             %dd= show_time(@event.event_type.length)
           .col-md-12
-            %dt Room:
+            %dt
+              = t('Room') + ':'
             %dd
               - if @event.room
                 = @event.room.name
           .col-md-12
-            %dt Conference:
+            %dt
+              = t('Conference') + ':'
             %dd= link_to @event.program.conference.title, conference_path(@conference)
           .col-md-12
-            %dt Language:
+            %dt
+              = t('Language') + ':'
             %dd= @event.language if @event.language
           .col-md-12
-            %dt Track:
+            %dt
+              = t('Track') + ':'
             %dd
               - if @event.track
                 %span.label{style: "background-color: #{@event.track.color}; color: #{ contrast_color(@event.track.color) }"}
                   = @event.track.name
           .col-md-12
-            %dt Difficulty:
+            %dt
+              = t('Difficulty') + ':'
             %dd
               - if @event.difficulty_level
                 %span.label{style: "background-color: #{@event.difficulty_level.color}; color: #{ contrast_color(@event.difficulty_level.color) };"}
@@ -103,24 +110,28 @@
 
           - if @event.require_registration
             .col-md-12
-              %dt Requires Registration:
+              %dt
+                = t('Requires Registration') + ':'
               %dd
-                = link_to "Yes (#{registered_text(@event)})", new_conference_conference_registration_path(@conference.short_title), class: 'btn btn-xs btn-danger', disabled: !@event.registration_possible?
+                = link_to t("Yes") + "(#{registered_text(@event)})", new_conference_conference_registration_path(@conference.short_title), class: 'btn btn-xs btn-danger', disabled: !@event.registration_possible?
           - if concurrent_events(@event).present?
             .col-md-12
               %hr
-              %h4 Happening at the same time:
+              %h4
+                = t('Happening at the same time') + ':'
               %ol
                 - concurrent_events(@event).each do |event|
                   %li
                     = link_to conference_program_proposal_path(@conference.short_title, event.id) do
                       = event.title
                   %dl
-                    %dt Start Time:
+                    %dt
+                      = t('Start Time') + ':'
                     %dd
                       = event.program.selected_event_schedules.find { |es| es.event == event }.start_time.strftime("%Y %B %e %H:%M")
                     %br
-                      %dt Room:
+                      %dt
+                        = t('Room') + ':'
                       %dd
                         = event.room.name
       .row

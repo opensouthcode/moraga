@@ -2,18 +2,19 @@
   .col-md-10.col-md-offset-1
     .page-header
       %h1
-        Survey #{@survey.title}
+        = t('Survey')
+        = @survey.title
         - if can? :edit, @survey
-          = link_to 'Edit Survey', admin_conference_survey_path(@conference.short_title, @survey), class: 'btn btn-primary pull-right'
+          = link_to t('Edit Survey'), admin_conference_survey_path(@conference.short_title, @survey), class: 'btn btn-primary pull-right'
       %p.text-muted
-        From:
+        = t('From') + ':'
         = @survey.start_date
-        to
+        = t('to')
         = @survey.end_date
         - unless @survey.active?
           %label
             %i.fa-solid.fa-circle-exclamation
-            This survey does not accept replies at this monent.
+            = t('This survey does not accept replies at this monent')
 .row
   .col-md-12
     = form_for(@survey_submission, url: reply_conference_survey_path(@conference.short_title, @survey)) do |f|

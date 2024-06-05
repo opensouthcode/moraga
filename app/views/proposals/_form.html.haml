@@ -5,29 +5,30 @@
   display_registration = user_is_admin || @program.cfp&.enable_registrations?
 
 %h4
-  Proposal Information
+  = t('Proposal Information')
 %hr
 .form-group
   = f.label :title
-  %abbr{title: 'This field is required'} *
+  %abbr{title: t('This field is required')} *
   = f.text_field :title, autofocus: true, required: true, class: 'form-control'
 - if display_details
   .form-group
     = f.label :subtitle
     = f.text_field :subtitle, class: 'form-control'
   .form-group
-    %label{for: 'users_selectize-selectized'} Speakers
+    %label{for: 'users_selectize-selectized'}
+      = t('Speakers')
     = f.select :speaker_ids, f.object.speakers.pluck(:username, :id), {}, {  multiple: true, class: "form-control", id: "users_selectize", placeholder: "Speakers" }
     %span.help-block
       The people responsible for the event, beside you. You can only select existing users.
   - if @program.tracks.confirmed.cfp_active.any?
     .form-group
-      = f.label :track_id, 'Track'
+      = f.label :track_id, t('Track')
       = f.select :track_id, @program.tracks.confirmed.cfp_active.pluck(:name, :id), { include_blank: '(Please select)' }, { class: 'form-control select-help-toggle' }
       = render 'shared/select_help_text', f: f, for: :track_id, include_blank: true, options: @program.tracks.confirmed.cfp_active do |track|
         = markdown(track.description)
 .form-group
-  = f.label :event_type_id, 'Type'
+  = f.label :event_type_id, t('Type')
   = f.select :event_type_id, event_type_select_options(@conference.program.event_types), { include_blank: false }, { class: 'select-help-toggle form-control' }
 - if @program.languages.present?
   .form-group
@@ -47,46 +48,46 @@
   %span.help-block
     = markdown_hint('[Tips to improve your presentations.](http://blog.hubspot.com/blog/tabid/6307/bid/5975/10-Rules-to-Instantly-Improve-Your-Presentations.aspx)')
   %p
-    You have used
+    = t('You have used')
     %span#abstract-count = @event.abstract_word_count
-    words.  Abstracts must be between
+    = t('words.  Abstracts must be between')
     %span#abstract-minimum-word-count
       0
-    and
+    = t('and')
     %span#abstract-maximum-word-count
       250
-    words.
+    = t('words') + "."
   - if display_registration && display_details
     %h4
-      Event Registration
+      = t('Event Registration')
     %hr
   - if display_registration
     .checkbox
       %label
         = f.check_box :require_registration
-        Require participants to register to your event
+        = t('Require participants to register to your event')
   - if display_registration && display_details
     .form-group
       = f.label :max_attendees
       = f.number_field :max_attendees,  class: 'form-control'
       %span.help-block
         - message = @event.room ? "Value must be between 1 and #{@event.room.size}" : 'Check room capacity after scheduling.'
-        = 'The maximum number of participants. ' + message
+        = t('The maximum number of participants') + " ." + message
   - if display_details && current_user.has_any_role?(:admin, { name: :organizer, resource: @conference }, { name: :cfp, resource: @conference })
     .checkbox
       %label
         = f.check_box :is_highlight
-        Is a highlight?
+        = t('Is a highlight?')
   %p.text-right
     = link_to '#description', 'data-toggle' => 'collapse' do
-      Do you require something special for your event?
+      = t('Do you require something special for your event?')
   #description{ class: "collapse #{ 'in' if @event.description.present? }" }
     .form-group
-      = f.label :description, 'Requirements'
+      = f.label :description, t('Requirements')
       = f.text_area :description, rows: 5
       %span.help-block
-        Eg. Whiteboard, printer, or something like that.
+        = t('requirementsExample') + "."
   %p.text-right
-    - submit_copy = action_is_edit ? 'Update Proposal' : 'Create Proposal'
+    - submit_copy = action_is_edit ? t('Update Proposal') : 'Create Proposal'
     = f.submit submit_copy, class: 'btn btn-success'
 

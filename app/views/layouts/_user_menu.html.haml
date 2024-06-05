@@ -44,7 +44,7 @@
   - if ENV.fetch('MORAGA_ICHAIN_ENABLED', nil) == 'true'
     = link_to(destroy_user_ichain_session_path, method: 'delete') do
       %span.fa-solid.fa-minus
-      = t('Sign Out')
+      = t('Sign out')
   - else
     = link_to(destroy_user_session_path, method: 'delete') do
       %span.fa-solid.fa-minus
