@@ -18,11 +18,10 @@ feature 'Version' do
     fill_in 'contact_email', with: 'example@example.com'
     fill_in 'contact_sponsor_email', with: 'sponsor@example.com'
     fill_in 'contact_social_tag', with: 'example'
-    fill_in 'contact_googleplus', with: 'http:\\www.google.com'
     click_button 'Update Contact'
 
     visit admin_revision_history_path
-    expect(page).to have_text("#{organizer.name} updated social tag, email, googleplus and sponsor email of contact details in conference #{conference.short_title}")
+    expect(page).to have_text("#{organizer.name} updated social tag, email and sponsor email of contact details in conference #{conference.short_title}")
   end
 
   scenario 'display changes in program', feature: true, versioning: true, js: true do
