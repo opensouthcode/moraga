@@ -37,7 +37,6 @@ feature Contact do
       it_behaves_like 'contact field', 'facebook', 'http://www.facebook.com'
       it_behaves_like 'contact field', 'twitter', 'http://www.twitter.com'
       it_behaves_like 'contact field', 'instagram', 'http://www.instagram.com'
-      it_behaves_like 'contact field', 'googleplus', 'http://www.google.com'
       it_behaves_like 'contact field', 'blog', 'http://blog.localdomain'
       it_behaves_like 'contact field', 'youtube', 'https://youtube.com/moraga'
     end

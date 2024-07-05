@@ -6,7 +6,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     sponsor_email { Faker::Internet.email }
     facebook { Faker::Internet.url(host: 'facebook.com') }
-    googleplus { Faker::Internet.url(host: 'plus.google.com') }
     twitter { Faker::Internet.url(host: 'twitter.com') }
     instagram { Faker::Internet.url(host: 'instagram.com') }
 
