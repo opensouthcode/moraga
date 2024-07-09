@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  around_action :switch_locale
   before_action :set_paper_trail_whodunnit
   include ApplicationHelper
   add_flash_types :error
@@ -8,6 +9,11 @@ class ApplicationController < ActionController::Base
   before_action :store_location
   # Ensure every controller authorizes resource or skips authorization (skip_authorization_check)
   check_authorization unless: :devise_controller?
+
+  def switch_locale(&action)
+    locale = extract_locale_from_accept_language_header
+    I18n.with_locale(locale, &action)
+  end
 
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
@@ -65,4 +71,10 @@ class ApplicationController < ActionController::Base
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
+
+  private
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue I18n.default_locale
+  end
+
 end

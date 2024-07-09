@@ -7,14 +7,14 @@
           Track
           .btn-group.pull-right
             - if can? :edit, @track
-              = link_to 'Edit Track request', edit_conference_program_track_path(@conference.short_title, @track), class: 'btn btn-primary'
+              = link_to t('Edit Track request'), edit_conference_program_track_path(@conference.short_title, @track), class: 'btn btn-primary'
             - if current_user.has_cached_role? :track_organizer, @track
-              = link_to 'Manage', admin_conference_program_track_path(@conference.short_title, @track), class: 'btn btn-default'
+              = link_to t('Manage'), admin_conference_program_track_path(@conference.short_title, @track), class: 'btn btn-default'
   .row
     .col-md-8
       %dl.dl-horizontal
         %dt
-          Color:
+          = t('Color') & ':'
         %dd
           %span.label{style: "background-color: #{@track.color}; color: #{ contrast_color(@track.color) }"}
             = @track.color

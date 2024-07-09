@@ -4,15 +4,15 @@
       .panel.panel-default
         .panel-heading
           %h3.panel-title
-            Resend confirmation instructions
+            = t('Resend confirmation instructions')
         .panel-body
           = form_for(resource, as: resource_name, url: confirmation_path(resource_name), method: :post) do |f|
             .form-group
               = f.label :email, "Email"
-              %abbr{title: 'This field is required'} *
+              %abbr{title: t('This field is required')} *
               = f.email_field :email, autofocus: true, required: true, class: 'form-control', placeholder: 'Email'
             %p.text-right
               %button{type: 'submit', class: 'btn btn-success'}
-                Send me reset password instructions
+                = t('Send me reset password instructions')
 
           = render partial: 'devise/shared/help'

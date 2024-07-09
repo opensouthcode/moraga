@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    = f.input :volunteer, label: "Click here if you want to become a volunteer at #{@conference.short_title}", input_html: {maxlength: 15, size: 40}
+    = f.input :volunteer, label: t("Click here if you want to become a volunteer at", conference: #{@conference.short_title}), input_html: {maxlength: 15, size: 40}
     = f.fields_for :user do |u|
       = render partial: 'devise/registrations/volunteeruser', locals: {u: u}
     %br

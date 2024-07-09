@@ -1,9 +1,10 @@
-.row
-  .col-md-12
-    .page-header
-      %h1
-        Edit Booth
-        = @booth.title
-.row
-  .col-md-8
-    = render 'form'
+.container
+  .row
+    .col-md-12
+      .page-header
+        %h1
+          = t('Edit Booth')
+          = @booth.title
+  .row
+    .col-md-8
+      = render 'form'

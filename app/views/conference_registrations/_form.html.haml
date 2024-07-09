@@ -4,6 +4,6 @@
   = f.hidden_field :conference_id, value: @conference.id
   %p.pull-right
     - if @conference.user_registered?(current_user)
-      = f.submit 'Update Registration', { class: 'btn btn-primary' }
+      = f.submit t('Update Registration'), { class: 'btn btn-primary' }
     - else
-      =f.submit 'Register', { class: 'btn btn-primary', id: 'register' }
+      = f.submit t('Register'), { class: 'btn btn-primary', id: 'register' }

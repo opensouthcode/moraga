@@ -3,19 +3,17 @@
     .col-md-12
       .well
         %h1
-          Welcome to your new
-          Moraga Event Manager
-          installation!
+          = t('Welcome to your new Moraga Event Manager installation!')
         %p
-          The first user to
+          = t('The first user to')
           - if ENV.fetch('MORAGA_ICHAIN_ENABLED', nil) == 'true'
             = link_to(new_ichain_registration_path('user')) do
-              sign up
+              = t('sign up')
           - else
             = link_to(new_registration_path('user')) do
-              sign up
-          will the be administrator of it.
+              = t('sign up')
+          = t('will the be administrator of it')
         %p
-          We hope you enjoy using MORAGA, if you have any question don't hesitate to
+          = t("We hope you enjoy using MORAGA")
           = link_to('https://github.com/opensouthcode/moraga/issues') do
-            contact us!
+            = t('contact us')

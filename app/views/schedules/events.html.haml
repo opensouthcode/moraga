@@ -3,11 +3,11 @@
     = render partial: 'schedule_tabs',  locals: { active: 'program' }
 
   %h1.text-center
-    Program for
+    = t('Program for')
     = @conference.title
   .dropdown.program-dropdown
     %button{ type: "button", class: "btn btn-default dropdown-toggle", 'data-toggle' => "dropdown" }
-      Dates
+      = t('Dates')
       %span.caret
     %ul.dropdown-menu
       - @dates.each do |date|
@@ -15,7 +15,7 @@
           = link_to date, "##{date}", class: "program-selector#{ ' no-events-day' unless @conference.program.any_event_for_this_date?(date) }"
       - if @unscheduled_events.any?
         %li.li-dropdown-program
-          = link_to('Unscheduled', "#unscheduled", class: 'program-selector')
+          = link_to( t('Unscheduled'), "#unscheduled", class: 'program-selector')
 
   .row
 
@@ -46,7 +46,7 @@
       .col-xs-12.col-md-12
         .date-content
           %span.date-title#unscheduled
-            Unscheduled events
+            = t('Unscheduled events')
           %a{ title: "Go up", class: "pull-right", href: "#program" }
             %i{ class: "fa-solid fa-angles-up fa-lg", 'aria-hidden' => true }
       - @unscheduled_events.each do |event|

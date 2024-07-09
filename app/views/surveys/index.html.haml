@@ -2,7 +2,8 @@
   .row
     .col-md-12
       .page-header
-        %h1 Surveys
+        %h1
+           = t('Surveys')
   .row
     .col-md-12
       = render partial: 'surveys/list', locals: { surveys: @surveys, conference: @conference }

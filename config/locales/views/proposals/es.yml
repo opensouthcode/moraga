@@ -1,0 +1,86 @@
+es:
+  just-paste: "Simplemente pegue la URL de su proveedor de videos/fotos. Soportado: YouTube, Vimeo, SpeakerDeck, SlideShare, Instagram, Flickr."
+  Delete: Borrar
+  added by: añadido por
+  You can submit proposals for: Puedes enviar propuestas para
+  Proposals should fit in one of the: Las propuestas deben encajar en uno de los
+  track: track
+  The submission period has begun: El período de envíos ha comenzado el
+  and closes: y cierra el
+  That means you have: Eso significa que tienes
+  left!: "."
+  Remember: Recuerda
+  goodContent: será tan buena como el contenido que presentes. ¡Envía pronto, envía a menudo!
+  The submission period is closed now: El período de envíos ha finalizado
+  Proposal Information: Información de la propuesta
+  You have used: Has usado
+  words.  Abstracts must be between: palabras. La descripción debe tener entre
+  and: y
+  words: palabras
+  Event Registration: Registro en el evento
+  Require participants to register to your event: Exigir a los participantes registrarse al evento
+  The maximum number of participants: Número máximo de participantes
+  Is a highlight?: ¿Es un destacado?
+  Do you require something special for your event?: ¿Necesita algo especial para tu evento?
+  Eg. Whiteboard, printer, or something like that: Por ejemplo, pizarra, impresora o cosas así
+  Update Proposal: Actualizar propuesta
+  Create Proposal: Crear propuesta
+  Speaker(s) registered to the conference: Ponente(s) registrado a la conferencia 
+  Speaker(s) not registered to the conference:  Ponente(s) no registrado a la conferencia
+  Speakers have filled out their biographies: Ponentes tienen biografía
+  Fill out your biography: Rellene su biografía
+  Speakers' biographies missing: Biografías de los ponentes no rellenas
+  Add a subtitle: Añadir subtítulo
+  Add a commercial: Añadir video
+  Add a track: Añadir track
+  Add a difficulty level: Añadir nivel de dificultad
+  Proposals for: Propuestas para
+  Congratulations!: ¡Felicidades!
+  Help?: ¿necista ayuda?
+  What happens next with my proposal?: "¿qué ocurre ahora con mi propuesta?"
+  If you submit a proposal, the conference organizers will review it and either accept or reject it.: Si has enviado una propuesta, los organizadores la revisarán y la aceptarán o rechazarán.
+  If your proposal is accepted, the conference organizers expect you to confirm that you will be able to hold it.: Si tu propuesta es aceptada, la organización espera que la confirmes que podrás realizarla.
+  If your proposal is rejected, you can either live with that or adapt it and resubmit it for review again.: Si tu propuesta es rechazada, puedes adaptarla y volverla a enviar para una nueva revisión.
+  If something changes and you can't hold the presentation any more, you should withdraw it.: Si algo ha cambiado y no puedes realizarla, por favor, cancelala.
+  Why do I need to add more information?: ¿por qué tengo que añadir más información?
+  The more information you add to your proposal, the more likely it is that the conference organizers accept your proposal.: Contra más información tenga la propuesta, más posibilidades de que los organizadores la acepten.
+  It will also be more likely that visitors find your proposal interesting enough to attend.: Además hará que sea más atractiva para los asistentes el asistir.
+  Why do I need to register to the conference?: ¿Por qué me tengo que registrar en la conferencia?
+  Knowing the number of visitors for the conference helps the organizers plan better.: Saber el número de visitantes a la conferencia ayuda a los organizadores a planificar mejor.
+  Complete your proposal: Completa su propuesta
+  Confirm: Confirmar
+  Withdraw: Cancelar
+  Re-Submit: Re-enviar
+  Edit: Editar
+  New Proposal: Nueva propuesta
+  Account: Cuenta
+  Already have an account?: ¿Tiene cuenta?
+  Registrations: Registros
+  for: para
+  Name: Nombre
+  Email: Correo electrónico
+  Created at: Creado en
+  Attended: Asistentes
+  Attended Conference: Asistentes a la conferencia
+  (private): (privado)
+  Schedule: Agenda
+  Edit: Editar
+  Presented by: Realizada 
+  from: de
+  No video of the event yet, sorry: No hay viede aún, lo sentimos
+  Meanwhile: Mientras tanto
+  Date: Date
+  Room: Sala
+  Conference: Conferencia
+  Language: Idioma
+  Track: Track
+  Difficulty: Dificultad
+  Requires Registration: Requiere registro
+  Start Time: Hora de comienzo
+  Speakers: Ponentes
+  Type: Tipo
+  Requirements: Requerimientos
+  day:
+    one: día
+    other: dias
+  requirementsExample: Por ejemplo, una pizarra, un impresora...

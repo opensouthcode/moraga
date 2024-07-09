@@ -48,10 +48,6 @@
 # The address MORAGA uses for sending mails
 # MORAGA_EMAIL_ADDRESS="no-reply@example.com"
 
-# The api key for transifex.com.
-# See https://github.com/openSUSE/osem/wiki/Translation
-# MORAGA_TRANSIFEX_APIKEY=1234
-
 # sentry.io DSN key
 # MORAGA_SENTRY_DSN=1234
 

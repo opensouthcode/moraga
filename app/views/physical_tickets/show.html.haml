@@ -3,11 +3,11 @@
     .col-md-12
       .page-header
         %h1
-          Ticket for
+          = t('Ticket for')
           = @conference.title
         %p.text-muted
           - if @conference.venue
-            at
+            = t('at')
             %strong
               #{@conference.venue_name},
             #{@conference.venue_street},
@@ -17,16 +17,16 @@
   .row
     .col-md-5.box.well
       %h3.text-center
-        Ticket Holder
+        = t('Ticket Holder')
       %p.text-left
         %strong
-          Name
+          = t('Name')
         %br
         = @user.name
         %br
         %br
         %strong
-          Email
+          = t('Email')
         %br
         = @user.email
     .col-md-5.col-md-offset-2.box.well
@@ -37,13 +37,13 @@
       %p.text-left
         %br
         %strong
-          Organization
+          =t('Organization')
         %br
         = @conference.organization.name
     .col-md-5.box.well
       %p.text-left
         %strong
-          Event
+          = t('Event')
         %br
         = @conference.title
         %br
@@ -51,13 +51,13 @@
         %br
         %br
         %strong
-          Ticket
+          = t('Ticket')
         %br
         = @physical_ticket.ticket.title
         %br
         %br
         %strong
-          Ticket Ref.
+          = t('Ticket Ref.')
         %br
         = @physical_ticket.ticket_purchase.id
         %br
@@ -66,7 +66,7 @@
   .row
     .col-md-12
       %p.text-left
-        = link_to 'Generate PDF',
+        = link_to t('Generate PDF'),
         conference_physical_ticket_path(@conference.short_title,
                                         @physical_ticket.token,
                                         format: :pdf),

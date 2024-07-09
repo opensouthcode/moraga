@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    attributes:
+      event:
+        title: Titulo
+        subtitle: Subtítulo
+        speakers: Ponentes
+        language: Idioma
+        abstract: Descripción
+      user:
+        name: Nombre
+        avatar: Avatar
+        nickname: Nickname
+        biography: Biografía
+        affiliation: Afiliación

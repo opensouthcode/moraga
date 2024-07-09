@@ -1,6 +1,6 @@
 = content_for :splash_nav do
   %li
-    = link_to 'Code of Conduct', '#',
+    = link_to t("Code of Conduct"), '#',
       data: { toggle: 'modal', target: '#modal-code-of-conduct'}
 
 - content_for :modals do
@@ -11,7 +11,8 @@
           .modal-header
             %button.close{ data: { dismiss: 'modal' } }
               %i.fa-solid.fa-xmark
-            %h3.modal-title Code of Conduct
+            %h3.modal-title
+              = t("Code of Conduct")
           .modal-body
             = markdown organization.code_of_conduct
           .modal-footer

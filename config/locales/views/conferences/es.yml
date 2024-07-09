@@ -1,0 +1,65 @@
+es:
+  # Call for booths
+  Booth: Stand
+  Call for Booths: Peticiones de Stands
+  We are now accepting custom booth requests: Aceptamos peticiones para stands
+  Would you like to request a new booth?: ¿Quieres solicitar un nuevo stand?
+  The submission period for booth requests is open: El período de petición de stand está abierto
+  days_left: "Quedan %{days} días" 
+  Submit your request for booth: Envía tu solicitud de Stand
+  # Call for papers
+  Call for Papers: Petición de actividades
+  We are now accepting proposals for sessions: Aceptamos propuestas de actividades
+  You can submit proposals for: Puedes enviar propuestas para
+  Proposals should fit in one of the: Las propuestas deben encajar en
+  The submission period is open: El período de envíos de actividades está abierto
+  Submit your proposal now: Envía tu propuesta ahora
+  # Call for tracks
+  Call for Tracks: Petición de tracks
+  We are now accepting custom track requests: Aceptamos peticiones de tracks especializados
+  Would you like to host a mini-summit, sub-conference, or hack space?: ¿Te gustaría tener un mini-evento, sub-conferencia o hackspace?
+  The submission period for track requests is open: El período de envio de peticiones de tracks está abierto
+  Submit your request for track: Envia tu petición de track
+  Code of Conduct: Código de conducta
+  View Conference: Ver conferencia
+  Schedule: Programa
+  My Registration: Mi registro
+  Register: Registrar
+  My Track Requests: Mis propuestas de track
+  Submit Track Request: Proponer track
+  My booth Requests: Mis propuestas de stand
+  Request Booth: Proponer stand
+  Subscribe: Suscribir
+  Unsubscribe: Desuscribir
+  My Tickets: Mis tickets
+  Surveys: Encuestas
+  Program Highlights: 
+  Where to stay: Donde alojarse 
+  in: en
+  We recommend the following accommodations for your visit: Recomedamos los siguientes alojamientos para su visita.
+  has the most awesome program ever!: has the most awesome program ever!
+  Sorry, the conference registration limit has exceeded:
+  Going to: 
+  is free of charge: 
+  We only ask you to register yourself before: 
+  so we can plan for the right amount of people: 
+  The registration period is open: 
+  Edit Your Registration: 
+  Register Now: 
+  Want to sponsor?: 
+  Contact us!: 
+  Support: Apoya
+  Tickets: Tickets
+  Tracks: Tracks
+  Venue: Localización
+  Upcoming Conferences: Próximas conferencias
+  Older conferences: Conferencia pasadas
+  Add the events to your calendar: Añade los eventos a tu calendario
+  Days only: Solo los dias
+  Detailed: Detallado
+  Welcome to your new Moraga Event Manager installation!: "¡Bienvenido a tu nueva instalación de Moraga!"
+  The first user to: El primer usuario que se 
+  sign up: registre
+  will the be administrator of it: será el administrador.
+  We hope you enjoy using MORAGA: Esperamos que le guste MORAGA, si tienes alguna pregunta no dudes en
+  contact us: contactar con nosotros

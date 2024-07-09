@@ -6,40 +6,46 @@
           = image_tag(@booth.picture.thumb.url, size: '20%', alt: '')
         = @booth.title
         .btn-group.pull-right
-          = link_to 'Edit', edit_conference_booth_path(@conference.short_title, @booth), class: 'btn btn-mini btn-primary'
+          = link_to t('Edit'), edit_conference_booth_path(@conference.short_title, @booth), class: 'btn btn-mini btn-primary'
 
   .row
     .col-md-12
       %table.table
         %tr
           %td.col-md-2
-            %b Description
+            %b
+              = t('Description')
           %td
             = markdown(@booth.description)
         %tr
           %td.col-md-2
-            %b Reasoning
+            %b
+              = t('Reasoning')
           %td
             = markdown(@booth.reasoning)
         %tr
           %td.col-md-2
-            %b Website
+            %b
+              = t('Website')
           %td
             - if @booth.website_url.present?
               = link_to @booth.website_url,  @booth.website_url
         %tr
           %td.col-md-2
-            %b Submitter
+            %b
+              = t('Submitter')
           %td
             = link_to @booth.submitter.name, user_path(@booth.submitter)
         %tr
           %td.col-md-2
-            %b Submitter's relationship
+            %b
+              = t('Submitter's relationship')
           %td
             = @booth.submitter_relationship
         %tr
           %td.col-md-2
-            %b Responsibles
+            %b
+              = t('Responsibles')
           %td
             - @booth.responsibles.each_with_index do |responsibles, i|
               .responsibles
@@ -51,11 +57,13 @@
                 = ", " unless i == @booth.responsibles.length - 1
         %tr
           %td.col-md-2
-            %b Submitted on
+            %b
+              = t('Submitted on')
           %td
             = @booth.created_at
         %tr
           %td.col-md-2
-            %b Last updated on
+            %b
+              = t('Last updated on')
           %td
             = @booth.updated_at

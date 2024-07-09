@@ -2,10 +2,10 @@
   %table.table.table-hover
     %thead
       %tr
-        %th Ticket
-        %th Quantity
-        %th Price
-        %th Total
+        %th t('Ticket')
+        %th t('Quantity')
+        %th t('Price)'
+        %th t('Total')
     %tbody
       - tickets.each do |ticket|
         = render partial: 'ticket', f: f, locals: { ticket: ticket }
@@ -14,7 +14,7 @@
         %td
         %td.col-sm-1.col-md-1.text-center
           %h4
-            Total
+            = t('Total')
         %td.col-sm-1.col-md-1.text-center
           %h4
             %strong
@@ -22,5 +22,5 @@
                 0
   %p
     = button_tag(type: 'submit', class: 'btn btn-success btn-lg pull-right') do
-      Support
+      = t('Support')
       %i.fa-solid.fa-cart-shopping

@@ -2,7 +2,7 @@
   .row
     .col-md-12.page-header
       %h1
-        Organizations
+        = t('Organizations')
         .btn-group.pull-right
           / = link_to 'Add new', new_organization_path, class: 'btn btn-mini btn-success'
     - @organizations.each do |organization|
@@ -17,5 +17,5 @@
                 conferences_organization_path(organization),
                 class: 'btn btn-success'
               - unless organization.code_of_conduct.blank?
-                = link_to 'Code of Conduct', [:code_of_conduct, organization], class: 'btn btn-info'
+                = link_to t('Code of Conduct'), [:code_of_conduct, organization], class: 'btn btn-info'
               / = link_to 'Edit', edit_organization_path(organization), class: 'btn btn-mini btn-default'

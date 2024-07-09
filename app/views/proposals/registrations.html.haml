@@ -3,13 +3,13 @@
     .col-md-10.col-md-offset-1
       .page-header
         %h1
-          Registrations
+          = t('Registrations')
           - if @event.max_attendees
             (#{@event.events_registrations.length}/#{@event.max_attendees})
           - else
             (#{@event.events_registrations.length})
         .text-muted
-          for
+          = t('for')
           = @event.title
 
       .well
@@ -17,11 +17,16 @@
           %thead
             %tr
               %th
-              %th Name
-              %th Email
-              %th Created AT
-              %th Attended
-              %th Attended Conference
+              %th
+                = t('Name')
+              %th
+                = t('Email')
+              %th
+                = t('Created at')
+              %th
+                = t('Attended')
+              %th
+                = t('Attended Conference')
           %tbody
             - @event.events_registrations.each.with_index(1) do |event_registration, index|
               %tr
@@ -31,7 +36,7 @@
                   - if event_registration.registration.user.email_public
                     = event_registration.email
                   - else
-                    (private)
+                    = t('(private)')
                 %td= event_registration.created_at
                 %td.text-center
                   - if event_registration.attended

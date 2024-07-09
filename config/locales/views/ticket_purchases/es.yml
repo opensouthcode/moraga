@@ -1,0 +1,10 @@
+es:
+  Ticket Purchases: Compras de tickets
+  Your unpaid ticket purchases for the conference: Tickets no comprados para la conferencia
+  ID: ID
+  Type: Tipo
+  Quantity: Cantidad
+  Date: Fecha
+  Actions: Acciones
+  Pay: Pagar
+  dont-have-unpaid: No tienes tickets sin pagar
