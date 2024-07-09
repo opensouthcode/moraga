@@ -1,0 +1,23 @@
+en:
+  Name: Name
+  Short Name: Short Name
+  This field is required: This field is required
+  "A short and unique handle for the track, using only letters, numbers, underscores, and dashes. This will be used to identify the track in URLs etc. Example: 'my_awesome_track': A short and unique handle for the track, using only letters, numbers, underscores, and dashes. This will be used to identify the track in URLs etc. Example: 'my_awesome_track'": test
+  Start Date: Start Date
+  End Date: End Date
+  Create Track: Create Track
+  Update Track: Update Track
+  Description: Description
+  Relevance: Relevance
+  Room: Room
+  Please add a: Please add a
+  venue: venue
+  with: with
+  rooms: rooms
+  if you want to select a room for the track: if you want to select a room for the track.
+  Allow event submitters to select this track for their proposal: Allow event submitters to select this track for their proposal
+  Color: Color
+  New Track: New Track
+  Edit Track request: Edit Track request
+  Edit Track: Edit Track
+  Track requests for: Track requests for

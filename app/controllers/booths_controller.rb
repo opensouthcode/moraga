@@ -87,7 +87,7 @@ class BoothsController < ApplicationController
       redirect_to conference_booths_path,
                   notice: t('Booth successfully re-submitted')
     else
-      flash.now[:error] = t("Booth could not be re-submitted" + "#{@booth.errors.full_messages.to_sentence}."
+      flash.now[:error] = t("Booth could not be re-submitted") + "#{@booth.errors.full_messages.to_sentence}."
     end
   end
 

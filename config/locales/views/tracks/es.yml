@@ -1,0 +1,24 @@
+es:
+  Name: Nombre
+  Short Name: Nombre corto
+  This field is required: Este campo es obligatorio
+  "A short and unique handle for the track, using only letters, numbers, underscores, and dashes. This will be used to identify the track in URLs etc. Example: 'my_awesome_track'": "Un nombre corto y único para el track, solo se permite letras, números, subrayado y guiones. Esto será usado para identificar el track en URLs, etc. Ejemplo: 'mi_gran_track'"
+  Start Date: Fecha inicial
+  End Date: Fecha final
+  Create Track: Crear Track
+  Update Track: Actualizar Track
+  Description: Descripción
+  Relevance: Relevancia
+  Room: Sala
+  Please add a: Por favor, añade una
+  venue: lugar
+  with: con
+  rooms: salas
+  if you want to select a room for the track: si quieres seleccionar una sala para el track.
+  Allow event submitters to select this track for their proposal: Permitir que los usuarios elijan este track para sus propuestas
+  Color: Color
+  New Track: Nuevo Track
+  Edit Track request: Editar track
+  Manage: Gestionar
+  Edit Track: Editar track
+  Track requests for: Peticiones de track para
