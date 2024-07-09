@@ -26,7 +26,6 @@ namespace :data do
       dot_env.puts "MORAGA_HOSTNAME=\"#{CONFIG['url_for_emails']}\""
       dot_env.puts "MORAGA_EMAIL_ADDRESS=\"#{CONFIG['sender_for_emails']}\""
       dot_env.puts "MORAGA_ICHAIN_ENABLED=\"#{CONFIG['authentication']['ichain']['enabled']}\"" if CONFIG.has_key?(:authentication)
-      dot_env.puts "MORAGA_TRANSIFEX_APIKEY=\"#{CONFIG['transifex_live_api_key']}\""
       dot_env.puts "MORAGA_ERRBIT_HOST=\"#{CONFIG['errbit_host']}\""
       dot_env.puts "MORAGA_SMTP_ADDRESS=\"#{CONFIG['mail_address']}\""
       dot_env.puts "MORAGA_SMTP_PORT=\"#{CONFIG['mail_port']}\""
