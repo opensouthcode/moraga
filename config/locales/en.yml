@@ -34,4 +34,17 @@ en:
   time:
       formats:
           short: "%Y-%m-%dT%H:%M:%S"
-
+  activerecord:
+    attributes:
+      event:
+        title: Title
+        subtitle: Subtítle
+        speakers: Speakers
+        language: Language
+        abstract: Abstract
+      user:
+        name: Name
+        avatar: Avatar
+        nickname: Nickname
+        biography: Biography
+        affiliation: Affiliation

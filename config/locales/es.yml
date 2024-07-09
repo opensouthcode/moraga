@@ -7,3 +7,9 @@ es:
         speakers: Ponentes
         language: Idioma
         abstract: Descripción
+      user:
+        name: Nombre
+        avatar: Avatar
+        nickname: Nickname
+        biography: Biografía
+        affiliation: Afiliación

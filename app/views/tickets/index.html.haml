@@ -3,9 +3,9 @@
     .col-md-12
       .page-header
         %h1
-          Tickets
+          = t('Tickets')
       %p.lead
-        Please choose your tickets for
+        = t('Please choose your tickets for')
         %strong
           = @conference.title
       = form_tag(conference_ticket_purchases_path, method: :post) do |f|
@@ -14,10 +14,14 @@
             %tr
               %th Ticket
               - if @conference.tickets.for_registration.any?
-                %th Registration Ticket
-              %th Quantity
-              %th Price
-              %th Total
+                %th
+                  = t('Registration Ticket')
+              %th
+                = t('Quantity')
+              %th
+                = t('Price')
+              %th
+                = t('Total')
           %tbody
           - @conference.tickets.each do |ticket|
             = render 'ticket', f: f, ticket: ticket
@@ -28,7 +32,7 @@
             %td
             %td.col-sm-1.col-md-1.text-center
               %h4
-                Total
+                = t('Total')
             %td.col-sm-1.col-md-1.text-center
               %h4
                 %strong
@@ -38,9 +42,9 @@
         .pull-right
           .btn-group-vertical
             = button_tag(type: 'submit', class: 'btn btn-success btn-lg') do
-              Continue
+              = t('Continue')
               %i.fa-solid.fa-cart-shopping
-            = link_to 'Back to registration',
+            = link_to t('Back to registration'),
               conference_conference_registration_path(@conference.short_title),
               class: 'btn btn-default btn-sm'
   - if @conference.tickets.for_registration.any?
@@ -48,5 +52,5 @@
       .col-md-13
         %p.text-muted.text-center
           %small
-            Getting a registration ticket is mandatory. Your participation
-            will not be valid until you get a registration ticket.
+            = t('Getting a registration ticket is mandatory')
+            = t('Your participation will not be valid until you get a registration ticket')
