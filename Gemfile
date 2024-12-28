@@ -6,7 +6,7 @@ end
 
 source 'https://rubygems.org'
 
-ruby ENV.fetch('MORAGA_RUBY_VERSION', '3.1.4')
+ruby ENV.fetch('MORAGA_RUBY_VERSION', '3.1.6')
 
 # rails-assets requires >= 1.8.4
 if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('1.8.4')
