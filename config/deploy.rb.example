@@ -1,11 +1,11 @@
 require 'mina/rails'
 require 'mina/git'
 
-MORAGA_DEPLOY_DOMAIN = ENV.fetch('MORAGA_DEPLOY_DOMAIN', 'dale.infra.opensuse.org')
+MORAGA_DEPLOY_DOMAIN = ENV.fetch('MORAGA_DEPLOY_DOMAIN', 'example.org')
 MORAGA_DEPLOY_PORT = ENV.fetch('MORAGA_DEPLOY_PORT', '22')
 MORAGA_DEPLOY_USER = ENV.fetch('MORAGA_DEPLOY_USER', 'MORAGA')
-MORAGA_DEPLOY_DIR = ENV.fetch('MORAGA_DEPLOY_DIR', '/home/MORAGA/events')
-MORAGA_DEPLOY_REPO = ENV.fetch('MORAGA_DEPLOY_REPO', 'https://github.com/openSUSE/MORAGA.git')
+MORAGA_DEPLOY_DIR = ENV.fetch('MORAGA_DEPLOY_DIR', '/home/moraga/events')
+MORAGA_DEPLOY_REPO = ENV.fetch('MORAGA_DEPLOY_REPO', 'https://github.com/opensouthcode/moraga')
 MORAGA_DEPLOY_BRANCH = ENV.fetch('MORAGA_DEPLOY_BRANCH', 'master')
 
 set :application_name, 'moraga'
