@@ -1,4 +1,5 @@
 en:
+  booth: booth
   Request a booth: Request a booth
   Title: Title
   This field is required: This field is required
@@ -53,4 +54,11 @@ en:
   Booth is submitted: Booth is submitted
   Booth is canceled: Booth is canceled
   Booth successfully confirmed: Booth successfully confirmed
+  Export PDF: Export PDF
+  Export CSV: Export CSV
+  Export XLS: Export XLS
+  All: All
+  Confirmed: Confirmed
+  All the booth requests: All the booth requests
+  New Booth: New Booth
  

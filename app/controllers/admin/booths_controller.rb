@@ -41,7 +41,7 @@ module Admin
         redirect_to admin_conference_booths_path,
                     notice: t("Booth successfully created")
       else
-        flash.now[:error] = t("Creating booth failed") + "." + #{@booth.errors.full_messages.to_sentence}."
+        flash.now[:error] = t("Creating booth failed") + "." + @booth.errors.full_messages.to_sentence
         render :new
       end
     end
@@ -76,16 +76,16 @@ module Admin
                     notice: t("Booth successfully accepted")
       else
         redirect_to admin_conference_booths_path(conference_id: @conference.short_title)
-        flash[:error] = t("Booth could not be accepted)" +  "#{@booth.errors.full_messages.to_sentence}."
+        flash[:error] = t("Booth could not be accepted") +  @booth.errors.full_messages.to_sentence
       end
     end
 
     def to_accept
-      update_state(:to_accept, t("Booth to accept")
+      update_state(:to_accept, t("Booth to accept"))
     end
 
     def to_reject
-      update_state(:to_reject, t("Booth to reject")
+      update_state(:to_reject, t("Booth to reject"))
     end
 
     def reject
@@ -104,15 +104,15 @@ module Admin
     end
 
     def restart
-      update_state(:restart, t("Booth is submitted")
+      update_state(:restart, t("Booth is submitted"))
     end
 
     def cancel
-      update_state(:cancel, t("Booth is canceled")
+      update_state(:cancel, t("Booth is canceled"))
     end
 
     def confirm
-      update_state(:confirm, t("Booth successfully confirmed")
+      update_state(:confirm, t("Booth successfully confirmed"))
     end
 
     private

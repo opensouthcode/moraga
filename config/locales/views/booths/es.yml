@@ -1,4 +1,5 @@
 es:
+  booth: stand
   Request a booth: Solicitar un stand
   Title: Título
   This field is required: Este campo es requerido
@@ -54,3 +55,10 @@ es:
   Booth is submitted: Stand ha sido enviado
   Booth is canceled: Stand está cancelado
   Booth successfully confirmed: Stand confirmado
+  Export PDF: Exportar PDF
+  Export CSV: Exportar CSV
+  Export XLS: Exportar XLS
+  All: Todos
+  Confirmed: Confirmados
+  All the booth requests: Peticiones de stands
+  New Booth: Nuevo Stand

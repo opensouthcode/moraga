@@ -8,28 +8,28 @@
             .btn-group
               .btn-group
                 %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => 'dropdown', type: 'button', class: 'btn btn-success' }
-                  Export PDF
+                  = t('Export PDF')
                   %span.caret
                 %ul.dropdown-menu{ role: 'menu' }
-                  %li= link_to "All #{(t'booth').pluralize.capitalize }", admin_conference_booths_path(@conference.short_title, format: :pdf, booth_export_option: 'all')
-                  %li= link_to "Confirmed #{(t'booth').pluralize.capitalize }", admin_conference_booths_path(@conference.short_title, format: :pdf, booth_export_option: 'confirmed')
+                  %li= link_to "#{t('All')} #{(t'booth').pluralize.capitalize }", admin_conference_booths_path(@conference.short_title, format: :pdf, booth_export_option: 'all')
+                  %li= link_to "#{t('Confirmed')} #{(t'booth').pluralize.capitalize }", admin_conference_booths_path(@conference.short_title, format: :pdf, booth_export_option: 'confirmed')
               .btn-group
                 %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => 'dropdown', type: 'button', class: 'btn btn-success' }
-                  Export CSV
+                  = t('Export CSV')
                   %span.caret
                 %ul.dropdown-menu{ role: 'menu' }
-                  %li= link_to 'All', admin_conference_booths_path(@conference.short_title, format: :csv, booth_export_option: 'all')
-                  %li= link_to 'Confirmed', admin_conference_booths_path(@conference.short_title, format: :csv, booth_export_option: 'confirmed')
+                  %li= link_to "#{t('All')}", admin_conference_booths_path(@conference.short_title, format: :csv, booth_export_option: 'all')
+                  %li= link_to "#{t('Confirmed')}", admin_conference_booths_path(@conference.short_title, format: :csv, booth_export_option: 'confirmed')
               .btn-group
                 %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => 'dropdown', type: 'button', class: 'btn btn-success' }
-                  Export XLS
+                  = t('Export XLS')
                   %span.caret
                 %ul.dropdown-menu{ role: 'menu' }
-                  %li= link_to 'All', admin_conference_booths_path(@conference.short_title, format: :xlsx, booth_export_option: 'all')
-                  %li= link_to 'Confirmed', admin_conference_booths_path(@conference.short_title, format: :xlsx, booth_export_option: 'confirmed')
+                  %li= link_to "#{t('All')}", admin_conference_booths_path(@conference.short_title, format: :xlsx, booth_export_option: 'all')
+                  %li= link_to "#{t('Confirmed')}", admin_conference_booths_path(@conference.short_title, format: :xlsx, booth_export_option: 'confirmed')
         = "(#{@booths.length})" if @booths.any?
       %p.text-muted
-        All the #{t'booth'} requests
+        = t("All the booth requests")
 
 .row
   .col-md-12
@@ -62,15 +62,20 @@
             %th
               %b Logo
             %th
-              %b Title
+              %b
+                = t('Title')
             %th
-              %b Submitter
+              %b
+                = t('Submitter')
             %th
-              %b Responsibles
+              %b
+                = t('Responsibles')
             %th
-              %b State
+              %b
+                = t('State')
             %th
-              %b Actions
+              %b
+                = t('Actions')
         %tbody
           - @booths.each do |booth|
             %tr
@@ -96,9 +101,9 @@
                   %ul.dropdown-menu{ role: 'menu' }
                     = render 'change_state_dropdown', booth: booth
                 %td
-                  = link_to 'Edit', edit_admin_conference_booth_path(@conference.short_title, booth.id),
+                  = link_to t('Edit'), edit_admin_conference_booth_path(@conference.short_title, booth.id),
                   class: 'btn btn-primary'
 .row
   .col-md-12.text-right
     - if can? :create, Booth
-      = link_to 'New Booth', new_admin_conference_booth_path(@conference.short_title), class: 'button btn btn-primary'
+      = link_to t('New Booth'), new_admin_conference_booth_path(@conference.short_title), class: 'button btn btn-primary'
