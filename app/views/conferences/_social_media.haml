@@ -18,6 +18,9 @@
           - if contact.mastodon?
             = link_to "#{ contact.mastodon }" do
               %i.fa-brands.fa-mastodon.fa-4x
+          - if contact.bluesky?
+            = link_to "#{ contact.bluesky }" do
+              %i.fa-brands.fa-bluesky.fa-4x
           - if contact.youtube?
             = link_to "#{ contact.youtube }" do
               %i.fa-brands.fa-youtube.fa-4x

@@ -166,7 +166,7 @@ gem 'turbolinks'
 gem 'active_model_serializers'
 
 # as icon font
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '6.7.2'
 
 # for markdown
 gem 'redcarpet'

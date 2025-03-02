@@ -47,6 +47,10 @@
         = f.url_field :mastodon, class: 'form-control'
         %span.help-block
           This will appear in the social media section as a link to the Mastodon Page of your Conference
+        = f.label :bluesky, 'Bluesky URL'
+        = f.url_field :bluesky, class: 'form-control'
+        %span.help-block
+          This will appear in the social media section as a link to the Bluesky Page of your Conference
         = f.label :youtube, 'Youtube URL'
         = f.url_field :youtube, class: 'form-control'
         %span.help-block
