@@ -95,7 +95,7 @@
                 %li
                   = @total_quantity[ticket_id]
                   = tickets.first.title
-                  = word_pluralize(@total_quantity[ticket_id], 'Ticket')
+                  = pluralize(@total_quantity[ticket_id], 'Ticket')
                   = t('for')
                   = tickets.first.price.symbol
                   = humanized_money @total_price_per_ticket[ticket_id]
@@ -149,7 +149,7 @@
             %i.fa-solid.fa-user-group.fa-stack-1x
           = @conference.participants.count
           = t('Registered')
-          = word_pluralize(@conference.participants.count, 'Attendee')
+          = pluralize(@conference.participants.count, 'Attendee')
         - @conference.participants.each do |participant|
           = link_to image_tag(participant.gravatar_url(size: '25'), title: "#{participant.name}!", class: 'img-circle'), user_path(participant)
     .col-md-4.col-md-offset-2
@@ -160,6 +160,6 @@
             %i.fa-solid.fa-microphone.fa-stack-1x
           = @conference.program.speakers.confirmed.count
           = t('Confirmed')
-          = word_pluralize(@conference.program.speakers.confirmed.count, 'Speaker')
+          = pluralize(@conference.program.speakers.confirmed.count, 'Speaker')
         - @conference.program.speakers.confirmed.each do |speaker|
           = link_to image_tag(speaker.gravatar_url(size: '25'), title: "#{speaker.name}!", class: 'img-circle'), user_path(speaker)
