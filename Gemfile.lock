@@ -742,7 +742,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 3.1.6p260
+   ruby 3.3.7
 
 BUNDLED WITH
-   2.3.26
+   2.6.6
