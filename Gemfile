@@ -27,6 +27,8 @@ gem 'puma'
 # http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#responders
 gem 'responders', '~> 3.0'
 
+gem 'concurrent-ruby', '1.3.4'
+
 # as supported databases
 gem 'mysql2'
 gem 'pg'
