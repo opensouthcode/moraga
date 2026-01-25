@@ -30,7 +30,7 @@ FROM base AS build
 
 # Install packages needed to build gems, MySQL support, and Node.js for CSS compilation
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config libmariadb-dev-compat nodejs npm && \
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config libmariadb-dev-compat libpq-dev nodejs npm && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
