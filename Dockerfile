@@ -42,7 +42,9 @@ RUN bundle install && \
 COPY . .
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# We generate a temporary secret_key_base just for asset compilation
+# The real secret_key_base will come from RAILS_MASTER_KEY at runtime via Kamal
+RUN SECRET_KEY_BASE=$(bin/rails secret) ./bin/rails assets:precompile
 
 
 
