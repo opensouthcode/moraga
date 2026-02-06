@@ -8,6 +8,7 @@ config/credentials.yml.enc
 /vendor/cache
 /vendor/cache-old
 /storage/*
+!/storage/.gitkeep
 .idea/*
 *.iml
 *.rbc
@@ -18,7 +19,9 @@ capybara-*.html
 /.bundle
 /vendor/bundle
 /log/*
+!/log/.gitkeep
 /tmp/*
+!/tmp/.gitkeep
 /db/*.sqlite3
 /public/system/*
 /coverage/
@@ -47,3 +50,5 @@ moraga_development
 moraga_test
 .ackrc
 spec/support/deprecation_shitlist.json
+
+/config/credentials/production.key
