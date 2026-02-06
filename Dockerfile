@@ -14,9 +14,9 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 # Rails app lives here
 WORKDIR /rails
 
-# Install base packages including MySQL client libraries
+# Install base packages including MySQL and PostgreSQL client libraries
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 libmariadb-dev && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 libmariadb-dev libpq5 && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment
