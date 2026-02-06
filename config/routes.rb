@@ -1,4 +1,7 @@
 Moraga::Application.routes.draw do
+  # Health check endpoint for Kamal proxy
+  get '/up', to: proc { [200, {}, ['OK']] }
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   constraints DomainConstraint do
