@@ -1,0 +1,14 @@
+= content_for :splash_nav do
+  - past_editions = past_editions_for(conference)
+  - if past_editions.any?
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#', id: "past-editions-dropdown"}
+        = t('Past Editions')
+        %b.caret
+      %ul.dropdown-menu
+        - past_editions.each do |edition|
+          %li
+            = link_to conference_path(edition.short_title) do
+              = edition.title
+              %br
+              %small.text-muted= date_string(edition.start_date, edition.end_date)
