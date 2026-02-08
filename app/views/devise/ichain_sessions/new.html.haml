@@ -21,6 +21,6 @@
               = f.password_field :password, required: true, class: 'form-control', placeholder: 'Password'
             %p.text-right
               %button{type: 'submit', class: 'btn btn-success'}
-                Sign In
+                = t('Sign In')
 
             = render partial: 'devise/shared/help'

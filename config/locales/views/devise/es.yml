@@ -2,7 +2,7 @@ es:
   Resend confirmation instructions: 
   This field is required: Este campo es requerido
   Send me reset password instructions:
-  Sign in: Registro
+  Sign in: Acceso
   Username: Usuario
   Password: Clave
   Forgot your password?: "¿Has olvidado la clave?"
@@ -22,8 +22,10 @@ es:
   Which languages do you speak: ¿Qué lenguajes habla?
   language-hint: "Comienza con el idioma que mejor hables y usa código de 2 letras, por ejemplo: ES, EN, GR, DE"
   Edit your Account: Editar cuenta
-  Sign Up: Acceder
+  Sign Up: Registro
   Remember me: Recordarme
   Didn't receive confirmation instructions?: ¿No recibió las instrucciones de confirmación?
   Didn't receive unlock instructions?: ¿No recibió las instrucciones de desbloqueo?
   or sign in using: o acceda con
+  or: o
+  Call For Content: Enviar contenido
