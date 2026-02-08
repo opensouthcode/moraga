@@ -52,3 +52,8 @@ moraga_test
 spec/support/deprecation_shitlist.json
 
 /config/credentials/production.key
+
+# Kamal deployment secrets
+.kamal/secrets
+config/deploy.yml
+
