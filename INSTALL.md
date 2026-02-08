@@ -78,9 +78,6 @@ You can find the latest MORAGA releases on our [release page](https://github.com
 
 The easiest way to deploy MORAGA is to use one of the many platform as a service providers that support ruby on rails. We have prepared MORAGA to be used with [heroku](https://heroku.com). So if you have an account there, you can deploy MORAGA by pressing this button:
 
-<a href="https://heroku.com/deploy?template=https://github.com/openSUSE/osem/tree/v1.0">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
 
 ## Deploy to your own server
 
