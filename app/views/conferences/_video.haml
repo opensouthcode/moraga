@@ -1,0 +1,14 @@
+- cache [splashpage, splashpage.video_url, '#splash#video'] do
+  - if splashpage.video_embed_url.present?
+    %section#video
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            .video-wrapper
+              %iframe#video-iframe{
+                src: splashpage.video_embed_url,
+                frameborder: "0",
+                allowfullscreen: "",
+                allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+                title: "Conference Video"
+              }

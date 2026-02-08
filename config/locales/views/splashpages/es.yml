@@ -1,0 +1,12 @@
+es:
+  admin:
+    splashpages:
+      form:
+        video:
+          title: Vídeo
+          label: URL del vídeo
+          placeholder: "https://www.youtube.com/watch?v=..."
+          help_html: |
+            URL del vídeo para mostrar en la página de inicio (se reproducirá automáticamente silenciado).
+            <br>
+            Soportados: <strong>YouTube, Vimeo, PeerTube, Invidious</strong>

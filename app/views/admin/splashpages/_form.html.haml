@@ -46,6 +46,16 @@
       = f.check_box :include_social_media
       Display the social media links?
   %h4
+    = t('admin.splashpages.form.video.title')
+  %hr
+  .form-group
+    = f.label :video_url
+    = f.url_field :video_url,
+                  class: 'form-control',
+                  placeholder: t('admin.splashpages.form.video.placeholder')
+  %p.help-block
+    = t('admin.splashpages.form.video.help_html').html_safe
+  %h4
     Access
   %hr
   .checkbox

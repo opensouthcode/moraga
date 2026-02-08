@@ -20,6 +20,22 @@ FactoryBot.define do
       include_sponsors { true }
       include_lodgings { true }
       include_cfp { true }
+      video_url { 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' }
+    end
+
+    factory :splashpage_with_youtube_video do
+      public { true }
+      video_url { 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' }
+    end
+
+    factory :splashpage_with_vimeo_video do
+      public { true }
+      video_url { 'https://vimeo.com/123456789' }
+    end
+
+    factory :splashpage_with_peertube_video do
+      public { true }
+      video_url { 'https://peertube.example.com/videos/watch/abc-123-def' }
     end
   end
 end
