@@ -1,0 +1,12 @@
+en:
+  admin:
+    splashpages:
+      form:
+        video:
+          title: Video
+          label: Video URL
+          placeholder: "https://www.youtube.com/watch?v=..."
+          help_html: |
+            Video URL to display on the splash page (will autoplay muted).
+            <br>
+            Supported: <strong>YouTube, Vimeo, PeerTube, Invidious</strong>

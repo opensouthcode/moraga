@@ -24,6 +24,9 @@
   -# header/description
   = render 'header', conference: @conference, venue: @conference.venue
 
+  -# Video section
+  = render 'video', splashpage: @conference.splashpage
+
   -# calls for content, or program
   - if @conference.splashpage.include_cfp
     = render 'call_for_content', conference: @conference,

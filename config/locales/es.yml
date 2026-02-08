@@ -13,3 +13,12 @@ es:
         nickname: Nickname
         biography: Biografía
         affiliation: Afiliación
+      splashpage:
+        video_url: URL del vídeo
+    errors:
+      models:
+        splashpage:
+          attributes:
+            video_url:
+              invalid_url: debe ser una URL válida
+              unsupported_platform: debe ser de una plataforma soportada (Youtube, Vimeo, Peertube, Invidious)

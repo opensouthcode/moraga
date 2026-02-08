@@ -48,3 +48,12 @@ en:
         nickname: Nickname
         biography: Biography
         affiliation: Affiliation
+      splashpage:
+        video_url: Video URL
+    errors:
+      models:
+        splashpage:
+          attributes:
+            video_url:
+              invalid_url: must be a valid URL
+              unsupported_platform: must be from a supported platform (Youtube, Vimeo, Peertube, Invidious)
