@@ -40,6 +40,18 @@ module ApplicationHelper
     time.strftime('%F %R') + ' ' + @conference.timezone.to_s
   end
 
+  # Returns past editions (conferences) from the same organization
+  def past_editions_for(conference)
+    return [] unless conference.present?
+
+    Conference.past
+      .where(organization_id: conference.organization_id)
+      .where.not(id: conference.id)
+      .order(start_date: :desc)
+      .limit(10)
+      .select(:id, :short_title, :title, :start_date, :end_date)
+  end
+
   # Set resource_name for devise so that we can call the devise help links (views/devise/shared/_links) from anywhere (eg sign_up form in proposals#new)
   def resource_name
     :user

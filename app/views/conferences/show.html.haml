@@ -58,6 +58,10 @@
       sponsors: @sponsors
 
 
+  -# past editions navigation
+  - if @conference.splashpage.include_past_editions
+    = render 'past_editions_nav', conference: @conference
+
   -# footer
   - if @conference.splashpage.include_social_media
     - if @conference.contact.has_social_media?
