@@ -119,8 +119,6 @@ ask you in the review.
 Additional to **what** and **why** you should explain potential **side-effects** of
 this change, if you are aware of any.
 
-The content is most important, but please also use a [proper style](https://github.com/openSUSE/osem/wiki/Commit-message-guidelines).
-
 ## Development Environment
 
 To isolate your host system from Moraga development we have prepared a container
@@ -168,23 +166,24 @@ sed "s/13042/`id -u`/" docker-compose.override.yml.example > docker-compose.over
    docker-compose exec moraga /bin/bash -l
    ```
 
-1. Want to know more? In our [wiki](https://github.com/openSUSE/osem/wiki) you can find more information about what is possible in our development environment, how we work with each other on github or other topics of interest for Moraga developers.
-
 ## How to contribute translations
 
-Please refer to our [translation guide](https://github.com/openSUSE/osem/wiki/Translation) in the wiki.
+Moraga uses Rails' I18n framework for internationalization. Translation files are located in `config/locales/` and organized by language code (e.g., `en.yml` for English, `es.yml` for Spanish). Each language has corresponding view-specific translation files in subdirectories like `config/locales/views/conferences/`, `config/locales/views/proposals/`, etc.
+
+To contribute a new translation:
+1. Create a new locale file following the pattern `config/locales/[language_code].yml` (e.g., `fr.yml` for French)
+2. Create corresponding translation files for each view subdirectory (e.g., `config/locales/views/conferences/fr.yml`)
+3. Use the English files as reference and translate all keys while maintaining the same YAML structure
+4. Test your translations locally by setting `I18n.locale` in the Rails console
+5. Submit a pull request with your translation files
+
+For updates to existing translations, simply edit the corresponding locale files and submit a pull request with your changes.
 
 ## Code of Conduct
 
-OSEM is part of the openSUSE project. We follow all the
-[openSUSE Guiding Principles!](http://en.opensuse.org/openSUSE:Guiding_principles)
-If you think someone doesn't do that, please let us know at maintainers@osem.io or
-address your concerns to the [openSUSE Board](https://en.opensuse.org/openSUSE:Board).
+Moraga follow the Berlin Code of Conduct. More information in the website: https://berlincodeofconduct.org/
 
 ## Contact
 
 GitHub issues and pull requests are the primary way for communicating about specific proposed
-changes to this project. If you have other questions feel free to subscribe to
-the [opensuse-web@opensuse.org](http://lists.opensuse.org/opensuse-web/)
-mailinglist, all OSEM contributors are on that list! Additionally you can use the #osem channel
-on [libera.chat IRC](https://libera.chat).
+changes to this project.
