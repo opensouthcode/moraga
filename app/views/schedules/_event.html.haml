@@ -16,7 +16,7 @@
         = event.subtitle
     %h4
       - if(event.speakers.any?)
-        = t("presented by") + {event.speaker_names
+        = t("presented by") + event.speaker_names
     %p
       = markdown(truncate(event.abstract, length: 400))
       = link_to t('more'), conference_program_proposal_path(@conference.short_title, event.id) if event.abstract.length > 400
