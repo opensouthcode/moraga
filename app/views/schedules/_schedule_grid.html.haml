@@ -1,0 +1,67 @@
+- step_int = @conference.program.schedule_interval
+- conf_start_dt = DateTime.parse("#{date} #{@conf_start}:00")
+- conf_end_dt   = DateTime.parse("#{date} #{@conf_start + @conf_period}:00")
+
+/ Pre-build time slots
+- time_slots = []
+- slot = conf_start_dt
+- while slot < conf_end_dt
+  - time_slots << slot
+  - slot = slot + step_int.minutes
+
+/ Track pending rowspan per room: how many rows still to skip
+- remaining_span = {}
+- @rooms.each { |r| remaining_span[r.id] = 0 }
+
+/ Events per room filtered to this day
+- events_by_room = {}
+- @rooms.each do |room|
+  - events_by_room[room.id] = (@event_schedules_by_room_id[room.id] || []).select { |es| es.start_time.to_date == date }
+
+.schedule-grid-wrapper
+  %table.schedule-grid
+    %thead
+      %tr
+        %th.time-col-header
+        - @rooms.each do |room|
+          %th.room-header= room.name
+
+    %tbody
+      - time_slots.each do |slot|
+        %tr{ data: { time: slot.strftime('%H:%M') } }
+          / Time column (show label only on :00 and :30)
+          %td.time-cell
+            - if slot.min == 0
+              %span.hour-label= slot.strftime('%H:%M')
+            - elsif slot.min == 30
+              %span.half-label= slot.strftime('%H:%M')
+
+          / One cell per room
+          - @rooms.each do |room|
+            - if remaining_span[room.id] > 0
+              / Cell covered by an active rowspan — do not render a td
+              - remaining_span[room.id] -= 1
+            - else
+              / Find event active at this slot for this room
+              - es = events_by_room[room.id].find { |e| e.start_time <= slot && e.end_time > slot }
+              / Handle canceled/withdrawn events with a confirmed replacement
+              - if es && (es.event.state == 'canceled' || es.event.state == 'withdrawn') && es.intersecting_event_schedules.confirmed.exists?
+                - replacement = es.intersecting_event_schedules.confirmed.first
+                - es = (replacement.start_time <= slot && replacement.end_time > slot) ? replacement : nil
+              - if es && es.start_time == slot
+                / New event starting at this slot
+                - rowspan = ((es.end_time.to_i - slot.to_i) / 60 / step_int).round
+                - rowspan = [rowspan, 1].max
+                - remaining_span[room.id] = rowspan - 1
+                %td.event-cell{ rowspan: rowspan }
+                  %a.event-link{ href: conference_program_proposal_path(@conference.short_title, es.event.id) }
+                    .event-time= "#{es.start_time.strftime('%H:%M')}–#{es.end_time.strftime('%H:%M')}"
+                    .event-title= es.event.title
+                    - if es.event.speakers_ordered.any?
+                      .event-speakers
+                        - es.event.speakers_ordered.first(2).each do |speaker|
+                          = image_tag speaker.gravatar_url, class: 'speaker-avatar'
+                        = es.event.speaker_names
+              - else
+                / Empty cell (no event or event already in progress from before grid start)
+                %td.empty-cell
