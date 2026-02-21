@@ -1,0 +1,13 @@
+[Unit]
+Description=Open Source Event Manager (Moraga)
+Wants=apache2.service
+Before=apache2.service
+
+[Service]
+User=moraga
+EnvironmentFile=/home/moraga/events/current/.env.production
+WorkingDirectory=/home/moraga/events/current
+ExecStart=/usr/bin/bundle exec puma -e production
+
+[Install]
+WantedBy=multi-user.target

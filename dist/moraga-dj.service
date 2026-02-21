@@ -1,16 +1,16 @@
 [Unit]
 Description=Open Source Event Manager Delayed Jobs
-Wants=osem.service
-Before=osem.service
+Wants=moraga.service
+Before=moraga.service
 
 [Service]
-User=osem
-EnvironmentFile=/home/osem/events/current/.env.production
-WorkingDirectory=/home/osem/events/current
+User=moraga
+EnvironmentFile=/home/moraga/events/current/.env.production
+WorkingDirectory=/home/moraga/events/current
 ExecStart = /usr/bin/bundle exec bin/delayed_job -e production start
 ExecStop = /usr/bin/bundle exec bin/delayed_job -e production stop
 Type = forking
-PIDFile = /home/osem/events/current/tmp/pids/delayed_job.pid
+PIDFile = /home/moraga/events/current/tmp/pids/delayed_job.pid
 
 [Install]
 WantedBy=multi-user.target

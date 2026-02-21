@@ -21,7 +21,7 @@
 //= require bootstrap
 //= require Chart.bundle
 //= require chartkick
-//= require osem
+//= require moraga
 //= require jquery-smooth-scroll
 //= require trianglify
 //= require tinycolor
@@ -32,21 +32,21 @@
 //= require leaflet
 //= require holderjs
 //= require bootstrap-datetimepicker
-//= require osem-datepickers
-//= require osem-datatables
-//= require osem-tickets
+//= require moraga-datepickers
+//= require moraga-datatables
+//= require moraga-tickets
 //= require bootstrap-switch
-//= require osem-schedule
-//= require osem-switch
-//= require osem-bootstrap
-//= require osem-revisionhistory
-//= require osem-commercials
+//= require moraga-schedule
+//= require moraga-switch
+//= require moraga-bootstrap
+//= require moraga-revisionhistory
+//= require moraga-commercials
 //= require unobtrusive_flash
 //= require unobtrusive_flash_bootstrap
 //= require countable
 //= require selectize
 //= require bootstrap-select
-//= require osem-survey
+//= require moraga-survey
 
 $(document).ready(function() {
     $('a[disabled=disabled]').click(function(event){

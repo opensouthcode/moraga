@@ -62,7 +62,7 @@ class TicketPdf < Prawn::Document
                            ].join)
                          end
     end
-    conference_image ||= open("#{Rails.root}/public/img/osem-logo.png")
+    conference_image ||= open("#{Rails.root}/public/img/moraga-logo.png")
     image conference_image, at: [@mid_horizontal + 30, cursor], fit: [200, 70]
 
     move_down 70

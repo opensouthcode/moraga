@@ -1,6 +1,6 @@
 # Security Policies and Procedures
 
-This document outlines security procedures and general policies for `OSEM`
+This document outlines security procedures and general policies for `Moraga`
 project.
 
   * [Reporting a Bug](#reporting-a-bug)
@@ -9,8 +9,8 @@ project.
 
 ## Reporting a Bug
 
-The `OSEM` team and community take all security bugs in `OSEM` seriously. We
-applaud you for improving the security of `OSEM` and appreciate your efforts
+The `Moraga` team and community take all security bugs in `Moraga` seriously. We
+applaud you for improving the security of `Moraga` and appreciate your efforts
 and responsible disclosure. We will make every effort to acknowledge your
 contributions!
 
@@ -36,4 +36,4 @@ involving the following steps:
 
 ## Comments on this Policy
 
-If you have suggestions on how this process could be improved, please open an [issue](https://github.com/openSUSE/osem/issues) on Github.com.
+If you have suggestions on how this process could be improved, please open an [issue](https://github.com/opensouthcode/moraga/issues) on Github.com.

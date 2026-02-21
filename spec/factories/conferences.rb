@@ -49,7 +49,7 @@ FactoryBot.define do
         create(:question, conferences: [conference])
 
         # Logo...
-        File.open('spec/support/logos/OSEM.jpg') do |file|
+        File.open('spec/support/logos/moraga.jpg') do |file|
           conference.picture = file
         end
         conference.save!
