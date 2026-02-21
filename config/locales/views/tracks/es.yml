@@ -22,3 +22,18 @@ es:
   Manage: Gestionar
   Edit Track: Editar track
   Track requests for: Peticiones de track para
+  What happens next with my track request?: "¿Qué ocurre ahora con mi solicitud de track?"
+  If you submit a track request, the conference organizers will review it and either accept or reject it.: Si envías una solicitud de track, los organizadores la revisarán y la aceptarán o rechazarán.
+  If your track request is accepted, the conference organizers expect you to confirm that you will be able to hold it.: Si tu solicitud de track es aceptada, la organización espera que confirmes que podrás realizarla.
+  Then you will be assigned the Track organizer role.: Se te asignará el rol de organizador de track.
+  If your track request is rejected, you can either live with that or adapt it and resubmit it for review again.: Si tu solicitud es rechazada, puedes adaptarla y volverla a enviar.
+  "If something changes and you can't organize the track any more, you should withdraw it.": "Si algo cambia y ya no puedes organizar el track, deberías retirarlo."
+  From: Desde
+  To: Hasta
+  In review: En revisión
+  Accepted: Aceptada
+  Are you sure you want to withdraw this track request?: "¿Estás seguro de que quieres retirar esta solicitud de track?"
+  New Track request: Nueva solicitud de track
+  State: Estado
+  New: Nueva
+  "Please explain here how this track relates to the conference, how you are related to its content and why we should accept it.": "Por favor, explica cómo este track se relaciona con la conferencia, tu relación con el contenido y por qué debería aceptarse."

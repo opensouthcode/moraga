@@ -1,6 +1,6 @@
 = content_for :splash_nav do
   %li
-    %a.smoothscroll{ href: '#sponsors' } Sponsors
+    %a.smoothscroll{ href: '#sponsors' }= t('Sponsors')
 
 - cache [conference, sponsors, sponsorship_levels, '#splash#sponsors'] do
   %section#sponsors

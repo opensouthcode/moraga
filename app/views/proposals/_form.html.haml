@@ -18,13 +18,13 @@
   .form-group
     %label{for: 'users_selectize-selectized'}
       = t('Speakers')
-    = f.select :speaker_ids, f.object.speakers.pluck(:username, :id), {}, {  multiple: true, class: "form-control", id: "users_selectize", placeholder: "Speakers" }
+    = f.select :speaker_ids, f.object.speakers.pluck(:username, :id), {}, {  multiple: true, class: "form-control", id: "users_selectize", placeholder: t('Speakers') }
     %span.help-block
-      The people responsible for the event, beside you. You can only select existing users.
+      = t('speakers_help')
   - if @program.tracks.confirmed.cfp_active.any?
     .form-group
       = f.label :track_id, t('Track')
-      = f.select :track_id, @program.tracks.confirmed.cfp_active.pluck(:name, :id), { include_blank: '(Please select)' }, { class: 'form-control select-help-toggle' }
+      = f.select :track_id, @program.tracks.confirmed.cfp_active.pluck(:name, :id), { include_blank: t('Please select') }, { class: 'form-control select-help-toggle' }
       = render 'shared/select_help_text', f: f, for: :track_id, include_blank: true, options: @program.tracks.confirmed.cfp_active do |track|
         = markdown(track.description)
 .form-group
@@ -38,7 +38,7 @@
   = event_type.description
 - if display_details
   - if @conference.program.difficulty_levels.any?
-    = f.label :difficulty_level
+    = f.label :difficulty_level, t('Difficulty level')
     = f.select :difficulty_level_id, @conference.program.difficulty_levels.map{|level| [level.title, level.id ] }, {include_blank: false}, { class: 'select-help-toggle form-control' }
     = render 'shared/select_help_text', f: f, for: :difficulty_level_id, options: @conference.program.difficulty_levels do |difficulty_level|
       = difficulty_level.description
@@ -46,7 +46,7 @@
   = f.label :abstract
   = f.text_area :abstract, required: true, rows: 5, data: { provide: 'markdown' }, class: 'form-control'
   %span.help-block
-    = markdown_hint('[Tips to improve your presentations.](http://blog.hubspot.com/blog/tabid/6307/bid/5975/10-Rules-to-Instantly-Improve-Your-Presentations.aspx)')
+    = markdown_hint("[#{t('tips_for_presentations')}](http://blog.hubspot.com/blog/tabid/6307/bid/5975/10-Rules-to-Instantly-Improve-Your-Presentations.aspx)")
   %p
     = t('You have used')
     %span#abstract-count = @event.abstract_word_count
@@ -71,7 +71,7 @@
       = f.label :max_attendees
       = f.number_field :max_attendees,  class: 'form-control'
       %span.help-block
-        - message = @event.room ? "Value must be between 1 and #{@event.room.size}" : 'Check room capacity after scheduling.'
+        - message = @event.room ? t('room_capacity_message', size: @event.room.size) : t('room_capacity_after_scheduling')
         = t('The maximum number of participants') + " ." + message
   - if display_details && current_user.has_any_role?(:admin, { name: :organizer, resource: @conference }, { name: :cfp, resource: @conference })
     .checkbox
@@ -88,6 +88,6 @@
       %span.help-block
         = t('requirementsExample') + "."
   %p.text-right
-    - submit_copy = action_is_edit ? t('Update Proposal') : 'Create Proposal'
+    - submit_copy = action_is_edit ? t('Update Proposal') : t('Create Proposal')
     = f.submit submit_copy, class: 'btn btn-success'
 

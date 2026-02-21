@@ -14,7 +14,7 @@
         %table.table.table-bordered.table-striped.table-hover#roles
           %thead
             %tr
-              %th ID
+              %th= t('ID')
               %th
                 = t('Type')
               %th
@@ -45,6 +45,6 @@
     .col-md-12
       - if @unpaid_ticket_purchases.any?
         .h3
-          You have unpaid tickets!
+          = t('You have unpaid tickets!')
           %small
             = link_to t("Pay them here"), conference_ticket_purchases_path

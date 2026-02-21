@@ -10,20 +10,20 @@
     .col-md-12
       %p.text-right
         = link_to '#status-help', class: 'btn btn-default',  "data-toggle"=>"collapse" do
-          Help?
+          = t('Help?')
       .collapse#status-help
         %p
           %strong
-            What happens next with my track request?
+            = t('What happens next with my track request?')
         %p
-          If you submit a track request, the conference organizers will review it and either accept or reject it.
+          = t('If you submit a track request, the conference organizers will review it and either accept or reject it.')
           %br
-          If your track request is accepted, the conference organizers expect you to confirm that you will be able to hold it.
-          Then you will be assigned the Track organizer role.
+          = t('If your track request is accepted, the conference organizers expect you to confirm that you will be able to hold it.')
+          = t('Then you will be assigned the Track organizer role.')
           %br
-          If your track request is rejected, you can either live with that or adapt it and resubmit it for review again.
+          = t('If your track request is rejected, you can either live with that or adapt it and resubmit it for review again.')
           %br
-          If something changes and you can't organize the track any more, you should withdraw it.
+          = t("If something changes and you can't organize the track any more, you should withdraw it.")
 
   - if @tracks.any?
     .row
@@ -32,19 +32,19 @@
           %th
           %th
           %th
-          %th From
-          %th To
-          %th Room
+          %th= t('From')
+          %th= t('To')
+          %th= t('Room')
           %th
           - @tracks.each do |track|
             %tr
               %td{style: "padding:15px 0px 0px 8px;"}
                 - if %w(new to_accept to_reject).include? track.state
-                  %span{ title: 'In review', class: 'fa-solid fa-eye' }
+                  %span{ title: t('In review'), class: 'fa-solid fa-eye' }
                 - elsif track.state == 'accepted'
-                  %span{ title: 'Accepted', class: 'fa-solid fa-check text-muted' }
+                  %span{ title: t('Accepted'), class: 'fa-solid fa-check text-muted' }
                 - elsif track.state == 'confirmed'
-                  %spam{ title: 'Confirmed', class: 'fa-solid fa-check text-success' }
+                  %spam{ title: t('Confirmed'), class: 'fa-solid fa-check text-success' }
                 - elsif %w(rejected withdrawn canceled).include? track.state
                   %span{ title: track.state.humanize, class: 'fa-solid fa-ban'}
               %td{style: "padding: 15px 0px 0px 0px;"}
@@ -62,21 +62,21 @@
               %td
                 .pull-right
                   - if track.transition_possible? :confirm
-                    = link_to 'Confirm', confirm_conference_program_track_path(@conference.short_title, track),
+                    = link_to t('Confirm'), confirm_conference_program_track_path(@conference.short_title, track),
                       method: :patch, class: 'btn btn-mini btn-success', id: "confirm_track_#{track.id}"
                   - if track.transition_possible? :withdraw
-                    = link_to 'Withdraw', withdraw_conference_program_track_path(@conference.short_title, track),
-                      method: :patch, data: { confirm: 'Are you sure you want to withdraw this track request?' },
+                    = link_to t('Withdraw'), withdraw_conference_program_track_path(@conference.short_title, track),
+                      method: :patch, data: { confirm: t('Are you sure you want to withdraw this track request?') },
                       class: 'btn btn-mini btn-warning', id: "withdraw_track_request_#{track.id}"
                   - if track.transition_possible? :restart
-                    = link_to 'Re-Submit', restart_conference_program_track_path(@conference.short_title, track),
+                    = link_to t('Re-Submit'), restart_conference_program_track_path(@conference.short_title, track),
                       method: :patch, class: 'btn btn-mini btn-success', id: "resubmit_track_request_#{track.id}"
                   - if can? :edit, track
-                    = link_to 'Edit', edit_conference_program_track_path(@conference.short_title, track), class: 'btn btn-default'
+                    = link_to t('Edit'), edit_conference_program_track_path(@conference.short_title, track), class: 'btn btn-default'
                   - if current_user.has_cached_role? :track_organizer, track
-                    = link_to 'Manage', admin_conference_program_track_path(@conference.short_title, track), class: 'btn btn-default'
+                    = link_to t('Manage'), admin_conference_program_track_path(@conference.short_title, track), class: 'btn btn-default'
 
   .row
     .col-md-12
       - if can? :new, @program.tracks.new
-        = link_to "New Track request", new_conference_program_track_path(@conference.short_title), class: 'btn btn-success pull-right'
+        = link_to t('New Track request'), new_conference_program_track_path(@conference.short_title), class: 'btn btn-success pull-right'

@@ -67,7 +67,7 @@ es:
   Edit: Editar
   Presented by: Realizada 
   from: de
-  No video of the event yet, sorry: No hay viede aún, lo sentimos
+  No video of the event yet, sorry: No hay vídeo aún, lo sentimos
   Meanwhile: Mientras tanto
   Date: Date
   Room: Sala
@@ -84,3 +84,12 @@ es:
     one: día
     other: dias
   requirementsExample: Por ejemplo, una pizarra, un impresora...
+  speakers_help: "Las personas responsables del evento, junto a ti. Solo puedes seleccionar usuarios existentes."
+  Please select: Por favor, elige
+  Difficulty level: Nivel de dificultad
+  room_capacity_message: "El valor debe estar entre 1 y %{size}"
+  room_capacity_after_scheduling: Comprueba la capacidad de la sala tras programar el evento.
+  tips_for_presentations: Consejos para mejorar tus presentaciones.
+  "Some of your proposals have been selected as a highlight of %{title}!": "¡Algunas de tus propuestas han sido seleccionadas como destacadas de %{title}!"
+  Are you sure you want to withdraw this proposal?: "¿Estás seguro de que quieres retirar esta propuesta?"
+  Happening at the same time: A la misma hora

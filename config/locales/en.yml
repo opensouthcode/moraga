@@ -31,6 +31,8 @@
 
 en:
   hello: "Hello world"
+  Please look at: Please look at
+  to format your text: to format your text
   time:
       formats:
           short: "%Y-%m-%dT%H:%M:%S"

@@ -4,7 +4,7 @@
     = t('Notifications')
     (#{unread_notifications(current_user).length})
   - if unread_notifications(current_user).length > 0
-    %li.dropdown-header Last 5 Comments for:
+    %li.dropdown-header= t('Last 5 Comments for')
     - unread_notifications(current_user).limit(5).group_by{ |comment| comment.commentable}.each do |event, comments|
       %li= link_to("#{event.title}(#{comments.count})", admin_conference_program_event_path(event.program.conference.short_title, event.id))
     %li.divider

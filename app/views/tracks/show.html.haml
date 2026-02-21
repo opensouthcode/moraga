@@ -4,7 +4,7 @@
       .page-header
         %h2
           = @track.name
-          Track
+          = t('Track')
           .btn-group.pull-right
             - if can? :edit, @track
               = link_to t('Edit Track request'), edit_conference_program_track_path(@conference.short_title, @track), class: 'btn btn-primary'
@@ -14,34 +14,34 @@
     .col-md-8
       %dl.dl-horizontal
         %dt
-          = t('Color') & ':'
+          = t('Color') + ':'
         %dd
           %span.label{style: "background-color: #{@track.color}; color: #{ contrast_color(@track.color) }"}
             = @track.color
         %dt
-          State:
+          = t('State') + ':'
         %dd
           - if %w(new to_accept to_reject).include? @track.state
-            New
+            = t('New')
           - else
             = @track.state.humanize
         %dt
-          Start date:
+          = t('Start Date') + ':'
         %dd
           = @track.start_date.strftime('%A, %B %-d. %Y') if @track.start_date
         %dt
-          End date:
+          = t('End Date') + ':'
         %dd
           = @track.end_date.strftime('%A, %B %-d. %Y') if @track.end_date
         %dt
-          Room:
+          = t('Room') + ':'
         %dd
           = @track.room.try(:name)
         %dt
-          Description
+          = t('Description')
         %dd
           = markdown(@track.description)
         %dt
-          Relevance
+          = t('Relevance')
         %dd
           = markdown(@track.relevance)

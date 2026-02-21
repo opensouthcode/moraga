@@ -82,3 +82,11 @@ en:
     one: day
     other: days
   requirementsExample: Eg, whiteboard, printer, or somethin like that
+  speakers_help: "The people responsible for the event, beside you. You can only select existing users."
+  Please select: Please select
+  Difficulty level: Difficulty level
+  room_capacity_message: "Value must be between 1 and %{size}"
+  room_capacity_after_scheduling: Check room capacity after scheduling.
+  tips_for_presentations: Tips to improve your presentations.
+  "Some of your proposals have been selected as a highlight of %{title}!": "Some of your proposals have been selected as a highlight of %{title}!"
+  Are you sure you want to withdraw this proposal?: Are you sure you want to withdraw this proposal?

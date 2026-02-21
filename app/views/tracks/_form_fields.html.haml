@@ -45,7 +45,7 @@
     = f.label :relevance, t("Relevance")
     = f.text_area :relevance, rows: 4, data: { provide: 'markdown' }, required: true, class: 'form-control'
     %span.help-block
-      Please explain here how this track relates to the conference, how you are related to its content and why we should accept it.
+      = t('Please explain here how this track relates to the conference, how you are related to its content and why we should accept it.')
       = markdown_hint
 - if current_user.is_admin?
   .checkbox

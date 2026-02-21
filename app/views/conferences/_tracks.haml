@@ -13,5 +13,5 @@
             - if track.start_date && track.end_date
               = date_string(track.start_date, track.end_date)
             - if track.room
-              In #{track.room.name}
+              = "#{t('in')} #{track.room.name}"
           = markdown truncate(track.description, length: 200, separator: ' ')

@@ -25,7 +25,7 @@
           %p.lead
             %strong
               = t('Congratulations!')
-            Some of your proposals have been selected as a highlight of #{@conference.title}!
+            = t('Some of your proposals have been selected as a highlight of %{title}!', title: @conference.title)
             %ul
               - @events.highlighted.each do |event|
                 %li= link_to event.title, conference_program_proposal_path(@conference.short_title, event)
@@ -105,7 +105,7 @@
 
                   - if event.transition_possible? :withdraw
                     = link_to t('Withdraw'), withdraw_conference_program_proposal_path(@conference.short_title, event.id), method: :patch,
-                                data: { confirm: 'Are you sure you want to withdraw this proposal?' }, class: 'btn btn-mini btn-warning',
+                                data: { confirm: t('Are you sure you want to withdraw this proposal?') }, class: 'btn btn-mini btn-warning',
                                 id: "delete_proposal_#{event.id}"
                   - if event.state == 'withdrawn' || event.state == 'rejected'
                     = link_to t('Re-Submit'),

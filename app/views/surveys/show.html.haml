@@ -26,4 +26,4 @@
 
       .row
         .col-md-10.col-md-offset-1
-          = f.submit 'Submit', class: 'btn btn-primary pull-right', disabled: !(can? :reply, @survey)
+          = f.submit t('Submit'), class: 'btn btn-primary pull-right', disabled: !(can? :reply, @survey)

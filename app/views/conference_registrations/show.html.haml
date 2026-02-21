@@ -57,7 +57,7 @@
           %span.fa-stack
             %i.fa-solid.fa-square-dashed.fa-stack-2x
             %i.fa-solid.fa-check.fa-stack-1x
-          Registered to the following event(s)
+          = t('Registered to the following event(s)')
         %ul
           - @registration.events.each do |event|
             %li
@@ -101,10 +101,10 @@
                   = humanized_money @total_price_per_ticket[ticket_id]
               %br
           .btn-group{ role: 'group' }
-            = link_to 'View all tickets',
+            = link_to t('View all tickets'),
               conference_physical_tickets_path(@conference.short_title),
               class: 'btn btn-success'
-            = link_to 'Get more tickets',
+            = link_to t('Get more tickets'),
               conference_tickets_path(@conference.short_title),
               class: 'btn btn-default'
         - else
@@ -115,7 +115,7 @@
             %p
               %em
                 = t("Your participation won't be valid without getting a")
-                registration ticket.
+                = t('registration ticket.')
           = link_to t('Get tickets'),
             conference_tickets_path(@conference.short_title),
             class: 'btn btn-default'
@@ -126,13 +126,13 @@
         .btn-group-vertical.pull-right
           = link_to t('Edit your Registration'), edit_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success', disabled: @conference.end_date < Date.today
           - if @tickets.any?
-            = link_to 'Unregister', conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
+            = link_to t('Unregister'), conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
               data: { confirm: t("Your ticket purchases won't be refunded") }, disabled: @conference.end_date < Date.today
           - else
-            = link_to 'Unregister', conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
+            = link_to t('Unregister'), conference_conference_registration_path(@conference.short_title), method: :delete, class: 'btn btn-danger btn-xs',
               data: { confirm: t("You haven't purchased any ticket") }, disabled: @conference.end_date < Date.today
       - else
-        = link_to 'Register', new_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success btn-lg pull-right'
+        = link_to t('Register'), new_conference_conference_registration_path(@conference.short_title), class: 'btn btn-success btn-lg pull-right'
 
   .row
     .col-md-12

@@ -1,4 +1,6 @@
 es:
+  Please look at: Consulta
+  to format your text: para dar formato al texto
   activerecord:
     attributes:
       event:
