@@ -1,0 +1,40 @@
+-# Locals: conference, venue, splashpage (optional)
+- video_url = local_assigns[:splashpage]&.video_embed_url
+.sn-hero{ class: video_url.present? ? 'sn-hero--with-video' : '' }
+  .sn-hero__inner
+    .sn-hero__text
+      - if conference.picture?
+        = image_tag(conference.picture_url, class: 'sn-hero__logo', alt: conference.title)
+      %h1.sn-hero__title= conference.title
+      .sn-hero__meta
+        - if conference.start_date && conference.end_date
+          %span
+            %i.fa-solid.fa-calendar-days
+            = date_string(conference.start_date, conference.end_date)
+        - if venue
+          %span
+            %i.fa-solid.fa-location-dot
+            - if venue.city.present?
+              = venue.city
+              - if venue.country_name.present?
+                &bull;
+                = venue.country_name
+            - elsif venue.name.present?
+              = venue.name
+      - if conference.registration_open?
+        = link_to(new_conference_conference_registration_path(conference.short_title),
+            class: 'sn-hero__cta') do
+          %i.fa-solid.fa-ticket
+          = t('Register Now')
+      - elsif conference.program.try(:schedule_public?)
+        = link_to(conference_schedule_path(conference.short_title),
+            class: 'sn-hero__cta') do
+          %i.fa-solid.fa-calendar-days
+          = t('View Schedule')
+    - if video_url.present?
+      .sn-hero__video
+        %iframe{ src: video_url, frameborder: "0", allowfullscreen: "",
+            allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+            title: "Conference Video" }
+  .sn-hero__scroll
+    %i.fa-solid.fa-chevron-down

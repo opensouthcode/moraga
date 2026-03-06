@@ -1,0 +1,40 @@
+-# Locals: conference, venue, commercial
+%section.sn-section.sn-section--alt.sn-animate{ id: 'sn-venue' }
+  .container
+    .sn-section__header
+      %span.sn-section__eyebrow= t('Venue')
+      %h2.sn-section__title= venue.name
+
+    .sn-venue
+      .sn-venue__info
+        .sn-venue__name= venue.name
+        - if venue.city.present? || venue.country_name.present?
+          .sn-venue__location
+            = [venue.city, venue.country_name].compact.join(' · ')
+        - unless venue.description.blank?
+          .sn-about-prose{ style: 'padding: 1rem 0; box-shadow: none; background: transparent;' }
+            = markdown(venue.description)
+        %address.sn-venue__address
+          - if venue.street.present?
+            = venue.street
+            %br
+          - if venue.postalcode.present? || venue.city.present?
+            = [venue.postalcode, venue.city].compact.join(' ')
+            %br
+          - if venue.country_name.present?
+            = venue.country_name
+          - if venue.website.present?
+            %br
+            = sanitize link_to(h(venue.website), h(venue.website))
+
+      .sn-venue__map
+        - if venue.location?
+          = render '/conferences/venue_map', venue: venue
+        - elsif commercial
+          .flexvideo{ id: "resource-content-#{commercial.id}", style: 'padding-top:1rem;' }
+            = render 'shared/media_item', commercial: commercial
+        - elsif venue.picture?
+          = image_tag(venue.picture.url, class: 'sn-venue__img', title: venue.name, alt: venue.name)
+        - else
+          .d-flex.align-items-center.justify-content-center{ style: 'height:200px;color:#9ca3af;' }
+            %i.fa-solid.fa-building-columns.fa-5x

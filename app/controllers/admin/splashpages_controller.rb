@@ -51,7 +51,7 @@ module Admin
                                          :include_tickets, :include_lodgings,
                                          :include_sponsors, :include_social_media,
                                          :include_booths, :include_past_editions,
-                                         :video_url)
+                                         :video_url, :use_new_design)
     end
   end
 end

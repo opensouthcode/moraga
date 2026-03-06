@@ -1,0 +1,37 @@
+-# Locals: conference, highlights, tracks
+%section.sn-section.sn-section--alt.sn-animate{ id: 'sn-program' }
+  .container
+    .sn-section__header
+      %span.sn-section__eyebrow= t('Schedule')
+      %h2.sn-section__title= t('Program Highlights')
+      %p.sn-section__sub
+        = conference.title
+        = t('has the most awesome program ever!')
+
+    - unless highlights.blank?
+      .sn-speakers
+        - highlights.each_with_index do |event, i|
+          - speaker = event.speakers_ordered.first
+          = link_to(conference_program_proposal_path(conference.short_title, event),
+              class: "sn-speaker-card sn-animate sn-delay-#{[i+1, 8].min}") do
+            - if speaker
+              = image_tag(speaker.gravatar_url(size: 160),
+                  class: 'sn-speaker-card__avatar',
+                  alt: speaker.name)
+            .sn-speaker-card__name= speaker&.name
+            .sn-speaker-card__talk= event.title
+
+    - if tracks.present?
+      .sn-tracks
+        - tracks.each do |track|
+          %span.sn-track-pill
+            - if track.color.present?
+              %span{ style: "width:8px;height:8px;border-radius:50%;background:#{h(track.color)};display:inline-block;" }
+            = track.name
+
+    - if conference.program.try(:schedule_public?)
+      .sn-schedule-cta
+        = link_to(conference_schedule_path(conference.short_title),
+            class: 'sn-btn sn-btn--primary') do
+          %i.fa-solid.fa-calendar-days
+          = t('Full Schedule')

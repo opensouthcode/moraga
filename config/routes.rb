@@ -159,6 +159,9 @@ Moraga::Application.routes.draw do
     end
   end
   resources :conferences, only: [:index, :show] do
+    member do
+      get :show_new
+    end
     resources :booths do
       member do
         patch :withdraw

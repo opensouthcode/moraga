@@ -1,0 +1,92 @@
+- content_for :head do
+  %meta{ property: "og:title", content: @conference.title }
+  %meta{ property: "og:site_name", content: ENV.fetch('MORAGA_NAME', 'MORAGA') }
+  %meta{ property: "og:description", content: @conference.description }
+  %meta{ property: "og:url", content: conference_url(@conference.short_title) }
+  %meta{ property: "twitter:title", content: @conference.title }
+  %meta{ property: "twitter:description", content: @conference.description }
+  - if @conference.picture?
+    %meta{ property: "og:image", content: @image_url }
+    %meta{ property: "og:image:secure_url", content: @image_url }
+    %meta{ property: "twitter:card", content: "summary_large_image" }
+    %meta{ property: "twitter:image", content: @image_url }
+  - else
+    %meta{ property: "twitter:card", content: "summary" }
+  :css
+    #splash-new {
+      --brand: #{h(@conference.color.presence || '#16a085')};
+      --brand-dark: color-mix(in srgb, #{h(@conference.color.presence || '#16a085')} 70%, #000 30%);
+    }
+    body { padding-top: 0; }
+    #content { padding-bottom: 0; }
+
+= content_for :title do
+  = @conference.title
+
+- content_for :splash_nav do
+  %li
+    %a.smoothscroll{ href: '#sn-about' }= t('About')
+  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present?)
+    %li
+      %a.smoothscroll{ href: '#sn-program' }= t('Schedule')
+  - if (@conference.splashpage.include_registrations && @conference.registration_open?) || (@conference.splashpage.include_tickets && @tickets.present?)
+    %li
+      %a.smoothscroll{ href: '#sn-registration' }= t('Tickets')
+  - if @conference.splashpage.include_venue && @conference.venue
+    %li
+      %a.smoothscroll{ href: '#sn-venue' }= t('Venue')
+  - if @conference.splashpage.include_sponsors && @sponsorship_levels.present?
+    %li
+      %a.smoothscroll{ href: '#sn-sponsors' }= t('Sponsors')
+
+#splash-new
+  = render 'new_hero', conference: @conference, venue: @conference.venue,
+      splashpage: @conference.splashpage
+
+  = render 'new_about', conference: @conference, venue: @conference.venue
+
+  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present?)
+    = render 'new_program', conference: @conference,
+        highlights: @highlights.to_a,
+        tracks: @tracks.to_a
+
+  - if @conference.splashpage.include_registrations && @conference.registration_open?
+    = render 'new_registration', conference: @conference,
+        registration_period: @conference.registration_period,
+        tickets: @tickets.to_a,
+        conference_id: @conference.short_title
+
+  - elsif @conference.splashpage.include_tickets && @tickets.present?
+    = render 'new_registration', conference: @conference,
+        registration_period: @conference.registration_period,
+        tickets: @tickets.to_a,
+        conference_id: @conference.short_title
+
+  - if @conference.splashpage.include_venue && @conference.venue
+    = render 'new_venue', conference: @conference,
+        venue: @conference.venue,
+        commercial: @conference.venue.commercial
+
+  - if @conference.splashpage.include_sponsors && @sponsorship_levels.present?
+    = render 'new_sponsors', conference: @conference,
+        sponsorship_levels: @sponsorship_levels,
+        sponsors: @sponsors.to_a
+
+  - if @conference.splashpage.include_social_media && @conference.contact.has_social_media?
+    = render 'new_social', contact: @conference.contact
+
+- content_for :script_body do
+  :javascript
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('sn-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('#splash-new .sn-animate').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();

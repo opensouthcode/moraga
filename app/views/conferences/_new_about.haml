@@ -1,0 +1,35 @@
+-# Locals: conference, venue
+%section.sn-section.sn-animate{ id: 'sn-about' }
+  .container
+    .sn-section__header
+      %span.sn-section__eyebrow= t('About')
+      %h2.sn-section__title= conference.title
+
+    - if conference.start_date || venue
+      .sn-bento{ style: 'margin-bottom: 1.5rem;' }
+        - if conference.start_date && conference.end_date
+          .sn-bento__card.sn-animate.sn-delay-1
+            .sn-bento__icon
+              %i.fa-solid.fa-calendar-days
+            .sn-bento__label= t('Date')
+            .sn-bento__value= date_string(conference.start_date, conference.end_date)
+        - if venue&.city.present?
+          .sn-bento__card.sn-animate.sn-delay-2
+            .sn-bento__icon
+              %i.fa-solid.fa-location-dot
+            .sn-bento__label= t('Location')
+            .sn-bento__value
+
+              = venue.city
+              - if venue.country_name.present?
+                · #{venue.country_name}
+        - if venue&.name.present?
+          .sn-bento__card.sn-animate.sn-delay-3
+            .sn-bento__icon
+              %i.fa-solid.fa-building-columns
+            .sn-bento__label= t('Venue')
+            .sn-bento__value= venue.name
+
+    - unless conference.description.blank?
+      .sn-about-prose.sn-animate.sn-delay-2
+        = markdown(conference.description)

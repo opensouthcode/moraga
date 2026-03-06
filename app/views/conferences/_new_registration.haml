@@ -1,0 +1,41 @@
+-# Locals: conference, registration_period, tickets, conference_id
+%section.sn-section.sn-animate{ id: 'sn-registration' }
+  .container
+    .sn-section__header
+      %span.sn-section__eyebrow= t('Join Us')
+      %h2.sn-section__title= t('Registration')
+
+    - if tickets.present?
+      .sn-tickets{ style: 'margin-bottom: 2rem;' }
+        - tickets.each_with_index do |ticket, i|
+          .sn-ticket-card.sn-animate{ class: "sn-delay-#{[i+1,8].min}" }
+            .sn-ticket-card__name= ticket.title
+            .sn-ticket-card__price= humanized_money_with_symbol(ticket.price)
+            .sn-ticket-card__desc= markdown(ticket.description)
+            = link_to(conference_tickets_path(conference.short_title),
+                class: 'sn-ticket-card__btn') do
+              %i.fa-solid.fa-ticket
+              = t('Get Ticket')
+
+    - if conference.registration_open?
+      .sn-reg-banner
+        - if conference.registration_limit_exceeded?
+          %h3= t('Registration Full')
+          %p= t('Sorry, the conference registration limit has exceeded')
+        - else
+          %h3= t('Secure your spot')
+          %p
+            = t('Registration is open')
+            - if registration_period
+              = t('until')
+              = registration_period.end_date.strftime('%B %-d, %Y')
+          - if conference.user_registered?(current_user)
+            = link_to(conference_conference_registration_path(conference_id),
+                class: 'sn-reg-banner__btn') do
+              %i.fa-solid.fa-pen-to-square
+              = t('Edit Your Registration')
+          - else
+            = link_to(new_conference_conference_registration_path(conference_id),
+                class: 'sn-reg-banner__btn') do
+              %i.fa-solid.fa-ticket
+              = t('Register Now')

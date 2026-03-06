@@ -1,0 +1,30 @@
+-# Locals: contact
+.sn-social
+  .container
+    .sn-social__links
+      - if contact.blog?
+        = link_to(contact.blog, class: 'sn-social__link', title: 'Blog', target: '_blank', rel: 'noopener') do
+          %i.fa-solid.fa-square-rss
+      - if contact.facebook?
+        = link_to(contact.facebook, class: 'sn-social__link', title: 'Facebook', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-facebook
+      - if contact.twitter?
+        = link_to(contact.twitter, class: 'sn-social__link', title: 'Twitter / X', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-twitter
+      - if contact.instagram?
+        = link_to(contact.instagram, class: 'sn-social__link', title: 'Instagram', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-instagram
+      - if contact.mastodon?
+        = link_to(contact.mastodon, class: 'sn-social__link', title: 'Mastodon', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-mastodon
+      - if contact.bluesky?
+        = link_to(contact.bluesky, class: 'sn-social__link', title: 'Bluesky', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-bluesky
+      - if contact.youtube?
+        = link_to(contact.youtube, class: 'sn-social__link', title: 'YouTube', target: '_blank', rel: 'noopener') do
+          %i.fa-brands.fa-youtube
+      - if contact.email?
+        = mail_to(contact.email, class: 'sn-social__link', title: 'Email') do
+          %i.fa-solid.fa-envelope
+    .sn-social__copy
+      = t('Follow us for updates')

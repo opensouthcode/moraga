@@ -1,0 +1,30 @@
+-# Locals: conference, sponsorship_levels, sponsors
+%section.sn-section.sn-animate{ id: 'sn-sponsors' }
+  .container
+    .sn-section__header
+      %h2.sn-section__title= t('Sponsors')
+
+    - sponsorship_levels.each do |level|
+      - if level.sponsors.any?
+        .sn-sponsor-tier
+          .sn-sponsor-tier__title
+            = level.title
+            = 'Sponsor'.pluralize(level.sponsors.length)
+          .sn-sponsor-grid
+            - level.sponsors.each do |sponsor|
+              %a.sn-sponsor-item{ class: "sn-sponsor-item--tier-#{level.position}",
+                  href: '#',
+                  data: { toggle: 'modal', target: "#modal-sponsor-#{sponsor.id}" } }
+                - if sponsor.logo_file_name
+                  = image_tag(get_logo(sponsor), title: sponsor.name, alt: sponsor.name)
+                - else
+                  %span{ style: 'font-weight:700;font-size:1.1rem;color:#374151;' }= sponsor.name
+
+    .sn-sponsor-cta
+      = t('Want to sponsor?')
+      = link_to(sponsorship_mailto(conference)) do
+        = t('Contact us!')
+
+- sponsors.each do |sponsor|
+  - content_for :modals do
+    = render 'modal_description', object: sponsor

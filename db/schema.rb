@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_02_203323) do
+ActiveRecord::Schema[7.0].define(version: 2026_03_06_000001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -434,6 +434,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_02_203323) do
     t.datetime "updated_at", precision: nil
     t.boolean "include_cfp", default: false
     t.boolean "include_booths"
+    t.boolean "use_new_design", default: false
   end
 
   create_table "sponsors", id: :serial, force: :cascade do |t|
