@@ -1,7 +1,68 @@
 es:
   admin:
     splashpages:
+      controller:
+        created: Página de inicio creada correctamente.
+        updated: Página de inicio actualizada correctamente.
+        destroyed: Página de inicio eliminada correctamente.
+        destroy_error: Un error impidió eliminar la página de inicio
+      show:
+        title: Página de inicio
+        subtitle_with_page: "Configura lo que los visitantes ven en tu"
+        public_conference_page: "página pública de la conferencia"
+        subtitle_without_page: "Crea una página de inicio con toda la información de tu conferencia"
+        content_sections: Secciones de contenido
+        cfp: Llamada a ponencias y tracks
+        cfp_hint: Se muestra mientras esté abierta
+        program: Programa
+        program_hint: Horario y sesiones de la conferencia
+        confirmed_tracks: Tracks confirmados
+        past_editions: Ediciones anteriores
+        past_editions_hint: Se muestra en la navegación
+        registration_period: Periodo de inscripción
+        tickets: Entradas
+        venue_and_info: Sede e información
+        venue: Sede
+        lodgings: Alojamientos
+        sponsors: Patrocinadores
+        social_media_links: Enlaces a redes sociales
+        design_and_access: Diseño y acceso
+        new_design: Diseño nuevo
+        classic_design: Diseño clásico
+        public: Pública
+        private: Privada
+        visible_to_everyone: Visible para todos
+        only_visible_to_organizers: Solo visible para organizadores
+        configure: Configurar
+        delete: Eliminar
+        delete_confirm: "¿Estás seguro de que quieres eliminar esta página de inicio?"
+        get_started: Empezar
+        no_splashpage: "Aún no hay una página de inicio configurada. ¡Crea una para mostrar tu conferencia!"
+        create_splashpage: Crear página de inicio
+      edit:
+        title: Configurar página de inicio
+        subtitle: "Personaliza qué secciones aparecen en la página pública de tu conferencia"
+      new:
+        title: Crear página de inicio
+        subtitle: "Configura la página pública de tu conferencia eligiendo qué secciones mostrar"
       form:
+        content_sections: Secciones de contenido
+        include_cfp: "¿Mostrar la llamada a ponencias y tracks?"
+        include_program: "¿Mostrar el programa?"
+        include_tracks: "¿Incluir tracks confirmados?"
+        include_past_editions: "¿Mostrar ediciones anteriores en la navegación?"
+        include_registrations: "¿Mostrar el periodo de inscripción?"
+        include_tickets: "¿Mostrar las entradas?"
+        venue_and_info: Sede e información
+        include_venue: "¿Mostrar la sede?"
+        include_lodgings: "¿Mostrar los alojamientos?"
+        include_sponsors: "¿Mostrar los patrocinadores?"
+        include_social_media: "¿Mostrar los enlaces a redes sociales?"
+        design_and_access: Diseño y acceso
+        use_new_design: "¿Usar el diseño nuevo de página?"
+        make_public: "¿Hacer pública la página de inicio?"
+        select_all: Seleccionar / Deseleccionar todo
+        save: Guardar
         video:
           title: Vídeo
           label: URL del vídeo

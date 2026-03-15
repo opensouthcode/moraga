@@ -1,69 +1,160 @@
 .row
   .col-md-12
     .page-header
-      %h1 Splashpage
+      %h1
+        %i.fa-solid.fa-display
+        = t('admin.splashpages.show.title')
       %p.text-muted
         - if @splashpage
-          View the
-          = link_to "splash page", conference_path(@conference.short_title)
-
+          = t('admin.splashpages.show.subtitle_with_page')
+          = link_to t('admin.splashpages.show.public_conference_page'), conference_path(@conference.short_title), target: '_blank'
+          %i.fa-solid.fa-arrow-up-right-from-square.small
         - else
-          Build a splashpage with all the information for your conference
+          = t('admin.splashpages.show.subtitle_without_page')
 
 - if @splashpage
   .row
-    .col-md-12
-      %ul.fa-ul
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_cfp?}" }
-          Display call for papers and call for tracks, while open
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_program?}" }
-          Display the program
-          %ul.fa-ul
-            %li
-              %i{ class: "fa-li #{icon_for_todo @splashpage.include_program?}" }
-              Include confirmed tracks
-            %li
-              %i{ class: "fa-li #{icon_for_todo @splashpage.include_booths?}" }
-              Include confirmed #{(t'booth').pluralize}
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_registrations?}" }
-          Display the registration period
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_tickets?}" }
-          Display tickets
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_venue?}" }
-          Display the venue
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_lodgings?}" }
-          Display the lodgings
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_sponsors?}" }
-          Display sponsors
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.include_social_media?}" }
-          Display social media links
-        %li
-          %i{ class: "fa-li #{icon_for_todo @splashpage.use_new_design?}" }
-          Use new page design
-        %li
-          - if @conference.splashpage && @conference.splashpage.public
-            %i{ class: "fa-li #{icon_for_todo @splashpage.public?}" }
-            %text-muted.publicorprivate  Public
-          - else
-            %i{ class: "fa-li #{icon_for_todo !@splashpage.public?}" }
-            %text-muted.publicorprivate  Private
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            %i.fa-solid.fa-bullhorn
+            = t('admin.splashpages.show.content_sections')
+        .panel-body
+          %table.table.table-hover.table-condensed{style: 'margin-bottom: 0'}
+            %tbody
+              %tr
+                %td{style: 'width: 40px'}
+                  %span.label{class: @splashpage.include_cfp? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_cfp? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.cfp')
+                  %br
+                  %small.text-muted= t('admin.splashpages.show.cfp_hint')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_program? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_program? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.program')
+                  %br
+                  %small.text-muted= t('admin.splashpages.show.program_hint')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_program? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_program? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %i.fa-solid.fa-turn-up.fa-rotate-90.text-muted{style: 'margin-right: 4px'}
+                  = t('admin.splashpages.show.confirmed_tracks')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_booths? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_booths? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %i.fa-solid.fa-turn-up.fa-rotate-90.text-muted{style: 'margin-right: 4px'}
+                  Confirmed #{(t'booth').pluralize}
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_past_editions? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_past_editions? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.past_editions')
+                  %br
+                  %small.text-muted= t('admin.splashpages.show.past_editions_hint')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_registrations? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_registrations? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.registration_period')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_tickets? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_tickets? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.tickets')
+
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            %i.fa-solid.fa-map-location-dot
+            = t('admin.splashpages.show.venue_and_info')
+        .panel-body
+          %table.table.table-hover.table-condensed{style: 'margin-bottom: 0'}
+            %tbody
+              %tr
+                %td{style: 'width: 40px'}
+                  %span.label{class: @splashpage.include_venue? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_venue? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.venue')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_lodgings? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_lodgings? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.lodgings')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_sponsors? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_sponsors? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.sponsors')
+              %tr
+                %td
+                  %span.label{class: @splashpage.include_social_media? ? 'label-success' : 'label-default'}
+                    %i{class: @splashpage.include_social_media? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong= t('admin.splashpages.show.social_media_links')
+
+      .panel{class: @splashpage.use_new_design? ? 'panel-info' : 'panel-default'}
+        .panel-heading
+          %h3.panel-title
+            %i.fa-solid.fa-palette
+            = t('admin.splashpages.show.design_and_access')
+        .panel-body
+          %table.table.table-condensed{style: 'margin-bottom: 0'}
+            %tbody
+              %tr
+                %td{style: 'width: 40px'}
+                  %span.label{class: @splashpage.use_new_design? ? 'label-info' : 'label-default'}
+                    %i{class: @splashpage.use_new_design? ? 'fa-solid fa-check' : 'fa-solid fa-xmark'}
+                %td
+                  %strong
+                    = @splashpage.use_new_design? ? t('admin.splashpages.show.new_design') : t('admin.splashpages.show.classic_design')
+              %tr
+                %td
+                  - is_public = @conference.splashpage && @conference.splashpage.public
+                  %span.label{class: is_public ? 'label-success' : 'label-warning'}
+                    %i{class: is_public ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'}
+                %td
+                  %strong
+                    = is_public ? t('admin.splashpages.show.public') : t('admin.splashpages.show.private')
+                  %br
+                  %small.text-muted
+                    = is_public ? t('admin.splashpages.show.visible_to_everyone') : t('admin.splashpages.show.only_visible_to_organizers')
+
   .row
-    .col-md-12
+    .col-md-12{style: 'margin-top: 20px'}
       - if can? :update, @splashpage
-        = link_to 'Configure', edit_admin_conference_splashpage_path, class: 'btn btn-primary'
+        = link_to edit_admin_conference_splashpage_path, class: 'btn btn-primary btn-lg' do
+          %i.fa-solid.fa-gear
+          = t('admin.splashpages.show.configure')
       - if can? :destroy, @splashpage
-        = link_to 'Delete', admin_conference_splashpage_path,
-                            method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+        = link_to admin_conference_splashpage_path,
+                  method: :delete, data: { confirm: t('admin.splashpages.show.delete_confirm') }, class: 'btn btn-danger btn-lg' do
+          %i.fa-solid.fa-trash
+          = t('admin.splashpages.show.delete')
 - else
   .row
-    .col-md-12.text-right
-      - if can? :create, @conference.build_splashpage
-        = link_to 'Create Splashpage', new_admin_conference_splashpage_path, class: 'btn btn-primary'
+    .col-md-12
+      .jumbotron.text-center
+        %h2
+          %i.fa-solid.fa-rocket
+          = t('admin.splashpages.show.get_started')
+        %p.lead= t('admin.splashpages.show.no_splashpage')
+        - if can? :create, @conference.build_splashpage
+          = link_to new_admin_conference_splashpage_path, class: 'btn btn-primary btn-lg' do
+            %i.fa-solid.fa-plus
+            = t('admin.splashpages.show.create_splashpage')

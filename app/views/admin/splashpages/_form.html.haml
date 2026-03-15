@@ -1,89 +1,132 @@
 = form_for(@splashpage, url: admin_conference_splashpage_path) do |f|
-  .checkbox
-    %label
-      = f.check_box :include_cfp
-      Display call for papers and call for tracks?
-  .checkbox
-    %label
-      = f.check_box :include_program
-      Display the program?
-  .checkbox
-    %label
-      = f.check_box :include_tracks
-      Include confirmed tracks in the program?
-  .checkbox
-    %label
-      = f.check_box :include_booths
-      Include confirmed
-      = (t'booth').pluralize
-      in the program?
-  .checkbox
-    %label
-      = f.check_box :include_past_editions
-      Display past editions in navigation?
-  .checkbox
-    %label
-      = f.check_box :include_registrations
-      Display the registration period?
-  .checkbox
-    %label
-      = f.check_box :include_tickets
-      Display the tickets?
-  .checkbox
-    %label
-      = f.check_box :include_venue
-      Display the venue?
-  .checkbox
-    %label
-      = f.check_box :include_lodgings
-      Display the lodgings?
-  .checkbox
-    %label
-      = f.check_box :include_sponsors
-      Display the sponsors?
-  .checkbox
-    %label
-      = f.check_box :include_social_media
-      Display the social media links?
-  .checkbox
-    %label
-      = f.check_box :use_new_design
-      Use new page design?
-  %h4
-    = t('admin.splashpages.form.video.title')
-  %hr
-  .form-group
-    = f.label :video_url
-    = f.url_field :video_url,
-                  class: 'form-control',
-                  placeholder: t('admin.splashpages.form.video.placeholder')
-  %p.help-block
-    = t('admin.splashpages.form.video.help_html').html_safe
-  %h4
-    Access
-  %hr
-  .checkbox
-    %label
-      = f.check_box :public
-      Make splash page public?
-  .text-right
-    .checkbox
-      %label
-        = check_box_tag 'selectAll'
-        Select / Deselect All
-    = f.submit 'Save', { class: 'btn btn-primary' }
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        %i.fa-solid.fa-bullhorn
+        = t('admin.splashpages.form.content_sections')
+    .panel-body
+      .row
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :include_cfp
+              %i.fa-solid.fa-paper-plane.text-muted
+              = t('admin.splashpages.form.include_cfp')
+          .checkbox
+            %label
+              = f.check_box :include_program
+              %i.fa-solid.fa-calendar-days.text-muted
+              = t('admin.splashpages.form.include_program')
+          .checkbox{style: 'margin-left: 20px'}
+            %label
+              = f.check_box :include_tracks
+              %i.fa-solid.fa-layer-group.text-muted
+              = t('admin.splashpages.form.include_tracks')
+          .checkbox{style: 'margin-left: 20px'}
+            %label
+              = f.check_box :include_booths
+              %i.fa-solid.fa-store.text-muted
+              Include confirmed #{(t'booth').pluralize}?
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :include_past_editions
+              %i.fa-solid.fa-clock-rotate-left.text-muted
+              = t('admin.splashpages.form.include_past_editions')
+          .checkbox
+            %label
+              = f.check_box :include_registrations
+              %i.fa-solid.fa-user-plus.text-muted
+              = t('admin.splashpages.form.include_registrations')
+          .checkbox
+            %label
+              = f.check_box :include_tickets
+              %i.fa-solid.fa-ticket.text-muted
+              = t('admin.splashpages.form.include_tickets')
+
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        %i.fa-solid.fa-map-location-dot
+        = t('admin.splashpages.form.venue_and_info')
+    .panel-body
+      .row
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :include_venue
+              %i.fa-solid.fa-location-dot.text-muted
+              = t('admin.splashpages.form.include_venue')
+          .checkbox
+            %label
+              = f.check_box :include_lodgings
+              %i.fa-solid.fa-bed.text-muted
+              = t('admin.splashpages.form.include_lodgings')
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :include_sponsors
+              %i.fa-solid.fa-handshake.text-muted
+              = t('admin.splashpages.form.include_sponsors')
+          .checkbox
+            %label
+              = f.check_box :include_social_media
+              %i.fa-solid.fa-share-nodes.text-muted
+              = t('admin.splashpages.form.include_social_media')
+
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        %i.fa-solid.fa-film
+        = t('admin.splashpages.form.video.title')
+    .panel-body
+      .form-group
+        = f.label :video_url
+        .input-group
+          %span.input-group-addon
+            %i.fa-solid.fa-link
+          = f.url_field :video_url,
+                        class: 'form-control',
+                        placeholder: t('admin.splashpages.form.video.placeholder')
+      %p.help-block
+        %i.fa-solid.fa-circle-info
+        = t('admin.splashpages.form.video.help_html').html_safe
+
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        %i.fa-solid.fa-palette
+        = t('admin.splashpages.form.design_and_access')
+    .panel-body
+      .row
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :use_new_design
+              %i.fa-solid.fa-wand-magic-sparkles.text-muted
+              = t('admin.splashpages.form.use_new_design')
+        .col-sm-6
+          .checkbox
+            %label
+              = f.check_box :public
+              %i.fa-solid.fa-eye.text-muted
+              = t('admin.splashpages.form.make_public')
+
+  .row
+    .col-md-12
+      .pull-right
+        .checkbox.inline{style: 'display: inline-block; margin-right: 15px'}
+          %label
+            = check_box_tag 'selectAll'
+            = t('admin.splashpages.form.select_all')
+        = f.submit t('admin.splashpages.form.save'), { class: 'btn btn-primary btn-lg' }
 
 :javascript
   $(document).ready(function(){
     $('#selectAll').click(function() {
-      if (this.checked) {
-          $(':checkbox').each(function() {
-              this.checked = true;
-          });
-      } else {
-          $(':checkbox').each(function() {
-              this.checked = false;
-          });
-      }
+      var checked = this.checked;
+      $('input[type="checkbox"]').not(this).each(function() {
+        this.checked = checked;
+      });
     });
   });

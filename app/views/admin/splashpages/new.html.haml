@@ -2,7 +2,9 @@
   .col-md-12
     .page-header
       %h1
-        Configure Splashpage
+        %i.fa-solid.fa-plus
+        = t('admin.splashpages.new.title')
+      %p.text-muted= t('admin.splashpages.new.subtitle')
 .row
-  .col-md-8
+  .col-md-10.col-md-offset-1
     = render partial: 'form'

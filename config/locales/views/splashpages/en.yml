@@ -1,7 +1,68 @@
 en:
   admin:
     splashpages:
+      controller:
+        created: Splashpage successfully created.
+        updated: Splashpage successfully updated.
+        destroyed: Splashpage was successfully destroyed.
+        destroy_error: An error prohibited this Splashpage from being destroyed
+      show:
+        title: Splashpage
+        subtitle_with_page: "Configure what visitors see on your"
+        public_conference_page: "public conference page"
+        subtitle_without_page: "Build a splashpage with all the information for your conference"
+        content_sections: Content Sections
+        cfp: Call for Papers & Tracks
+        cfp_hint: Displayed while open
+        program: Program
+        program_hint: Conference schedule and sessions
+        confirmed_tracks: Confirmed Tracks
+        past_editions: Past Editions
+        past_editions_hint: Shown in navigation
+        registration_period: Registration Period
+        tickets: Tickets
+        venue_and_info: Venue & Info
+        venue: Venue
+        lodgings: Lodgings
+        sponsors: Sponsors
+        social_media_links: Social Media Links
+        design_and_access: Design & Access
+        new_design: New Design
+        classic_design: Classic Design
+        public: Public
+        private: Private
+        visible_to_everyone: Visible to everyone
+        only_visible_to_organizers: Only visible to organizers
+        configure: Configure
+        delete: Delete
+        delete_confirm: "Are you sure you want to delete this splashpage?"
+        get_started: Get Started
+        no_splashpage: "No splashpage configured yet. Create one to showcase your conference!"
+        create_splashpage: Create Splashpage
+      edit:
+        title: Configure Splashpage
+        subtitle: "Customize which sections appear on your conference's public page"
+      new:
+        title: Create Splashpage
+        subtitle: "Set up your conference's public page by choosing which sections to display"
       form:
+        content_sections: Content Sections
+        include_cfp: Display call for papers and call for tracks?
+        include_program: Display the program?
+        include_tracks: Include confirmed tracks?
+        include_past_editions: Display past editions in navigation?
+        include_registrations: Display the registration period?
+        include_tickets: Display the tickets?
+        venue_and_info: Venue & Info
+        include_venue: Display the venue?
+        include_lodgings: Display the lodgings?
+        include_sponsors: Display the sponsors?
+        include_social_media: Display the social media links?
+        design_and_access: Design & Access
+        use_new_design: Use new page design?
+        make_public: Make splash page public?
+        select_all: Select / Deselect All
+        save: Save
         video:
           title: Video
           label: Video URL

@@ -18,7 +18,7 @@ module Admin
 
       if @splashpage.save
         redirect_to admin_conference_splashpage_path,
-                    notice: 'Splashpage successfully created.'
+                    notice: t('admin.splashpages.controller.created')
       else
         render :new
       end
@@ -27,7 +27,7 @@ module Admin
     def update
       if @splashpage.update(splashpage_params)
         redirect_to admin_conference_splashpage_path,
-                    notice: 'Splashpage successfully updated.'
+                    notice: t('admin.splashpages.controller.updated')
       else
         render :edit
       end
@@ -35,9 +35,9 @@ module Admin
 
     def destroy
       if @splashpage.destroy
-        redirect_to admin_conference_splashpage_path, notice: 'Splashpage was successfully destroyed.'
+        redirect_to admin_conference_splashpage_path, notice: t('admin.splashpages.controller.destroyed')
       else
-        redirect_to admin_conference_splashpage_path, error: 'An error prohibited this Splashpage from being destroyed: '\
+        redirect_to admin_conference_splashpage_path, error: "#{t('admin.splashpages.controller.destroy_error')}: "\
         "#{@splashpage.errors.full_messages.join('. ')}."
       end
     end
