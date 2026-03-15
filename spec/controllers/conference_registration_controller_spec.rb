@@ -310,7 +310,7 @@ describe ConferenceRegistrationsController, type: :controller do
         end
 
         it 'updates the registration' do
-          expect{ @registration.reload }.to change(@registration, :updated_at)
+          expect(@registration.reload.volunteer).to eq true
         end
       end
 

@@ -15,9 +15,9 @@ end
 
 # as web framework
 if next?
-  gem 'rails', '~> 7.1'
+  gem 'rails', '~> 8.0'
 else
-  gem 'rails', '~> 7.0'
+  gem 'rails', '~> 7.2'
 end
 
 # Use Puma as the app server
@@ -26,8 +26,6 @@ gem 'puma'
 # respond_to methods have been extracted to the responders gem
 # http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#responders
 gem 'responders', '~> 3.0'
-
-gem 'concurrent-ruby', '1.3.4'
 
 # as supported databases
 gem 'mysql2'

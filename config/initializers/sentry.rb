@@ -1,5 +1,5 @@
 Sentry.init do |config|
-  config.dsn = ENV.fetch('MORAGA_SENTRY_DSN', Rails.application.secrets.sentry_dsn)
+  config.dsn = ENV.fetch('MORAGA_SENTRY_DSN', nil)
   config.breadcrumbs_logger = [:active_support_logger]
 
   # To activate performance monitoring, set one of these options.
@@ -14,7 +14,7 @@ Sentry.init do |config|
   # Unless someone has set a variable of course...
   moraga_version_from_file = nil
   version_file = File.expand_path('../../tmp/restart.txt', __dir__)
-  moraga_version_from_file = File.new(version_file).atime.to_i if File.file?(version_file)
+  moraga_version_from_file = File.new(version_file).atime.to_s if File.file?(version_file)
   moraga_version = ENV.fetch('MORAGA_SENTRY_RELEASE', moraga_version_from_file)
   config.release = moraga_version if moraga_version
 end
