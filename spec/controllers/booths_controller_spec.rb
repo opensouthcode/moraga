@@ -74,7 +74,7 @@ describe BoothsController do
         end
 
         it 'shows flash message' do
-          expect(flash[:error]).to eq("Creating #{t 'booth'} failed. Title can't be blank.")
+          expect(flash[:error]).to eq("Creating #{t 'booth'} failed. Title can't be blank")
         end
       end
     end

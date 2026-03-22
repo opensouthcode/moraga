@@ -25,7 +25,7 @@ class BoothsController < ApplicationController
       redirect_to conference_booths_path,
                   notice: t('Booth successfully created')
     else
-      flash.now[:error] = t('Creating booth failed') + "#{@booth.errors.full_messages.to_sentence}" 
+      flash.now[:error] = t('Creating booth failed') + " " + @booth.errors.full_messages.to_sentence
       render :new
     end
   end
