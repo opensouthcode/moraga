@@ -12,6 +12,11 @@ body {
   padding-top: 60px;
 }
 
+#messages {
+  position: relative;
+  z-index: 10;
+}
+
 #content {
   padding-bottom: 60px;
 }

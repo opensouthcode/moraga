@@ -18,6 +18,7 @@
       --brand-dark: color-mix(in srgb, #{h(@conference.color.presence || '#16a085')} 70%, #000 30%);
     }
     body { padding-top: 0; }
+    #messages { position: absolute; top: 50px; left: 0; right: 0; z-index: 1000; background: transparent; }
     #content { padding-bottom: 0; }
 
 = content_for :title do
