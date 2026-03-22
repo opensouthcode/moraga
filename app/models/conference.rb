@@ -86,7 +86,7 @@ class Conference < ApplicationRecord
             :organization,
             :timezone, presence: true
 
-  validates :short_title, uniqueness: true
+  validates :short_title, uniqueness: { case_sensitive: false }
   validates :short_title, format: { with: /\A[a-zA-Z0-9_-]*\z/ }
   validates :registration_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
@@ -832,7 +832,7 @@ class Conference < ApplicationRecord
           unless result[state.to_s.capitalize]
             result[state.to_s.capitalize] = {}
           end
-          result[state.to_s.capitalize][DateTime.parse(week).strftime('%W').to_i] = value
+          result[state.to_s.capitalize][DateTime.parse(week.to_s).strftime('%W').to_i] = value
         end
       end
     end

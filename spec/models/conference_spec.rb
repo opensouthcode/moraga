@@ -1513,7 +1513,7 @@ describe Conference do
     end
 
     it 'is not valid with a duplicate short title' do
-      should validate_uniqueness_of(:short_title)
+      should validate_uniqueness_of(:short_title).case_insensitive
     end
 
     it 'is valid with a short title that contains a-zA-Z0-9_-' do
