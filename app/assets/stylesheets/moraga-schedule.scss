@@ -342,6 +342,7 @@ td.no-padding{
 .schedule-grid-wrapper {
   overflow-x: auto;
   margin-top: 16px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .schedule-grid {
@@ -352,6 +353,10 @@ td.no-padding{
   th.time-col-header {
     width: 56px;
     min-width: 56px;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #3a3a3a;
   }
 
   th.room-header {
@@ -363,6 +368,8 @@ td.no-padding{
     font-weight: 600;
     border: 1px solid #555;
     min-width: 130px;
+    position: relative;
+    z-index: 1;
   }
 
   td.time-cell {
@@ -373,6 +380,9 @@ td.no-padding{
     background: #f8f8f8;
     border-right: 2px solid #ddd;
     white-space: nowrap;
+    position: sticky;
+    left: 0;
+    z-index: 2;
 
     .hour-label {
       font-size: 12px;
@@ -451,9 +461,22 @@ td.no-padding{
 
 // Responsive: smaller fonts on mobile
 @media (max-width: 768px) {
+  .schedule-grid-wrapper {
+    background:
+      linear-gradient(to right, #fff 30%, rgba(255,255,255,0)) left center,
+      linear-gradient(to left,  #fff 30%, rgba(255,255,255,0)) right center,
+      radial-gradient(farthest-side at 0%   50%, rgba(0,0,0,0.15), rgba(0,0,0,0)) left center,
+      radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,0.15), rgba(0,0,0,0)) right center;
+    background-repeat: no-repeat;
+    background-size: 28px 100%, 28px 100%, 12px 100%, 12px 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
+
   .schedule-grid {
-    th.room-header { font-size: 11px; padding: 6px 4px; min-width: 100px; }
+    min-width: calc(44px + var(--rooms-count, 1) * 88px);
+    th.room-header { font-size: 11px; padding: 6px 4px; min-width: 88px; }
     a.event-link .event-title { font-size: 11px; -webkit-line-clamp: 2; }
     td.time-cell { width: 44px; min-width: 44px; font-size: 10px; }
+    th.time-col-header { width: 44px; min-width: 44px; }
   }
 }

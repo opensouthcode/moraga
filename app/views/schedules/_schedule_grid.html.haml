@@ -18,7 +18,7 @@
 - @rooms.each do |room|
   - events_by_room[room.id] = (@event_schedules_by_room_id[room.id] || []).select { |es| es.start_time.to_date == date }
 
-.schedule-grid-wrapper
+.schedule-grid-wrapper{ style: "--rooms-count: #{@rooms.length};" }
   %table.schedule-grid
     %thead
       %tr
