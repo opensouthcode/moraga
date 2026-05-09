@@ -41,6 +41,9 @@
       %a.smoothscroll{ href: '#sn-sponsors' }= t('Sponsors')
 
 #splash-new
+  - if @conference.code_of_conduct.present?
+    = render 'code_of_conduct', organization: @conference.organization
+
   = render 'new_hero', conference: @conference, venue: @conference.venue,
       splashpage: @conference.splashpage
 
