@@ -352,6 +352,93 @@ td.no-padding{
   -webkit-overflow-scrolling: touch;
 }
 
+// Mobile agenda: hidden on desktop, shown instead of the grid on phones.
+.schedule-agenda {
+  display: none;
+  margin-top: 16px;
+
+  &__empty {
+    color: #999;
+    text-align: center;
+    padding: 24px 0;
+  }
+
+  &__group {
+    margin-bottom: 18px;
+  }
+
+  &__time {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    padding: 6px 0;
+    margin-bottom: 6px;
+    border-bottom: 2px solid #c8e6c9;
+  }
+
+  &__card {
+    display: block;
+    background: #fff;
+    border-left: 4px solid #66bb6a;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+      color: inherit;
+      text-decoration: none;
+      background: #f1f8e9;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  &__room {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  &__range {
+    font-size: 12px;
+    color: #777;
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  &__speakers {
+    font-size: 12px;
+    color: #666;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .speaker-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+  }
+}
+
 .schedule-grid {
   width: 100%;
   border-collapse: collapse;
@@ -468,6 +555,10 @@ td.no-padding{
 
 // Responsive: smaller fonts on mobile
 @media (max-width: 768px) {
+  // Swap the wide grid for the single-column agenda on phones.
+  .schedule-grid-wrapper { display: none; }
+  .schedule-agenda { display: block; }
+
   .schedule-grid-wrapper {
     background:
       linear-gradient(to right, #fff 30%, rgba(255,255,255,0)) left center,

@@ -65,3 +65,26 @@
               - else
                 / Empty cell (no event or event already in progress from before grid start)
                 %td.empty-cell
+
+/ Mobile agenda: same data as a single-column chronological list (no grid scroll)
+- day_items = []
+- @rooms.each do |room|
+  - events_by_room[room.id].each { |es| day_items << [es, room] }
+- day_items.sort_by! { |es, _room| es.start_time }
+.schedule-agenda
+  - if day_items.empty?
+    %p.schedule-agenda__empty= t('No events scheduled')
+  - day_items.group_by { |es, _room| es.start_time }.sort.each do |start, items|
+    .schedule-agenda__group
+      .schedule-agenda__time= start.strftime('%H:%M')
+      - items.each do |es, room|
+        = link_to conference_program_proposal_path(@conference.short_title, es.event.id), class: 'schedule-agenda__card' do
+          .schedule-agenda__meta
+            %span.schedule-agenda__room= room.name
+            %span.schedule-agenda__range= "#{es.start_time.strftime('%H:%M')}–#{es.end_time.strftime('%H:%M')}"
+          .schedule-agenda__title= es.event.title
+          - if es.event.speakers_ordered.any?
+            .schedule-agenda__speakers
+              - es.event.speakers_ordered.first(2).each do |speaker|
+                = image_tag speaker.gravatar_url(default: '404'), class: 'speaker-avatar', onerror: "this.style.display='none'"
+              = es.event.speaker_names
