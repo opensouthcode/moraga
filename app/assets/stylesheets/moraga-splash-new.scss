@@ -586,8 +586,8 @@
     cursor: pointer;
 
     img {
-      max-height: 70px;
-      max-width: 160px;
+      max-height: 80px;
+      max-width: 180px;
       object-fit: contain;
       filter: grayscale(30%);
       transition: filter .2s;
@@ -600,9 +600,11 @@
     }
   }
 
-  // sponsor size by tier position
-  .sn-sponsor-item--tier-1 img { max-height: 100px; max-width: 220px; }
-  .sn-sponsor-item--tier-2 img { max-height: 80px;  max-width: 180px; }
+  // sponsor size by tier position: higher tiers (lower position) are bigger
+  .sn-sponsor-item--tier-1 img { max-height: 170px; max-width: 360px; }
+  .sn-sponsor-item--tier-2 img { max-height: 135px; max-width: 300px; }
+  .sn-sponsor-item--tier-3 img { max-height: 110px; max-width: 250px; }
+  .sn-sponsor-item--tier-4 img { max-height: 95px;  max-width: 210px; }
 
   .sn-sponsor-cta {
     text-align: center;
