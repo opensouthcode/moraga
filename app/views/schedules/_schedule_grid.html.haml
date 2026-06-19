@@ -54,13 +54,13 @@
                 - rowspan = [rowspan, 1].max
                 - remaining_span[room.id] = rowspan - 1
                 %td.event-cell{ rowspan: rowspan }
-                  %a.event-link{ href: conference_program_proposal_path(@conference.short_title, es.event.id) }
+                  %a.event-link{ href: conference_program_proposal_path(@conference.short_title, es.event.id), title: es.event.title }
                     .event-time= "#{es.start_time.strftime('%H:%M')}–#{es.end_time.strftime('%H:%M')}"
                     .event-title= es.event.title
                     - if es.event.speakers_ordered.any?
                       .event-speakers
                         - es.event.speakers_ordered.first(2).each do |speaker|
-                          = image_tag speaker.gravatar_url, class: 'speaker-avatar'
+                          = image_tag speaker.gravatar_url(default: '404'), class: 'speaker-avatar', onerror: "this.style.display='none'"
                         = es.event.speaker_names
               - else
                 / Empty cell (no event or event already in progress from before grid start)

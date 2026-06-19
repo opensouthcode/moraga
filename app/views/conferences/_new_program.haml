@@ -18,9 +18,10 @@
           = link_to(conference_program_proposal_path(conference.short_title, event),
               class: "sn-speaker-card sn-animate sn-delay-#{[i+1, 8].min}") do
             - if speaker
-              = image_tag(speaker.gravatar_url(size: 160),
+              = image_tag(speaker.gravatar_url(size: 160, default: '404'),
                   class: 'sn-speaker-card__avatar',
-                  alt: speaker.name)
+                  alt: speaker.name,
+                  onerror: "this.style.display='none'")
             .sn-speaker-card__name= speaker&.name
             .sn-speaker-card__talk= event.title
 
