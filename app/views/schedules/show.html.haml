@@ -17,7 +17,7 @@
       %li
         = link_to t('Sponsors'), conference_path(@conference.short_title, anchor: 'sn-sponsors')
 
-.container
+.container-fluid.schedule-page
   = render partial: 'schedule_tabs', locals: { active: 'schedule' }
 
   #schedule-content

@@ -325,6 +325,13 @@ td.no-padding{
 
 // ===== NEW VERTICAL GRID LAYOUT =====
 
+// Give the schedule more room on desktop so many rooms are not cramped,
+// while keeping it centered and capped on very wide screens.
+.schedule-page {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .schedule-day-tabs {
   margin: 20px 0 0;
   display: flex;
