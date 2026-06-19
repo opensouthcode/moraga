@@ -364,7 +364,7 @@ td.no-padding{
     color: #fff;
     text-align: center;
     padding: 8px 6px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     border: 1px solid #555;
     min-width: 130px;
@@ -423,13 +423,13 @@ td.no-padding{
     height: 100%;
 
     .event-time {
-      font-size: 10px;
+      font-size: 12px;
       color: #555;
       margin-bottom: 2px;
     }
 
     .event-title {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       line-height: 1.3;
       overflow: hidden;
@@ -439,7 +439,7 @@ td.no-padding{
     }
 
     .event-speakers {
-      font-size: 10px;
+      font-size: 12px;
       color: #666;
       margin-top: 4px;
       display: flex;
@@ -474,9 +474,13 @@ td.no-padding{
 
   .schedule-grid {
     min-width: calc(44px + var(--rooms-count, 1) * 88px);
-    th.room-header { font-size: 11px; padding: 6px 4px; min-width: 88px; }
-    a.event-link .event-title { font-size: 11px; -webkit-line-clamp: 2; }
-    td.time-cell { width: 44px; min-width: 44px; font-size: 10px; }
+    th.room-header { font-size: 12px; padding: 6px 4px; min-width: 88px; }
+    a.event-link {
+      .event-time { font-size: 11px; }
+      .event-title { font-size: 13px; -webkit-line-clamp: 3; }
+      .event-speakers { font-size: 11px; }
+    }
+    td.time-cell { width: 44px; min-width: 44px; font-size: 11px; }
     th.time-col-header { width: 44px; min-width: 44px; }
   }
 }
