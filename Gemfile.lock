@@ -511,6 +511,7 @@ GEM
     rails-i18n (7.0.10)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
+    rails_sortable (1.6.0)
     railties (7.2.3)
       actionpack (= 7.2.3)
       activesupport (= 7.2.3)
@@ -791,6 +792,7 @@ DEPENDENCIES
   rails-assets-waypoints!
   rails-controller-testing
   rails-i18n
+  rails_sortable
   recaptcha
   redcarpet
   responders (~> 3.0)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_03_06_000001) do
+ActiveRecord::Schema[7.0].define(version: 2026_06_19_210000) do
 
   create_table "answers", id: :integer, force: :cascade do |t|
     t.string "title"
@@ -403,6 +403,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_03_06_000001) do
     t.string "name", null: false
     t.integer "size"
     t.integer "venue_id", null: false
+    t.integer "position"
   end
 
   create_table "schedules", id: :integer, force: :cascade do |t|

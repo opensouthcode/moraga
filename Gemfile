@@ -91,6 +91,9 @@ gem 'cocoon'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 8.0.0'
 
+# drag-and-drop ordering of records (e.g. venue rooms)
+gem 'rails_sortable'
+
 # for languages validation
 gem 'iso-639'
 

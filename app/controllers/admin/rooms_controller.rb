@@ -6,7 +6,9 @@ module Admin
     load_and_authorize_resource :venue, through: :conference, singleton: true
     load_and_authorize_resource through: :venue
 
-    def index; end
+    def index
+      @rooms = @rooms.ordered
+    end
 
     def edit; end
 

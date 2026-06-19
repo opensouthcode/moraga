@@ -3,7 +3,8 @@
     .page-header
       %h1 Rooms
       %p.text-muted
-        The rooms of your conference venue
+        The rooms of your conference venue. Drag the rows to set the order in
+        which they appear in the schedule.
 
 - if @rooms.any?
   .row
@@ -11,12 +12,15 @@
       %table.table.table-hover#rooms
         %thead
           %tr
+            %th
             %th Name
             %th Capacity
             %th Actions
-        %tbody
-          - @rooms.each_with_index do |room, index|
-            %tr
+        %tbody.sortable
+          - @rooms.each_with_sortable_id do |room, sortable_id|
+            %tr{ id: sortable_id }
+              %td.room-drag-handle{ title: 'Drag to reorder', style: 'cursor: move; text-align: center; color: #999; vertical-align: middle;' }
+                %span.fa-solid.fa-grip-vertical
               %td
                 = room.name
               %td
@@ -27,6 +31,15 @@
                 = link_to 'Delete', admin_conference_venue_room_path(@conference.short_title, room.id),
                 method: :delete, class: 'btn btn-danger',
                 data: { confirm: "Do you really want to delete #{room.name}? Attention: This room will be removed from all Events that have it set"}
+
+  :javascript
+    $(function() {
+      $('#rooms tbody.sortable').railsSortable({
+        handle: '.room-drag-handle',
+        axis: 'y',
+        cursor: 'move'
+      });
+    });
 .row
   .col-md-12.text-right
     = link_to 'Add Room', new_admin_conference_venue_room_path(@conference.short_title), class: 'btn btn-primary'

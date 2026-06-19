@@ -2,11 +2,20 @@
 
 class Room < ApplicationRecord
   include RevisionCount
+  include RailsSortable::Model
+
   belongs_to :venue
   has_many :event_schedules, dependent: :destroy
   has_many :tracks
 
   has_paper_trail ignore: [:guid], meta: { conference_id: :conference_id }
+
+  # Drag-and-drop ordering (rails_sortable) persisted in the `position` column.
+  # It is the order in which rooms are shown in the schedule/program.
+  set_sortable :position
+
+  # Rooms without an explicit position fall back to alphabetical order at the end.
+  scope :ordered, -> { order(Arel.sql('position IS NULL, position, name')) }
 
   before_create :generate_guid
 
