@@ -17,18 +17,18 @@ module ApplicationHelper
     # When the conference is in the same month
     if start_date.month == end_date.month && start_date.year == end_date.year
       if start_date.day == end_date.day
-        startstr = start_date.strftime('%B %d')
-        endstr = end_date.strftime(' %Y')
+        startstr = I18n.l(start_date, format: '%B %d')
+        endstr = I18n.l(end_date, format: ' %Y')
       else
-        startstr = start_date.strftime('%B %d - ')
-        endstr = end_date.strftime('%d, %Y')
+        startstr = I18n.l(start_date, format: '%B %d - ')
+        endstr = I18n.l(end_date, format: '%d, %Y')
       end
     elsif start_date.month != end_date.month && start_date.year == end_date.year
-      startstr = start_date.strftime('%B %d - ')
-      endstr = end_date.strftime('%B %d, %Y')
+      startstr = I18n.l(start_date, format: '%B %d - ')
+      endstr = I18n.l(end_date, format: '%B %d, %Y')
     else
-      startstr = start_date.strftime('%B %d, %Y - ')
-      endstr = end_date.strftime('%B %d, %Y')
+      startstr = I18n.l(start_date, format: '%B %d, %Y - ')
+      endstr = I18n.l(end_date, format: '%B %d, %Y')
     end
 
     result = startstr + endstr

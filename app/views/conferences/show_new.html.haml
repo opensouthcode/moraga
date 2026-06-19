@@ -27,12 +27,13 @@
 - content_for :splash_nav do
   %li
     %a.smoothscroll{ href: '#sn-about' }= t('About')
-  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present?)
+  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present? || @conference.program.try(:schedule_public?))
     %li
       %a.smoothscroll{ href: '#sn-program' }= t('Schedule')
-  - if (@conference.splashpage.include_registrations && @conference.registration_open?) || (@conference.splashpage.include_tickets && @tickets.present?)
+  - nav_show_tickets = @conference.splashpage.include_tickets && @tickets.present?
+  - if (@conference.splashpage.include_registrations && @conference.registration_open?) || nav_show_tickets
     %li
-      %a.smoothscroll{ href: '#sn-registration' }= t('Tickets')
+      %a.smoothscroll{ href: '#sn-registration' }= nav_show_tickets ? t('Tickets') : t('Registration')
   - if @conference.splashpage.include_venue && @conference.venue
     %li
       %a.smoothscroll{ href: '#sn-venue' }= t('Venue')
@@ -49,22 +50,19 @@
 
   = render 'new_about', conference: @conference, venue: @conference.venue
 
-  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present?)
+  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present? || @conference.program.try(:schedule_public?))
     = render 'new_program', conference: @conference,
         highlights: @highlights.to_a,
         tracks: @tracks.to_a
 
-  - if @conference.splashpage.include_registrations && @conference.registration_open?
+  - show_registration = @conference.splashpage.include_registrations && @conference.registration_open?
+  - show_tickets = @conference.splashpage.include_tickets && @tickets.present?
+  - if show_registration || show_tickets
     = render 'new_registration', conference: @conference,
         registration_period: @conference.registration_period,
-        tickets: @tickets.to_a,
-        conference_id: @conference.short_title
-
-  - elsif @conference.splashpage.include_tickets && @tickets.present?
-    = render 'new_registration', conference: @conference,
-        registration_period: @conference.registration_period,
-        tickets: @tickets.to_a,
-        conference_id: @conference.short_title
+        tickets: (show_tickets ? @tickets.to_a : []),
+        conference_id: @conference.short_title,
+        show_registration: show_registration
 
   - if @conference.splashpage.include_venue && @conference.venue
     = render 'new_venue', conference: @conference,

@@ -374,11 +374,11 @@
   .sn-btn {
     display: inline-flex;
     align-items: center;
-    gap: .45rem;
-    padding: .75rem 1.75rem;
+    gap: .5rem;
+    padding: .9rem 2.25rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: .95rem;
+    font-size: 1.05em;
     text-decoration: none;
     transition: transform .2s, box-shadow .2s;
 
@@ -457,9 +457,9 @@
     background: var(--brand);
     color: #fff;
     border-radius: 8px;
-    padding: .6rem 1rem;
+    padding: .7rem 1rem;
     font-weight: 700;
-    font-size: .9rem;
+    font-size: .95em;
     text-decoration: none;
     transition: opacity .2s;
 
@@ -485,10 +485,10 @@
     background: #fff;
     color: var(--brand-dark);
     font-weight: 700;
-    padding: .7rem 1.75rem;
+    padding: .9rem 2.25rem;
     border-radius: 50px;
     text-decoration: none;
-    font-size: .95rem;
+    font-size: 1.05em;
     transition: transform .2s;
 
     &:hover { transform: translateY(-2px); color: var(--brand-dark); text-decoration: none; }

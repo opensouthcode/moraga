@@ -1,4 +1,4 @@
--# Locals: conference, registration_period, tickets, conference_id
+-# Locals: conference, registration_period, tickets, conference_id, show_registration
 %section.sn-section.sn-animate{ id: 'sn-registration' }
   .container
     .sn-section__header
@@ -17,7 +17,7 @@
               %i.fa-solid.fa-ticket
               = t('Get Ticket')
 
-    - if conference.registration_open?
+    - if show_registration
       .sn-reg-banner
         - if conference.registration_limit_exceeded?
           %h3= t('Registration Full')
@@ -28,7 +28,7 @@
             = t('Registration is open')
             - if registration_period
               = t('until')
-              = registration_period.end_date.strftime('%B %-d, %Y')
+              = I18n.l(registration_period.end_date, format: '%B %-d, %Y')
           - if conference.user_registered?(current_user)
             = link_to(conference_conference_registration_path(conference_id),
                 class: 'sn-reg-banner__btn') do

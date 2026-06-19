@@ -2,11 +2,14 @@
 %section.sn-section.sn-section--alt.sn-animate{ id: 'sn-program' }
   .container
     .sn-section__header
-      %span.sn-section__eyebrow= t('Schedule')
-      %h2.sn-section__title= t('Program Highlights')
-      %p.sn-section__sub
-        = conference.title
-        = t('has the most awesome program ever!')
+      - if highlights.present?
+        %span.sn-section__eyebrow= t('Schedule')
+        %h2.sn-section__title= t('Program Highlights')
+        %p.sn-section__sub
+          = conference.title
+          = t('has the most awesome program ever!')
+      - else
+        %h2.sn-section__title= t('Schedule')
 
     - unless highlights.blank?
       .sn-speakers
