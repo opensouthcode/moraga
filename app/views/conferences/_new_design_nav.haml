@@ -1,0 +1,11 @@
+-# All new-design navbar items, registered into content_for(:splash_nav) (plus
+-# the Code of Conduct modal into content_for(:modals)). Shared by the splash
+-# page (on_splash: true -> smooth-scroll links) and the schedule pages, so the
+-# navbar is identical everywhere.
+- on_splash = local_assigns.fetch(:on_splash, false)
+- content_for :splash_nav do
+  = render 'conferences/splash_nav', on_splash: on_splash
+- if @conference.code_of_conduct.present?
+  = render 'conferences/code_of_conduct', organization: @conference.organization
+- if @conference.splashpage.include_past_editions
+  = render 'conferences/past_editions_nav', conference: @conference

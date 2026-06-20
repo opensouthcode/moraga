@@ -1,0 +1,37 @@
+-# Navbar menu items for the new-design splash. Shared by the splash page
+-# itself (conferences/show_new) and the schedule pages (schedules/show,
+-# schedules/events). Visibility conditions are identical everywhere; only the
+-# link target differs: on the splash we smooth-scroll to on-page sections,
+-# elsewhere we link back to the conference splash (or the schedule page).
+- on_splash = local_assigns.fetch(:on_splash, false)
+- sp = @conference.splashpage
+%li
+  - if on_splash
+    %a.smoothscroll{ href: '#sn-about' }= t('About')
+  - else
+    = link_to t('About'), conference_path(@conference.short_title, anchor: 'sn-about')
+- if sp.include_program && (@conference.highlighted_events.any? || (sp.include_tracks && @conference.confirmed_tracks.any?) || @conference.program.try(:schedule_public?))
+  %li
+    - if on_splash
+      %a.smoothscroll{ href: '#sn-program' }= t('Schedule')
+    - else
+      = link_to t('Schedule'), conference_schedule_path(@conference.short_title)
+- show_tickets = sp.include_tickets && @conference.tickets.any?
+- if (sp.include_registrations && @conference.registration_open?) || show_tickets
+  %li
+    - if on_splash
+      %a.smoothscroll{ href: '#sn-registration' }= show_tickets ? t('Tickets') : t('Registration')
+    - else
+      = link_to (show_tickets ? t('Tickets') : t('Registration')), conference_path(@conference.short_title, anchor: 'sn-registration')
+- if sp.include_venue && @conference.venue
+  %li
+    - if on_splash
+      %a.smoothscroll{ href: '#sn-venue' }= t('Venue')
+    - else
+      = link_to t('Venue'), conference_path(@conference.short_title, anchor: 'sn-venue')
+- if sp.include_sponsors && @conference.sponsorship_levels.any?
+  %li
+    - if on_splash
+      %a.smoothscroll{ href: '#sn-sponsors' }= t('Sponsors')
+    - else
+      = link_to t('Sponsors'), conference_path(@conference.short_title, anchor: 'sn-sponsors')

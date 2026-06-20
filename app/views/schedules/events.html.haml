@@ -1,3 +1,6 @@
+- if @conference.splashpage&.use_new_design?
+  = render 'conferences/new_design_nav'
+
 .container#program
   -if @events_schedules.any?
     = render partial: 'schedule_tabs',  locals: { active: 'program' }

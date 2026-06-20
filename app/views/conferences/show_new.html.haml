@@ -24,27 +24,9 @@
 = content_for :title do
   = @conference.title
 
-- content_for :splash_nav do
-  %li
-    %a.smoothscroll{ href: '#sn-about' }= t('About')
-  - if @conference.splashpage.include_program && (@highlights.present? || @tracks.present? || @conference.program.try(:schedule_public?))
-    %li
-      %a.smoothscroll{ href: '#sn-program' }= t('Schedule')
-  - nav_show_tickets = @conference.splashpage.include_tickets && @tickets.present?
-  - if (@conference.splashpage.include_registrations && @conference.registration_open?) || nav_show_tickets
-    %li
-      %a.smoothscroll{ href: '#sn-registration' }= nav_show_tickets ? t('Tickets') : t('Registration')
-  - if @conference.splashpage.include_venue && @conference.venue
-    %li
-      %a.smoothscroll{ href: '#sn-venue' }= t('Venue')
-  - if @conference.splashpage.include_sponsors && @sponsorship_levels.present?
-    %li
-      %a.smoothscroll{ href: '#sn-sponsors' }= t('Sponsors')
+= render 'new_design_nav', on_splash: true
 
 #splash-new
-  - if @conference.code_of_conduct.present?
-    = render 'code_of_conduct', organization: @conference.organization
-
   = render 'new_hero', conference: @conference, venue: @conference.venue,
       splashpage: @conference.splashpage
 
@@ -76,9 +58,6 @@
 
   - if @conference.splashpage.include_social_media && @conference.contact.has_social_media?
     = render 'new_social', contact: @conference.contact
-
-  - if @conference.splashpage.include_past_editions
-    = render 'past_editions_nav', conference: @conference
 
 - content_for :script_body do
   :javascript

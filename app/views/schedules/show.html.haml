@@ -1,21 +1,5 @@
 - if @conference.splashpage&.use_new_design?
-  - content_for :splash_nav do
-    - sp = @conference.splashpage
-    %li
-      = link_to t('About'), conference_path(@conference.short_title, anchor: 'sn-about')
-    - if sp.include_program
-      %li
-        = link_to t('Schedule'), conference_schedule_path(@conference.short_title)
-    - show_tickets = sp.include_tickets && @conference.tickets.any?
-    - if (sp.include_registrations && @conference.registration_open?) || show_tickets
-      %li
-        = link_to (show_tickets ? t('Tickets') : t('Registration')), conference_path(@conference.short_title, anchor: 'sn-registration')
-    - if sp.include_venue && @conference.venue
-      %li
-        = link_to t('Venue'), conference_path(@conference.short_title, anchor: 'sn-venue')
-    - if sp.include_sponsors && @conference.sponsorship_levels.any?
-      %li
-        = link_to t('Sponsors'), conference_path(@conference.short_title, anchor: 'sn-sponsors')
+  = render 'conferences/new_design_nav'
 
 .container-fluid.schedule-page
   = render partial: 'schedule_tabs', locals: { active: 'schedule' }
