@@ -7,7 +7,7 @@
           = @conference.title
         %p.text-muted
           -if @conference.venue
-            = t(at)
+            = t('at')
             %strong
               = "#{@conference.venue_name},"
             = "#{@conference.venue_street},"
@@ -38,7 +38,7 @@
               = link_to 'Code of Conduct', '#',
                 data: { toggle: 'modal', target: '#modal-code-of-conduct'}
           = render 'conferences/code_of_conduct',
-            t('organization', organization: @conference.organization)
+            organization: @conference.organization
   - if @conference.surveys.for_registration.any?
     .row
       .col-md-12
