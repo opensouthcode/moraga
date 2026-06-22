@@ -131,6 +131,7 @@ function get_color() {
 }
 
 function word_count(text, divId, maxcount) {
+    if (!text) return;
     var area = document.getElementById(text.id)
 
     Countable.once(area, function(counter) {
@@ -146,6 +147,7 @@ function word_count(text, divId, maxcount) {
 $( document ).ready(function() {
     /* Set the minimum and maximum proposal abstract word length */
     function updateEventTypeRequirements() {
+        if ($("#event_abstract").length === 0) return;
         var $selected = $("#event_event_type_id option:selected")
         var max = $selected.data("max-words");
         var min = $selected.data("min-words");

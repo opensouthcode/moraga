@@ -15,7 +15,7 @@ var Schedule = {
   remove: function(element) {
     var e =  $("#" + element);
     var event_schedule_id = e.attr("event_schedule_id");
-    if(event_schedule_id != null){
+    if(event_schedule_id){
       var my_url = url + '/' + event_schedule_id;
       var success_callback = function(data) {
         e.attr("event_schedule_id", null);
@@ -46,7 +46,7 @@ var Schedule = {
       room_id: new_parent.attr("room_id"),
       start_time: (new_parent.attr("date") + ' ' + new_parent.attr("hour"))
     }};
-    if(event_schedule_id != null){
+    if(event_schedule_id){
       type = 'PUT';
       my_url += ('/' + event_schedule_id);
     }
