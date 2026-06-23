@@ -73,6 +73,15 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  # Embedded sign-up forms (proposal submission, conference registration) create
+  # users outside of RegistrationsController. They render the reCAPTCHA widget
+  # but, unless we verify it here too, a bot can POST straight to them and skip
+  # the captcha. Returns true when the captcha passes or the feature is off.
+  def signup_captcha_passed?(model)
+    Feature.inactive?(:recaptcha) || verify_recaptcha(model: model)
+  end
+
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue I18n.default_locale
   end

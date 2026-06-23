@@ -51,6 +51,13 @@ class ConferenceRegistrationsController < ApplicationController
     @registration.user = @user
     authorize! :create, @registration
 
+    # New (not signed-in) users must pass the captcha, like RegistrationsController.
+    if current_user.nil? && !signup_captcha_passed?(@user)
+      flash.now[:error] = 'reCAPTCHA verification failed, please try again.'
+      render :new
+      return
+    end
+
     if @registration.save
       # Sign in the new user
       unless current_user

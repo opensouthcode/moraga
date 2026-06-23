@@ -39,6 +39,11 @@ class ProposalsController < ApplicationController
     unless current_user
       @user = User.new(user_params)
       authorize! :create, @user
+      unless signup_captcha_passed?(@user)
+        flash.now[:error] = 'reCAPTCHA verification failed, please try again.'
+        render action: 'new'
+        return
+      end
       if @user.save
         sign_in(@user)
       else
